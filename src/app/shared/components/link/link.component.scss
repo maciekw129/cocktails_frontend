@@ -1,0 +1,13 @@
+@use '@angular/material' as mat;
+@use 'src/styles/palettes' as palette;
+
+.link {
+  text-decoration: underline;
+  color: palette.$dark-primary-text;
+  transition: color 0.2s linear;
+
+  &:hover {
+    color: mat.get-color-from-palette(palette.$blue-palette, 700);
+    transition: color 0.2s linear;
+  }
+}

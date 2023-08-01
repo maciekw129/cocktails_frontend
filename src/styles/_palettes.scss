@@ -1,0 +1,47 @@
+$dark-primary-text: #333;
+$light-primary-text: #ffffff;
+
+$red-palette: (
+  100: #fae0e5,
+  300: #e67e95,
+  500: #d01e50,
+  700: #b70035,
+  900: #900030,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$green-palette: (
+  100: #eef9ea,
+  300: #b8e5a8,
+  500: #86d26c,
+  700: #63b94b,
+  900: #3d9037,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$blue-palette: (
+  100: #abe0f6,
+  300: #32b6e9,
+  500: #0099e2,
+  700: #0079c0,
+  900: #00498c,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $light-primary-text,
+    700: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
