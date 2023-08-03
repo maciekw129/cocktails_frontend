@@ -1,0 +1,8 @@
+@use '@angular/material' as mat;
+@use 'src/styles/palettes' as palette;
+
+.button {
+  &--secondary {
+    color: mat.get-color-from-palette(palette.$green-palette, 900) !important;
+  }
+}

@@ -3,6 +3,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {LinkComponent} from "../../shared/components/link/link.component";
 import {RouterLink} from "@angular/router";
+import {ButtonComponent} from "../../shared/components/button/button.component";
 
 @Component({
   selector: 'c-navbar',
@@ -13,7 +14,8 @@ import {RouterLink} from "@angular/router";
     NgOptimizedImage,
     MatButtonModule,
     LinkComponent,
-    RouterLink
+    RouterLink,
+    ButtonComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
