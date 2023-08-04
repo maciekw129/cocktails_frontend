@@ -60,6 +60,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+// fonts
+
 .font-heading-1 {
   @include mat.typography-level($typography-config, 'headline-1');
 }
@@ -80,7 +82,83 @@ body {
   @include mat.typography-level($typography-config, 'body-2');
 }
 
+// margins | paddings
+
+.margin-bottom-1 {
+  margin-bottom: 4px;
+}
+
+.margin-bottom-2 {
+  margin-bottom: 8px;
+}
+
+.margin-bottom-3 {
+  margin-bottom: 16px;
+}
+
+.margin-bottom-4 {
+  margin-bottom: 32px;
+}
+
+.padding-16-8 {
+  padding: 16px 8px;
+}
+
+.gap-1 {
+  gap: 4px;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+.gap-3 {
+  gap: 16px;
+}
+
+.gap-4 {
+  gap: 32px;
+}
+
+// layout
+
+.width-full {
+  width: 100%;
+}
+
+.height-full {
+  height: 100%;
+}
+
 .main-container {
   max-width: 1050px;
   margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+
+  &--column {
+    flex-direction: column;
+  }
+
+  &--justify-center {
+    justify-content: center;
+  }
+
+  &--justify-between {
+    justify-content: space-between;
+  }
+
+  &--justify-start {
+    justify-content: flex-start;
+  }
+
+  &--justify-end {
+    justify-content: flex-end;
+  }
+
+  &--align-center {
+    align-items: center;
+  }
 }
