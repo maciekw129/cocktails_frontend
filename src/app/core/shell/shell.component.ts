@@ -1,19 +1,22 @@
 import {ChangeDetectionStrategy, Component} from "@angular/core";
 import {RouterOutlet} from "@angular/router";
 import {NavbarComponent} from "../navbar/navbar.component";
+import {HeroComponent} from "../hero/hero.component";
 
 @Component({
   selector: 'c-shell',
   standalone: true,
   template: `
-    <div class="main-container">
-      <c-navbar/>
+    <div>
+      <c-navbar class="main-container"/>
+      <c-hero></c-hero>
       <router-outlet></router-outlet>
     </div>
   `,
   imports: [
     RouterOutlet,
-    NavbarComponent
+    NavbarComponent,
+    HeroComponent
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

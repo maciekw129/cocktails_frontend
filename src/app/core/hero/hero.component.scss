@@ -1,0 +1,11 @@
+.hero {
+  width: 100vw;
+  height: 400px;
+  display: block;
+  background-image: url("./hero.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position-y: -200px;
+  z-index: -1;
+}

@@ -1,14 +1,38 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
 import {Design, Type} from "./button.model";
 import {ThemePalette} from "@angular/material/core";
+import {NgIf, NgTemplateOutlet} from "@angular/common";
 
 @Component({
   selector: 'c-button',
   standalone: true,
-  imports: [CommonModule, MatButtonModule],
-  templateUrl: './button.component.html',
+  imports: [MatButtonModule, NgIf, NgTemplateOutlet],
+  template: `
+    <button
+      *ngIf="design === 'primary'; else secondaryButton"
+      mat-flat-button
+      [color]="color"
+      (click)="handleClick()"
+      [disabled]="disabled"
+      [type]="type"
+    ><ng-container *ngTemplateOutlet="content"></ng-container></button>
+
+    <ng-template #secondaryButton>
+      <button
+        mat-stroked-button
+        class="button--secondary"
+        [color]="color"
+        (click)="handleClick()"
+        [disabled]="disabled"
+        [type]="type"
+      ><ng-container *ngTemplateOutlet="content"></ng-container></button>
+    </ng-template>
+
+    <ng-template #content>
+      <ng-content></ng-content>
+    </ng-template>
+  `,
   styleUrls: ['./button.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
