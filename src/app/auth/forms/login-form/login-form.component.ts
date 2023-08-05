@@ -5,6 +5,7 @@ import {FormGroup, NonNullableFormBuilder, ReactiveFormsModule, Validators} from
 import {LoginForm} from "./login-form.model";
 import {LoginPayload} from "../../auth.model";
 import {ButtonComponent} from "../../../shared/components/button/button.component";
+import {CommonValidators} from "../../../shared/forms/validators/common-validators";
 
 @Component({
   selector: 'c-login-form',
@@ -25,7 +26,7 @@ export class LoginFormComponent implements OnInit {
 
   private buildForm() {
     this.form = this.fb.group<LoginForm>({
-      email: this.fb.control('', {validators: [Validators.required, Validators.maxLength(5)]}),
+      email: this.fb.control('', {validators: [Validators.required, CommonValidators.emailValidator()]}),
       password: this.fb.control('', {validators: Validators.required})
     })
   }

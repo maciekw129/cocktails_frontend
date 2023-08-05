@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatDialogModule} from "@angular/material/dialog";
 import {LoginFormComponent} from "../../forms/login-form/login-form.component";
+import {LoginPayload} from "../../auth.model";
 
 @Component({
   selector: 'app-login-dialog',
@@ -10,6 +11,9 @@ import {LoginFormComponent} from "../../forms/login-form/login-form.component";
   templateUrl: './login-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LoginDialogComponent {
+export class LoginDialogComponent{
 
+  public handleLogin(loginPayload: LoginPayload) {
+    console.log(loginPayload)
+  }
 }
