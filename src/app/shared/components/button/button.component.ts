@@ -30,7 +30,9 @@ import {NgIf, NgTemplateOutlet} from "@angular/common";
     </ng-template>
 
     <ng-template #content>
-      <ng-content></ng-content>
+      <div class="flex flex--center gap-1 font-text-1">
+        <ng-content></ng-content>
+      </div>
     </ng-template>
   `,
   styleUrls: ['./button.component.scss'],

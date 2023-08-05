@@ -9,8 +9,9 @@ import {HeroComponent} from "../hero/hero.component";
   template: `
     <div>
       <c-navbar class="main-container"/>
-      <c-hero></c-hero>
-      <router-outlet></router-outlet>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </div>
   `,
   imports: [

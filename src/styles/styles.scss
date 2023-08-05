@@ -57,21 +57,24 @@ html, body {
 
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: typography.$text-font;
 }
 
 // fonts
 
 .font-heading-1 {
   @include mat.typography-level($typography-config, 'headline-1');
+  font-weight: bold;
 }
 
 .font-heading-2 {
   @include mat.typography-level($typography-config, 'headline-2');
+  font-weight: bold;
 }
 
 .font-heading-3 {
   @include mat.typography-level($typography-config, 'headline-3');
+  font-weight: bold;
 }
 
 .font-text-1 {
@@ -83,6 +86,22 @@ body {
 }
 
 // margins | paddings
+
+.margin-top-1 {
+  margin-top: 4px;
+}
+
+.margin-top-2 {
+  margin-top: 8px;
+}
+
+.margin-top-3 {
+  margin-top: 16px;
+}
+
+.margin-top-4 {
+  margin-top: 32px;
+}
 
 .margin-bottom-1 {
   margin-bottom: 4px;
@@ -98,6 +117,22 @@ body {
 
 .margin-bottom-4 {
   margin-bottom: 32px;
+}
+
+.padding-1 {
+  padding: 4px;
+}
+
+.padding-2 {
+  padding: 8px;
+}
+
+.padding-3 {
+  padding: 16px;
+}
+
+.padding-4 {
+  padding: 32px;
 }
 
 .padding-16-8 {
@@ -140,6 +175,11 @@ body {
 
   &--column {
     flex-direction: column;
+  }
+
+  &--center {
+    justify-content: center;
+    align-items: center;
   }
 
   &--justify-center {

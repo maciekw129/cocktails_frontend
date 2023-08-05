@@ -1,8 +1,8 @@
 @use '@angular/material' as mat;
 
 $logo-font: 'Lobster', cursive;
-$heading-font: 'Quattrocento', serif;
-$text-font: 'Quattrocento Sans', sans-serif;
+$heading-font: 'Barlow Condensed', sans-serif;
+$text-font: 'Montserrat', sans-serif;
 
 $heading-1: mat.define-typography-level(
   $font-family: $heading-font,
