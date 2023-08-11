@@ -1,15 +1,16 @@
-<form class="flex flex--column flex--center flex--c margin-top-4 gap-2" [formGroup]="form" (ngSubmit)="handleSubmit()">
+<form
+  class="flex flex--column flex--center flex--c margin-top-4 gap-2"
+  [formGroup]="form"
+  (ngSubmit)="handleSubmit()">
   <c-text-input
     formControlName="email"
     type="email"
     label="E-mail"
-    placeholder="Enter e-mail"
-  ></c-text-input>
+    placeholder="Enter e-mail"></c-text-input>
   <c-text-input
     formControlName="password"
     type="password"
     label="Password"
-    placeholder="Enter password"
-  />
+    placeholder="Enter password" />
   <c-button type="submit">Sign in</c-button>
 </form>

@@ -1,11 +1,11 @@
-import {ChangeDetectionStrategy, Component, inject} from "@angular/core";
-import {MatButtonModule} from "@angular/material/button";
-import {LinkComponent} from "../../shared/components/link/link.component";
-import {RouterLink} from "@angular/router";
-import {ButtonComponent} from "../../shared/components/button/button.component";
-import {MatDialog, MatDialogModule} from "@angular/material/dialog";
-import {LoginDialogComponent} from "../../auth/dialogs/login-dialog/login-dialog.component";
-import {MatIconModule} from "@angular/material/icon";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { LinkComponent } from '../../shared/components/link/link.component';
+import { RouterLink } from '@angular/router';
+import { ButtonComponent } from '../../shared/components/button/button.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { LoginDialogComponent } from '../../auth/dialogs/login-dialog/login-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'c-navbar',
@@ -18,9 +18,9 @@ import {MatIconModule} from "@angular/material/icon";
     RouterLink,
     ButtonComponent,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
   public dialogRef = inject(MatDialog);

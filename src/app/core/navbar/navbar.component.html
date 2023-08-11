@@ -1,18 +1,14 @@
 <header class="flex flex--justify-center width-full">
-  <div class="navbar main-container flex flex--align-center flex--justify-between width-full padding-16-8">
+  <div
+    class="navbar main-container flex flex--align-center flex--justify-between width-full padding-16-8">
     <div class="flex flex--align-center height-full">
-      <img
-        class="navbar__image"
-        src="assets/cocktail.png"
-        alt="logo"
-      />
+      <img class="navbar__image" src="assets/cocktail.png" alt="logo" />
       <h2 class="navbar__title font-heading-1">Cocktails</h2>
     </div>
     <div class="flex flex--align-center flex--justify-end gap-3">
-      <c-button
-        design="secondary"
-        (buttonClick)="openLoginDialog()"
-      ><mat-icon>login</mat-icon>Login</c-button>
+      <c-button design="secondary" (buttonClick)="openLoginDialog()"
+        ><mat-icon>login</mat-icon>Login</c-button
+      >
 
       <c-button>Register</c-button>
     </div>

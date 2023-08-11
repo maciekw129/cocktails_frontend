@@ -1,14 +1,14 @@
-import {AbstractControl, ValidationErrors} from "@angular/forms";
-import {Patterns} from "../../utils/patterns";
+import { AbstractControl, ValidationErrors } from '@angular/forms';
+import { Patterns } from '../../utils/patterns';
 
 export class CommonValidators {
-    public static emailValidator = () => {
-        return (control: AbstractControl): ValidationErrors | null => {
-            const value = control.value as string;
+  public static emailValidator = () => {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value as string;
 
-            if (!value) return null;
+      if (!value) return null;
 
-            return !Patterns.email.test(value) ? {emailPattern: true} : null;
-        }
-    }
+      return !Patterns.email.test(value) ? { emailPattern: true } : null;
+    };
+  };
 }

@@ -1,7 +1,13 @@
-import {ControlValueAccessor, FormControl, FormControlName, FormGroupDirective, NgControl} from "@angular/forms";
-import {Component, inject, Injector, Input, OnInit} from "@angular/core";
+import {
+  ControlValueAccessor,
+  FormControl,
+  FormControlName,
+  FormGroupDirective,
+  NgControl,
+} from '@angular/forms';
+import { Component, inject, Injector, Input, OnInit } from '@angular/core';
 
-@Component({template: ''})
+@Component({ template: '' })
 export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   @Input() formControlName!: string;
   @Input() type: string = 'text';

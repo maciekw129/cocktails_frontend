@@ -1,8 +1,14 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
-import {MatButtonModule} from "@angular/material/button";
-import {Design, Type} from "./button.model";
-import {ThemePalette} from "@angular/material/core";
-import {NgIf, NgTemplateOutlet} from "@angular/common";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { Design, Type } from './button.model';
+import { ThemePalette } from '@angular/material/core';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'c-button',
@@ -15,8 +21,9 @@ import {NgIf, NgTemplateOutlet} from "@angular/common";
       [color]="color"
       (click)="handleClick()"
       [disabled]="disabled"
-      [type]="type"
-    ><ng-container *ngTemplateOutlet="content"></ng-container></button>
+      [type]="type">
+      <ng-container *ngTemplateOutlet="content"></ng-container>
+    </button>
 
     <ng-template #secondaryButton>
       <button
@@ -25,8 +32,9 @@ import {NgIf, NgTemplateOutlet} from "@angular/common";
         [color]="color"
         (click)="handleClick()"
         [disabled]="disabled"
-        [type]="type"
-      ><ng-container *ngTemplateOutlet="content"></ng-container></button>
+        [type]="type">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </button>
     </ng-template>
 
     <ng-template #content>
@@ -36,7 +44,7 @@ import {NgIf, NgTemplateOutlet} from "@angular/common";
     </ng-template>
   `,
   styleUrls: ['./button.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonComponent {
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
