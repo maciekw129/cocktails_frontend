@@ -15,6 +15,7 @@ import { ValidationErrorsComponent } from '../validation-errors/validation-error
     NgIf,
     ReactiveFormsModule,
     ValidationErrorsComponent,
+    ValidationErrorsDirective
   ],
   template: `
     <mat-form-field class="margin-bottom-3" appearance="outline">
