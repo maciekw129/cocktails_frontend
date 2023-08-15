@@ -8,16 +8,20 @@ import {
 import { Component, inject, Injector, Input, OnInit } from '@angular/core';
 
 @Component({ template: '' })
+// eslint-disable-next-line @angular-eslint/component-class-suffix
 export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   @Input() formControlName!: string;
-  @Input() type: string = 'text';
-  @Input() isDisabled: boolean = false;
+  @Input() type = 'text';
+  @Input() isDisabled = false;
 
   private injector = inject(Injector);
 
   control!: FormControl<T>;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange = (value: T) => {};
+
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: any = () => {};
 
   ngOnInit() {

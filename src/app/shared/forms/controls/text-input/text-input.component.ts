@@ -4,7 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { CustomControl } from '../custom-control.abstract';
-import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
+import { ValidationErrorsDirective } from '../../directives/validation-errors.directive';
 
 @Component({
   selector: 'c-text-input',
@@ -14,18 +14,19 @@ import { ValidationErrorsComponent } from '../validation-errors/validation-error
     MatIconModule,
     NgIf,
     ReactiveFormsModule,
-    ValidationErrorsComponent,
-    ValidationErrorsDirective
+    ValidationErrorsDirective,
   ],
   template: `
-    <mat-form-field class="margin-bottom-3" appearance="outline">
+    <mat-form-field class="margin-bottom-3">
       <mat-label>{{ label }}</mat-label>
-      <input [formControl]="control" matInput [placeholder]="placeholder" />
+      <input
+        [formControl]="control"
+        [validationErrors]="validationErrors"
+        matInput
+        [placeholder]="placeholder" />
       <mat-icon *ngIf="icon" matSuffix>{{ icon }}</mat-icon>
       <mat-hint>{{ hint }}</mat-hint>
-      <mat-error *ngIf="control.touched">
-        <c-validation-errors [errors]="control.errors"></c-validation-errors>
-      </mat-error>
+      <mat-error #validationErrors></mat-error>
     </mat-form-field>
   `,
   providers: [
@@ -38,8 +39,8 @@ import { ValidationErrorsComponent } from '../validation-errors/validation-error
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent extends CustomControl<string> {
-  @Input() label: string = '';
-  @Input() placeholder: string = '';
-  @Input() icon: string = '';
-  @Input() hint: string = '';
+  @Input() label = '';
+  @Input() placeholder = '';
+  @Input() icon = '';
+  @Input() hint = '';
 }

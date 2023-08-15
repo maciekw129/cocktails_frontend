@@ -1,0 +1,13 @@
+{
+  "forms": {
+    "buttons": {
+      "login": "Login",
+      "register": "Register",
+      "send": "Send"
+    },
+    "validationErrors": {
+      "required": "This field is required.",
+      "emailPattern": "E-mail is in wrong format."
+    }
+  }
+}
