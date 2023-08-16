@@ -9,11 +9,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Design, Type } from './button.model';
 import { ThemePalette } from '@angular/material/core';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'c-button',
   standalone: true,
-  imports: [MatButtonModule, NgIf, NgTemplateOutlet],
+  imports: [MatButtonModule, NgIf, NgTemplateOutlet, TranslateModule],
   template: `
     <button
       *ngIf="design === 'primary'; else secondaryButton"
@@ -39,6 +40,7 @@ import { NgIf, NgTemplateOutlet } from '@angular/common';
 
     <ng-template #content>
       <div class="flex flex--center gap-1 font-text-1">
+        {{fullTranslation | translate}}
         <ng-content></ng-content>
       </div>
     </ng-template>
@@ -50,8 +52,13 @@ export class ButtonComponent {
   @Output() buttonClick: EventEmitter<void> = new EventEmitter<void>();
   @Input() design: Design = 'primary';
   @Input() color: ThemePalette = 'primary';
-  @Input() disabled: boolean = false;
+  @Input() disabled = false;
   @Input() type: Type = 'button';
+  @Input() translation = '';
+
+  get fullTranslation() {
+    return this.translation ? `buttons.${this.translation}` : '';
+  }
 
   public handleClick() {
     this.buttonClick.emit();
