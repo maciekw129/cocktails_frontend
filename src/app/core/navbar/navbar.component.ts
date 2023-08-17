@@ -6,6 +6,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../auth/dialogs/login-dialog/login-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
+import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/register-dialog.component';
 
 @Component({
   selector: 'c-navbar',
@@ -23,9 +24,13 @@ import { MatIconModule } from '@angular/material/icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
-  public dialogRef = inject(MatDialog);
+  private dialogRef = inject(MatDialog);
 
   public openLoginDialog() {
     this.dialogRef.open(LoginDialogComponent);
+  }
+
+  public openRegisterDialog() {
+    this.dialogRef.open(RegisterDialogComponent);
   }
 }

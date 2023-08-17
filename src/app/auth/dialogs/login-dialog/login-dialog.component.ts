@@ -6,7 +6,7 @@ import { LoginPayload } from '../../auth.model';
 import { AuthService } from '../../auth.service';
 
 @Component({
-  selector: 'app-login-dialog',
+  selector: 'c-login-dialog',
   standalone: true,
   imports: [CommonModule, MatDialogModule, LoginFormComponent],
   templateUrl: './login-dialog.component.html',

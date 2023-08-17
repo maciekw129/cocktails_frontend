@@ -11,7 +11,6 @@ import {
   combineLatest,
   distinctUntilChanged,
   of,
-  startWith,
   Subject,
   switchMap,
   takeUntil,
@@ -41,9 +40,11 @@ export class ValidationErrorsDirective
   ngOnInit() {
     this.renderer.appendChild(this.validationErrors, this.errorText);
 
+    this.refreshErrorMessages(this.formControl.errors)
+
     combineLatest([
       this.errorChange$,
-      this.formControl.valueChanges.pipe(startWith(null)),
+      this.formControl.valueChanges,
     ])
       .pipe(
         takeUntil(this.unsubscribe$),

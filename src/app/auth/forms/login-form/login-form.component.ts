@@ -13,7 +13,8 @@ import { LoginForm } from './login-form.model';
 import { LoginPayload } from '../../auth.model';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { CommonValidators } from '../../../shared/forms/validators/common-validators';
-import { FormComponent } from '../../../shared/forms/form-component';
+import { FormComponent } from '../../../shared/forms/form.component';
+import { FormService } from '../../../shared/forms/form.service';
 
 @Component({
   selector: 'c-login-form',
@@ -25,6 +26,7 @@ import { FormComponent } from '../../../shared/forms/form-component';
     ButtonComponent,
   ],
   templateUrl: './login-form.component.html',
+  providers: [FormService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginFormComponent extends FormComponent<LoginPayload, FormGroup<LoginForm>>{

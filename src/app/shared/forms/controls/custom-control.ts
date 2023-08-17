@@ -5,7 +5,9 @@ import {
   FormGroupDirective,
   NgControl,
 } from '@angular/forms';
-import { Component, inject, Injector, Input, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Injector, Input, OnInit } from '@angular/core';
+import { FormService } from '../form.service';
+import { take, tap } from 'rxjs';
 
 @Component({ template: '' })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
@@ -15,6 +17,8 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   @Input() isDisabled = false;
 
   private injector = inject(Injector);
+  private cdr = inject(ChangeDetectorRef);
+  private formService = inject(FormService);
 
   control!: FormControl<T>;
 
@@ -27,6 +31,13 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   ngOnInit() {
     this.validateRequiredInputs();
     this.initializeControl();
+
+    this.formService.formSubmit$.pipe(
+      take(1),
+      tap(() => {
+        this.cdr.detectChanges()
+      })
+    ).subscribe()
   }
 
   private validateRequiredInputs() {
