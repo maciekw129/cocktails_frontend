@@ -7,7 +7,6 @@ import { MatDialogModule } from '@angular/material/dialog';
   standalone: true,
   imports: [CommonModule, MatDialogModule],
   templateUrl: './register-dialog.component.html',
-  styleUrls: ['./register-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterDialogComponent {

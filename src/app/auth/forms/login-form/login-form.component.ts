@@ -38,4 +38,8 @@ export class LoginFormComponent extends FormComponent<LoginPayload, FormGroup<Lo
       password: this.fb.control('', { validators: Validators.required }),
     });
   }
+
+  protected setEmittingValue() {
+    return this.form.getRawValue();
+  }
 }
