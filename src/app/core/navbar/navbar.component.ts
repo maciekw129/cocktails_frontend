@@ -7,6 +7,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../../auth/dialogs/login-dialog/login-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/register-dialog.component';
+import { USER_DATA } from '../../auth/auth.tokens';
 
 @Component({
   selector: 'c-navbar',
@@ -25,6 +26,7 @@ import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/regi
 })
 export class NavbarComponent {
   private dialogRef = inject(MatDialog);
+  private userData = inject(USER_DATA);
 
   public openLoginDialog() {
     this.dialogRef.open(LoginDialogComponent);

@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { StatefulService } from '../shared/services/stateful-service';
 import { AuthApiService } from './auth-api.service';
-import { AuthState, LoginPayload } from './auth.model';
-import { switchMap } from 'rxjs';
+import { AuthState, LoginPayload, RegisterPayload, UserData } from './auth.model';
+import { tap } from 'rxjs';
 import { TokenService } from './token.service';
 
 @Injectable({ providedIn: 'root' })
@@ -18,11 +18,23 @@ export class AuthService extends StatefulService<AuthState> {
 
   public login(loginPayload: LoginPayload) {
     return this.authApiService.login(loginPayload).pipe(
-      switchMap(({ access_token }) => {
-        this.tokenService.saveToken(access_token);
-        const userId = this.tokenService.decodedToken!.sub!;
-        return this.authApiService.fetchUserData(userId);
-      })
+      tap(({ tokens, user }) => this.setLoggedData(tokens.access_token, user))
     );
+  }
+
+  public register(registerPayload: RegisterPayload) {
+    return this.authApiService.register(registerPayload).pipe(
+      tap(({tokens, user}) => this.setLoggedData(tokens.access_token, user))
+)
+  }
+
+  private setUserData(userData: UserData) {
+    this.patchState({userData});
+  }
+
+  private setLoggedData(token: string, userData: UserData) {
+    this.tokenService.saveToken(token);
+    console.log(userData);
+    this.setUserData(userData);
   }
 }

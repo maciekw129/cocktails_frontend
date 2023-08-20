@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,6 +8,8 @@ import { environment } from '../environments/environment';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { AuthService } from './auth/auth.service';
+import { USER_DATA } from './auth/auth.tokens';
 
 const routes: Routes = [
   {
@@ -42,6 +44,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: API_URL,
       useValue: environment.API_URL,
     },
+    {
+      provide: USER_DATA,
+      useFactory: () => {
+        return inject(AuthService).getStateSlice('userData');
+      }
+    }
   ],
   bootstrap: [AppComponent],
 })

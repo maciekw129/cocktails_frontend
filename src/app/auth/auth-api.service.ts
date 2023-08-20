@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { LoginAPI, LoginPayload, UserData } from './auth.model';
+import { AuthAPI, LoginPayload, RegisterPayload, UserData } from './auth.model';
 import { API_URL } from '../env.token';
 
 @Injectable({ providedIn: 'root' })
@@ -9,7 +9,11 @@ export class AuthApiService {
   private readonly API_URL = inject(API_URL);
 
   public login(loginPayload: LoginPayload) {
-    return this.http.post<LoginAPI>(`${this.API_URL}/auth/login`, loginPayload);
+    return this.http.post<AuthAPI>(`${this.API_URL}/auth/login`, loginPayload);
+  }
+
+  public register(registerPayload: RegisterPayload) {
+    return this.http.post<AuthAPI>(`${this.API_URL}/auth/register`, registerPayload);
   }
 
   public fetchUserData(userId: string) {

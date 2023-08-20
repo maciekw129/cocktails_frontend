@@ -9,9 +9,14 @@ export interface UserData {
   email: string;
 }
 
-export interface LoginAPI {
+export interface TokensAPI {
   access_token: string;
   refresh_token: string;
+}
+
+export interface AuthAPI {
+  tokens: TokensAPI;
+  user: UserData;
 }
 
 export interface LoginPayload {
