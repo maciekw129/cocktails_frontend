@@ -16,7 +16,7 @@ export class AuthApiService {
     return this.http.post<AuthAPI>(`${this.API_URL}/auth/register`, registerPayload);
   }
 
-  public fetchUserData(userId: string) {
+  public getUserData(userId: string) {
     return this.http.get<UserData>(`${this.API_URL}/user/${userId}`);
   }
 }

@@ -5,11 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { API_URL } from './env.token';
 import { environment } from '../environments/environment';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { AuthService } from './auth/auth.service';
 import { USER_DATA } from './auth/auth.tokens';
+import { TokenInterceptor } from './auth/interceptors/token.interceptor';
+import { GlobalLoaderInterceptor } from './core/global-loader/global-loader.interceptor';
 
 const routes: Routes = [
   {
@@ -49,6 +51,16 @@ export function HttpLoaderFactory(http: HttpClient) {
       useFactory: () => {
         return inject(AuthService).getStateSlice('userData');
       }
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalLoaderInterceptor,
+      multi: true
     }
   ],
   bootstrap: [AppComponent],

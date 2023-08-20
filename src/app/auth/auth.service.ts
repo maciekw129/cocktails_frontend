@@ -34,7 +34,6 @@ export class AuthService extends StatefulService<AuthState> {
 
   private setLoggedData(token: string, userData: UserData) {
     this.tokenService.saveToken(token);
-    console.log(userData);
     this.setUserData(userData);
   }
 }
