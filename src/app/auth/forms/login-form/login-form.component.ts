@@ -1,14 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextInputComponent } from '../../../shared/forms/controls/text-input/text-input.component';
-import {
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginForm } from './login-form.model';
 import { LoginPayload } from '../../auth.model';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -29,11 +22,14 @@ import { FormService } from '../../../shared/forms/form.service';
   providers: [FormService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LoginFormComponent extends FormComponent<LoginPayload, FormGroup<LoginForm>>{
-   protected buildForm() {
+export class LoginFormComponent extends FormComponent<
+  LoginPayload,
+  FormGroup<LoginForm>
+> {
+  protected buildForm() {
     return this.fb.group({
       email: this.fb.control('', {
-        validators: [Validators.required, CommonValidators.emailValidator()],
+        validators: [Validators.required, CommonValidators.email()],
       }),
       password: this.fb.control('', { validators: Validators.required }),
     });

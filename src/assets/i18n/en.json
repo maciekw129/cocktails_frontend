@@ -2,7 +2,9 @@
   "forms": {
     "validationErrors": {
       "required": "This field is required.",
-      "emailPattern": "E-mail is in wrong format."
+      "emailPattern": "E-mail is in wrong format.",
+      "password": "Password must have letter, number and 8 chars. long.",
+      "controlsMatch": "This field must match with {{otherControlName}}"
     }
   },
   "buttons": {
