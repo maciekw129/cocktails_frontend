@@ -31,3 +31,8 @@ export interface RegisterPayload {
   lastName: string | null
   password: string
 }
+
+export interface RefreshPayload {
+  refreshToken: string;
+  userId: string;
+}

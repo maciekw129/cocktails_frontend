@@ -3,7 +3,7 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { TokenService } from '../token.service';
@@ -12,15 +12,25 @@ import { TokenService } from '../token.service';
 export class TokenInterceptor implements HttpInterceptor {
   private tokenService = inject(TokenService);
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  private readonly PUBLIC_ENDPOINTS = ['auth/login', 'auth/register'];
+
+  intercept(
+    request: HttpRequest<unknown>,
+    next: HttpHandler
+  ): Observable<HttpEvent<unknown>> {
     const token = this.tokenService.token;
 
-    if(request.url.includes('auth') || token) {
+    if (
+      this.PUBLIC_ENDPOINTS.some(endpoint => request.url.includes(endpoint)) ||
+      !token
+    ) {
       return next.handle(request);
     }
 
-    request.headers.set('Authorization', `Bearer ${token}`);
+    const requestWithToken = request.clone({
+      setHeaders: { Authorization: `Bearer ${token}` },
+    });
 
-    return next.handle(request);
+    return next.handle(requestWithToken);
   }
 }

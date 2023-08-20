@@ -5,11 +5,19 @@
       <img class="navbar__image" src="assets/cocktail.png" alt="logo" />
       <h2 class="navbar__title font-heading-1">Cocktails</h2>
     </div>
-    <div class="flex flex--align-center flex--justify-end gap-3">
-      <c-button translation='login' design="secondary" (buttonClick)="openLoginDialog()"
+    <ng-container *ngIf='userData$ | async as userData; else authButtons'>
+        <c-button
+          translation='logout'
+          (buttonClick)='logout()'
+        ></c-button>
+    </ng-container>
+    <ng-template #authButtons>
+      <div class="flex flex--align-center flex--justify-end gap-3">
+        <c-button translation='login' design="secondary" (buttonClick)="openLoginDialog()"
         ><mat-icon>login</mat-icon></c-button
-      >
-      <c-button translation='register' (buttonClick)='openRegisterDialog()'/>
-    </div>
+        >
+        <c-button translation='register' (buttonClick)='openRegisterDialog()'/>
+      </div>
+    </ng-template>
   </div>
 </header>

@@ -8,6 +8,8 @@ import { LoginDialogComponent } from '../../auth/dialogs/login-dialog/login-dial
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/register-dialog.component';
 import { USER_DATA } from '../../auth/auth.tokens';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'c-navbar',
@@ -21,12 +23,15 @@ import { USER_DATA } from '../../auth/auth.tokens';
     ButtonComponent,
     MatDialogModule,
     MatIconModule,
+    NgIf,
+    AsyncPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavbarComponent {
   private dialogRef = inject(MatDialog);
-  private userData = inject(USER_DATA);
+  private authService = inject(AuthService);
+  public userData$ = inject(USER_DATA);
 
   public openLoginDialog() {
     this.dialogRef.open(LoginDialogComponent);
@@ -34,5 +39,9 @@ export class NavbarComponent {
 
   public openRegisterDialog() {
     this.dialogRef.open(RegisterDialogComponent);
+  }
+
+  public logout() {
+    this.authService.logout().subscribe();
   }
 }

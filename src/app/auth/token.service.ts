@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, takeUntil, tap } from 'rxjs';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
 import { UnsubscribeOnDestroy } from '../shared/services/unsubscribe-on-destroy';
 
@@ -7,23 +6,17 @@ import { UnsubscribeOnDestroy } from '../shared/services/unsubscribe-on-destroy'
   providedIn: 'root',
 })
 export class TokenService extends UnsubscribeOnDestroy {
-  private _token$$ = new BehaviorSubject<string | null>(
-    localStorage.getItem('token')
-  );
-  private _decodedToken$$ = new BehaviorSubject<JwtPayload | null>(null);
+  private _token = localStorage.getItem('token');
+  private _decodedToken: JwtPayload | null = null;
 
   private readonly MILISECONDS_IN_SECONDS = 1000;
 
-  get token$$() {
-    return this._token$$.asObservable();
-  }
-
   get token() {
-    return this._token$$.value;
+    return this._token;
   }
 
   get decodedToken() {
-    return this._decodedToken$$.value;
+    return this._decodedToken;
   }
 
   constructor() {
@@ -32,26 +25,32 @@ export class TokenService extends UnsubscribeOnDestroy {
   }
 
   private decodeToken() {
-    const token = this._token$$.value;
-    if (token) this._decodedToken$$.next(jwtDecode<JwtPayload>(token));
+    if (this._token) this._decodedToken = jwtDecode<JwtPayload>(this._token);
   }
 
-  public isTokenExpired(): boolean | void {
-    const expTime = this._decodedToken$$.value?.exp;
+  private isTokenExpired(): boolean | void {
+    const expTime = this._decodedToken?.exp;
     if (expTime) {
       const expDate = new Date(expTime * this.MILISECONDS_IN_SECONDS);
       return expDate.getTime() - Date.now() < 0;
     }
   }
 
+  public isTokenValid(): boolean {
+    if (this._token) {
+      return !this.isTokenExpired();
+    }
+    return false;
+  }
+
   public saveToken(token: string) {
-    this._token$$.next(token);
+    this._token = token;
     this.decodeToken();
     localStorage.setItem('token', token);
   }
 
   public removeToken() {
     localStorage.removeItem('token');
-    this._token$$.next(null);
+    this._token = null;
   }
 }

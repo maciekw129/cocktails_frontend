@@ -8,6 +8,7 @@
   "buttons": {
     "login": "Login",
     "register": "Register",
+    "logout": "Logout",
     "send": "Send"
   }
 }

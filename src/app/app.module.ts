@@ -1,4 +1,4 @@
-import { inject, NgModule } from '@angular/core';
+import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -45,6 +45,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     {
       provide: API_URL,
       useValue: environment.API_URL,
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: () => {
+        inject(AuthService).initializeAuth();
+      }
     },
     {
       provide: USER_DATA,

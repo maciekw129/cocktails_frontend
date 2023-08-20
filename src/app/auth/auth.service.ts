@@ -1,7 +1,12 @@
 import { inject, Injectable } from '@angular/core';
 import { StatefulService } from '../shared/services/stateful-service';
 import { AuthApiService } from './auth-api.service';
-import { AuthState, LoginPayload, RegisterPayload, UserData } from './auth.model';
+import {
+  AuthState,
+  LoginPayload,
+  RegisterPayload,
+  UserData,
+} from './auth.model';
 import { tap } from 'rxjs';
 import { TokenService } from './token.service';
 
@@ -16,20 +21,41 @@ export class AuthService extends StatefulService<AuthState> {
     });
   }
 
+  public initializeAuth() {
+    if (this.tokenService.isTokenValid()) {
+      this.authApiService.getUserData().subscribe(user => {
+        this.setUserData(user);
+      });
+    }
+  }
+
   public login(loginPayload: LoginPayload) {
-    return this.authApiService.login(loginPayload).pipe(
-      tap(({ tokens, user }) => this.setLoggedData(tokens.access_token, user))
-    );
+    return this.authApiService
+      .login(loginPayload)
+      .pipe(
+        tap(({ tokens, user }) => this.setLoggedData(tokens.access_token, user))
+      );
   }
 
   public register(registerPayload: RegisterPayload) {
-    return this.authApiService.register(registerPayload).pipe(
-      tap(({tokens, user}) => this.setLoggedData(tokens.access_token, user))
-)
+    return this.authApiService
+      .register(registerPayload)
+      .pipe(
+        tap(({ tokens, user }) => this.setLoggedData(tokens.access_token, user))
+      );
   }
 
-  private setUserData(userData: UserData) {
-    this.patchState({userData});
+  public logout() {
+    return this.authApiService.logout().pipe(
+      tap(() => {
+        this.setUserData(null);
+        this.tokenService.removeToken();
+      })
+    );
+  }
+
+  private setUserData(userData: UserData | null) {
+    this.patchState({ userData });
   }
 
   private setLoggedData(token: string, userData: UserData) {
