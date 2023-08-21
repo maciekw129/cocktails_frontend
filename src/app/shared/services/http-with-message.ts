@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { finalize, Observable, OperatorFunction, pipe } from 'rxjs';
+import { Observable, OperatorFunction, pipe, tap } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({ providedIn: 'root' })
@@ -22,7 +22,7 @@ export class HttpWithMessage {
 
   private getSnackBarPipe<T>(message: string): OperatorFunction<T, T> {
     return pipe(
-      finalize(() =>
+      tap(() =>
         this.snackBar.open(message, 'X', {
           duration: this.MESSAGE_DURATION,
           panelClass: ['success'],
