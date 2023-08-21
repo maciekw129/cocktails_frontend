@@ -5,13 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { API_URL } from './env.token';
 import { environment } from '../environments/environment';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
-import {TranslateModule, TranslateLoader} from "@ngx-translate/core";
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthService } from './auth/auth.service';
 import { USER_DATA } from './auth/auth.tokens';
-import { TokenInterceptor } from './auth/interceptors/token.interceptor';
+import { TokenInterceptor } from './auth/token/token.interceptor';
 import { GlobalLoaderInterceptor } from './core/global-loader/global-loader.interceptor';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const routes: Routes = [
   {
@@ -30,16 +35,17 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatSnackBarModule,
     RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       extend: true,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
-      defaultLanguage: 'en'
-    })
+      defaultLanguage: 'en',
+    }),
   ],
   providers: [
     {
@@ -50,24 +56,24 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: APP_INITIALIZER,
       useFactory: () => {
         inject(AuthService).initializeAuth();
-      }
+      },
     },
     {
       provide: USER_DATA,
       useFactory: () => {
         return inject(AuthService).getStateSlice('userData');
-      }
+      },
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalLoaderInterceptor,
-      multi: true
-    }
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

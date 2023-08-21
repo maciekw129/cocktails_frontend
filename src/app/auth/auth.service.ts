@@ -8,7 +8,7 @@ import {
   UserData,
 } from './auth.model';
 import { tap } from 'rxjs';
-import { TokenService } from './token.service';
+import { TokenService } from './token/token.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends StatefulService<AuthState> {

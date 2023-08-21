@@ -11,7 +11,7 @@ import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
   standalone: true,
   imports: [CommonModule, MatDialogModule, RegisterFormComponent],
   templateUrl: './register-dialog.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegisterDialogComponent {
   private authService = inject(AuthService);
@@ -20,6 +20,6 @@ export class RegisterDialogComponent {
   public register(registerPayload: RegisterPayload) {
     this.authService.register(registerPayload).subscribe(() => {
       this.dialogRef.close();
-    })
+    });
   }
 }

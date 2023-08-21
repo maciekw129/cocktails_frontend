@@ -60,6 +60,14 @@ body {
   font-family: typography.$text-font;
 }
 
+.mat-mdc-snack-bar-container {
+  &.error {
+    --mdc-snackbar-container-color: #d01e50;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
 // fonts
 
 .font-heading-1 {
