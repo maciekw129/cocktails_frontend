@@ -60,18 +60,27 @@ body {
   font-family: typography.$text-font;
 }
 
+// colors
+
 .mat-mdc-snack-bar-container {
-  &.error {
+  &.error { // snack bar error colors
     --mdc-snackbar-container-color: #d01e50;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
   }
-  &.success {
+  &.success { // snack bar success colors
     --mdc-snackbar-container-color: #3d9037;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
   }
 }
+
+.color-white {
+  color: #FFFFFF;
+  //text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
+
+}
+
 
 // fonts
 
