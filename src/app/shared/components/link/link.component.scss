@@ -9,5 +9,6 @@
   &:hover {
     color: mat.get-color-from-palette(palette.$blue-palette, 700);
     transition: color 0.2s linear;
+    cursor: pointer;
   }
 }
