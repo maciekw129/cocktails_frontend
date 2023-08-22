@@ -24,8 +24,7 @@ import { CustomControl } from '../custom-control';
         [validationErrors]="validationErrors"
         matInput
         [placeholder]="placeholder"
-        [type]='type'
-      />
+        [type]="type" />
       <mat-icon *ngIf="icon" matSuffix>{{ icon }}</mat-icon>
       <mat-hint>{{ hint }}</mat-hint>
       <mat-error #validationErrors></mat-error>

@@ -13,8 +13,8 @@
     </ng-container>
     <ng-template #authButtons>
       <div class="flex flex--align-center flex--justify-end gap-3">
-        <c-button translation='login' design="secondary" (buttonClick)="openLoginDialog()"
-        ><mat-icon>login</mat-icon></c-button
+        <c-button class='navbar__login-button' design="secondary" (buttonClick)="openLoginDialog()"
+        ><p>{{'login' | translate}}</p><mat-icon>login</mat-icon></c-button
         >
         <c-button translation='register' (buttonClick)='openRegisterDialog()'/>
       </div>

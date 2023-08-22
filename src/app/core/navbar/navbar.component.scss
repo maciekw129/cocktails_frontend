@@ -14,3 +14,15 @@
     max-height: 100%;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .navbar {
+    &__title {
+      display: none;
+    }
+
+    &__login-button p{
+      display: none;
+    }
+  }
+}

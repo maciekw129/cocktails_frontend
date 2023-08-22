@@ -10,6 +10,7 @@ import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/regi
 import { USER_DATA } from '../../auth/auth.tokens';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../../auth/auth.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'c-navbar',
@@ -25,6 +26,7 @@ import { AuthService } from '../../auth/auth.service';
     MatIconModule,
     NgIf,
     AsyncPipe,
+    TranslateModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
