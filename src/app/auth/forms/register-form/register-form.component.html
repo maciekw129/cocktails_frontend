@@ -30,5 +30,5 @@
     placeholder='Confirm password'
     type='password'
   ></c-text-input>
-  <c-button translation='send' type="submit"/>
+  <c-button [isLoading]='isRequestPending' translation='send' type="submit"/>
 </form>

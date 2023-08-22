@@ -11,6 +11,7 @@ import { USER_DATA } from '../../auth/auth.tokens';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { AuthService } from '../../auth/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
+import { BehaviorSubject, finalize } from 'rxjs';
 
 @Component({
   selector: 'c-navbar',
@@ -35,6 +36,12 @@ export class NavbarComponent {
   private authService = inject(AuthService);
   public userData$ = inject(USER_DATA);
 
+  private readonly _isLogoutPending$ = new BehaviorSubject<boolean>(false);
+
+  get isLogoutPending$() {
+    return this._isLogoutPending$.asObservable();
+  }
+
   public openLoginDialog() {
     this.dialogRef.open(LoginDialogComponent);
   }
@@ -44,6 +51,14 @@ export class NavbarComponent {
   }
 
   public logout() {
-    this.authService.logout().subscribe();
+    this._isLogoutPending$.next(true);
+    this.authService
+      .logout()
+      .pipe(
+        finalize(() => {
+          this._isLogoutPending$.next(false);
+        })
+      )
+      .subscribe();
   }
 }

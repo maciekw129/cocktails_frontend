@@ -9,6 +9,7 @@
         <c-button
           translation='logout'
           (buttonClick)='logout()'
+          [isLoading]='isLogoutPending$ | async'
         ></c-button>
     </ng-container>
     <ng-template #authButtons>
