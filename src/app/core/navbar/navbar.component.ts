@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { LinkComponent } from '@app/shared/components/link/link.component';
 import { RouterLink } from '@angular/router';
@@ -8,7 +13,7 @@ import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialo
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
 import { USER_DATA } from '@app/auth/auth.tokens';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, CommonModule, NgClass, NgIf } from '@angular/common';
 import { AuthService } from '@app/auth/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject, finalize } from 'rxjs';
@@ -19,14 +24,13 @@ import { BehaviorSubject, finalize } from 'rxjs';
   templateUrl: 'navbar.component.html',
   styleUrls: ['navbar.component.scss'],
   imports: [
+    CommonModule,
     MatButtonModule,
     LinkComponent,
     RouterLink,
     ButtonComponent,
     MatDialogModule,
     MatIconModule,
-    NgIf,
-    AsyncPipe,
     TranslateModule,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -36,10 +40,16 @@ export class NavbarComponent {
   private authService = inject(AuthService);
   public userData$ = inject(USER_DATA);
 
+  public hasBackground = false;
   private readonly _isLogoutPending$ = new BehaviorSubject<boolean>(false);
 
   get isLogoutPending$() {
     return this._isLogoutPending$.asObservable();
+  }
+
+  @HostListener('window:scroll')
+  manageNavbarColor() {
+    this.hasBackground = Boolean(window.scrollY);
   }
 
   public openLoginDialog() {

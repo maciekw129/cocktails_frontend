@@ -1,6 +1,8 @@
 $dark-primary-text: #333;
 $light-primary-text: #ffffff;
 
+$white: #ffffff;
+
 $red-palette: (
   100: #fae0e5,
   300: #e67e95,
@@ -41,6 +43,21 @@ $blue-palette: (
     100: $dark-primary-text,
     300: $dark-primary-text,
     500: $light-primary-text,
+    700: $light-primary-text,
+    900: $light-primary-text,
+  ),
+);
+
+$gray-palette: (
+  100: #f6f6f6,
+  300: #f1f1f1,
+  500: #e7e7e7,
+  700: #c4c4c4,
+  900: #a6a6a6,
+  contrast: (
+    100: $dark-primary-text,
+    300: $dark-primary-text,
+    500: $dark-primary-text,
     700: $light-primary-text,
     900: $light-primary-text,
   ),
