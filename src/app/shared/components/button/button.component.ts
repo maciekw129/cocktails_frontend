@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Design, Type } from './button.model';
+import { Design, Type } from '@app/shared/components/button/button.model';
 import { ThemePalette } from '@angular/material/core';
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';

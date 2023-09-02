@@ -13,6 +13,10 @@
   &__image {
     max-height: 100%;
   }
+
+  &__logo {
+    text-decoration: none;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -21,7 +25,7 @@
       display: none;
     }
 
-    &__login-button p{
+    &__login-button p {
       display: none;
     }
   }

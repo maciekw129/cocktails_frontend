@@ -1,14 +1,14 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from '../../../shared/forms/form.component';
-import { RegisterPayload } from '../../auth.model';
+import { FormComponent } from '@app/shared/forms/form.component';
+import { RegisterPayload } from '@app/auth/auth.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RegisterForm } from './register-form.model';
-import { TextInputComponent } from '../../../shared/forms/controls/text-input/text-input.component';
-import { FormService } from '../../../shared/forms/form.service';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
-import { Helpers } from '../../../shared/utils/helpers';
-import { CommonValidators } from '../../../shared/forms/validators/common-validators';
+import { RegisterForm } from '@app/auth/forms/register-form/register-form.model';
+import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
+import { FormService } from '@app/shared/forms/form.service';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { Helpers } from '@app/shared/utils/helpers';
+import { CommonValidators } from '@app/shared/forms/validators/common-validators';
 
 @Component({
   selector: 'c-register-form',

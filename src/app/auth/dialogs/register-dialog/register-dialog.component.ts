@@ -5,11 +5,11 @@ import {
   MatDialogModule,
   MatDialogRef,
 } from '@angular/material/dialog';
-import { RegisterFormComponent } from '../../forms/register-form/register-form.component';
-import { AuthService } from '../../auth.service';
-import { RegisterPayload } from '../../auth.model';
-import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
-import { LinkComponent } from '../../../shared/components/link/link.component';
+import { RegisterFormComponent } from '@app/auth/forms/register-form/register-form.component';
+import { AuthService } from '@app/auth/auth.service';
+import { RegisterPayload } from '@app/auth/auth.model';
+import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialog.component';
+import { LinkComponent } from '@app/shared/components/link/link.component';
 import { BehaviorSubject, finalize, tap } from 'rxjs';
 
 @Component({

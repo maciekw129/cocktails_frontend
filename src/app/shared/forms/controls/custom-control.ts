@@ -5,8 +5,15 @@ import {
   FormGroupDirective,
   NgControl,
 } from '@angular/forms';
-import { ChangeDetectorRef, Component, inject, Injector, Input, OnInit } from '@angular/core';
-import { FormService } from '../form.service';
+import {
+  ChangeDetectorRef,
+  Component,
+  inject,
+  Injector,
+  Input,
+  OnInit,
+} from '@angular/core';
+import { FormService } from '@app/shared/forms/form.service';
 import { take, tap } from 'rxjs';
 
 @Component({ template: '' })
@@ -32,12 +39,14 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
     this.validateRequiredInputs();
     this.initializeControl();
 
-    this.formService.formSubmit$.pipe(
-      take(1),
-      tap(() => {
-        this.cdr.detectChanges()
-      })
-    ).subscribe()
+    this.formService.formSubmit$
+      .pipe(
+        take(1),
+        tap(() => {
+          this.cdr.detectChanges();
+        })
+      )
+      .subscribe();
   }
 
   private validateRequiredInputs() {
@@ -58,8 +67,9 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
     this.onChange(this.control.value);
   }
 
-  writeValue(value: T) {
-    this.control.setValue(value);
+  writeValue(value: T): void {
+    if (this.control && this.control.value != value)
+      this.control.setValue(value, { emitEvent: false });
   }
 
   registerOnChange(fn: any) {

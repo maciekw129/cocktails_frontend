@@ -25,11 +25,11 @@ export interface LoginPayload {
 }
 
 export interface RegisterPayload {
-  login: string
-  email: string
-  firstName: string | null
-  lastName: string | null
-  password: string
+  login: string;
+  email: string;
+  firstName: string | null;
+  lastName: string | null;
+  password: string;
 }
 
 export interface RefreshPayload {

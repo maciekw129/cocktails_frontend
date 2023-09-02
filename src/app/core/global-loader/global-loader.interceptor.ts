@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { GlobalLoaderService } from './global-loader.service';
+import { GlobalLoaderService } from '@app/core/global-loader/global-loader.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()

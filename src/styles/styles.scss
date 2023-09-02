@@ -1,4 +1,3 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
@@ -29,14 +28,16 @@ $typography-config: mat.define-typography-config(
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$cocktails-theme: mat.define-light-theme((
-  color: (
-    primary: $cocktails-primary,
-    accent: $cocktails-accent,
-    warn: $cocktails-warn,
-  ),
-  typography: $typography-config
-));
+$cocktails-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $cocktails-primary,
+      accent: $cocktails-accent,
+      warn: $cocktails-warn,
+    ),
+    typography: $typography-config,
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
@@ -51,7 +52,8 @@ $cocktails-theme: mat.define-light-theme((
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -60,15 +62,24 @@ body {
   font-family: typography.$text-font;
 }
 
+.blurred-background {
+  backdrop-filter: blur(8px);
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 1px;
+}
+
 // colors
 
 .mat-mdc-snack-bar-container {
-  &.error { // snack bar error colors
+  &.error {
+    // snack bar error colors
     --mdc-snackbar-container-color: #d01e50;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
   }
-  &.success { // snack bar success colors
+  &.success {
+    // snack bar success colors
     --mdc-snackbar-container-color: #3d9037;
     --mat-mdc-snack-bar-button-color: #fff;
     --mdc-snackbar-supporting-text-color: #fff;
@@ -76,11 +87,12 @@ body {
 }
 
 .color-white {
-  color: #FFFFFF;
-  //text-shadow: 0 0 1px black, 0 0 1px black, 0 0 1px black, 0 0 1px black;
-
+  color: #ffffff;
 }
 
+.color-black {
+  color: #000000;
+}
 
 // fonts
 
@@ -227,11 +239,15 @@ body {
   &--align-center {
     align-items: center;
   }
+
+  &--align-end {
+    align-items: flex-end;
+  }
 }
 
 // material styles overrides
 
 div.mat-mdc-form-field-infix {
   width: 100%;
-  max-width: 180px
+  max-width: 180px;
 }

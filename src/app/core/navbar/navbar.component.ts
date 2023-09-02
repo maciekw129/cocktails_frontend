@@ -1,15 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { LinkComponent } from '../../shared/components/link/link.component';
+import { LinkComponent } from '@app/shared/components/link/link.component';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent } from '../../shared/components/button/button.component';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { LoginDialogComponent } from '../../auth/dialogs/login-dialog/login-dialog.component';
+import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RegisterDialogComponent } from '../../auth/dialogs/register-dialog/register-dialog.component';
-import { USER_DATA } from '../../auth/auth.tokens';
+import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
+import { USER_DATA } from '@app/auth/auth.tokens';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { AuthService } from '../../auth/auth.service';
+import { AuthService } from '@app/auth/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { BehaviorSubject, finalize } from 'rxjs';
 

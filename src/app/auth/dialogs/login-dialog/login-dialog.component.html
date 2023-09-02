@@ -2,9 +2,13 @@
   <h2 class="font-heading-2 margin-top-3">Login</h2>
   <div mat-dialog-content>
     <section class="flex flex--column flex--center">
-      <c-login-form (formSubmit)="login($event)" [isRequestPending]='isLoginPending$ | async' />
-      <p class='font-text-2 margin-top-2 text-center'>You don't have an account? <c-link (click)='openRegister()'>Sing up.</c-link></p>
+      <c-login-form
+        (formSubmit)="login($event)"
+        [isRequestPending]="isLoginPending$ | async" />
+      <p class="font-text-2 margin-top-2 text-center">
+        You don't have an account?
+        <c-link (click)="openRegister()">Sing up.</c-link>
+      </p>
     </section>
   </div>
 </div>
-

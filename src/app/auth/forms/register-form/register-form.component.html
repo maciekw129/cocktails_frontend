@@ -1,34 +1,32 @@
-<form [formGroup]='form' class='flex flex--column flex--center gap-2' (ngSubmit)='handleSubmit()'>
+<form
+  [formGroup]="form"
+  class="flex flex--column flex--center gap-2"
+  (ngSubmit)="handleSubmit()">
   <c-text-input
     formControlName="login"
     label="Login"
     placeholder="Enter login"></c-text-input>
   <c-text-input
-    formControlName='email'
-    label='E-mail'
-    placeholder='Enter e-mail'
-  ></c-text-input>
+    formControlName="email"
+    label="E-mail"
+    placeholder="Enter e-mail"></c-text-input>
   <c-text-input
-    formControlName='firstName'
-    label='First name'
-    placeholder='Enter first name'
-  ></c-text-input>
+    formControlName="firstName"
+    label="First name"
+    placeholder="Enter first name"></c-text-input>
   <c-text-input
-    formControlName='lastName'
-    label='Last name'
-    placeholder='Enter last name'
-  ></c-text-input>
+    formControlName="lastName"
+    label="Last name"
+    placeholder="Enter last name"></c-text-input>
   <c-text-input
-    formControlName='password'
-    label='Password'
-    placeholder='Enter password'
-    type='password'
-  ></c-text-input>
+    formControlName="password"
+    label="Password"
+    placeholder="Enter password"
+    type="password"></c-text-input>
   <c-text-input
-    formControlName='confirmPassword'
-    label='Confirm password'
-    placeholder='Confirm password'
-    type='password'
-  ></c-text-input>
-  <c-button [isLoading]='isRequestPending' translation='send' type="submit"/>
+    formControlName="confirmPassword"
+    label="Confirm password"
+    placeholder="Confirm password"
+    type="password"></c-text-input>
+  <c-button [isLoading]="isRequestPending" translation="send" type="submit" />
 </form>

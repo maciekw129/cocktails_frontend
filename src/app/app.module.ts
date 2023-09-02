@@ -1,10 +1,10 @@
 import { APP_INITIALIZER, inject, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { AppComponent } from '@app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
-import { API_URL } from './env.token';
-import { environment } from '../environments/environment';
+import { API_URL } from '@app/env.token';
+import { environment } from '@src/environments/environment';
 import {
   HTTP_INTERCEPTORS,
   HttpClient,

@@ -16,11 +16,12 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { UnsubscribeOnDestroy } from '../../services/unsubscribe-on-destroy';
+import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Directive({
-  selector: 'input[validationErrors][formControl]',
+  selector:
+    'input[validationErrors][formControl], textarea[validationErrors][formControl]',
   standalone: true,
   providers: [TranslatePipe],
 })
@@ -40,12 +41,9 @@ export class ValidationErrorsDirective
   ngOnInit() {
     this.renderer.appendChild(this.validationErrors, this.errorText);
 
-    this.refreshErrorMessages(this.formControl.errors)
+    this.refreshErrorMessages(this.formControl.errors);
 
-    combineLatest([
-      this.errorChange$,
-      this.formControl.valueChanges,
-    ])
+    combineLatest([this.errorChange$, this.formControl.valueChanges])
       .pipe(
         takeUntil(this.unsubscribe$),
         switchMap(() => of(this.formControl.errors)),

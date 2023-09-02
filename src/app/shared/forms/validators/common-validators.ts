@@ -1,7 +1,7 @@
 import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
-import { Patterns } from '../../utils/patterns';
-import { UniversalLimits } from './universal-limits';
-import { FormUtils } from '../form-utils';
+import { Patterns } from '@app/shared/utils/patterns';
+import { UniversalLimits } from '@app/shared/forms/validators/universal-limits';
+import { FormUtils } from '@app/shared/forms/form-utils';
 
 export class CommonValidators {
   public static email = () => {

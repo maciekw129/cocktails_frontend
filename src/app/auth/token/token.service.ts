@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { UnsubscribeOnDestroy } from '../../shared/services/unsubscribe-on-destroy';
+import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
 
 @Injectable({
   providedIn: 'root',

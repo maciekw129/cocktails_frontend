@@ -1,5 +1,16 @@
-<section >
-  <c-hero></c-hero>
-  <section class='margin-top-2 flex flex--center'>
-  </section>
+<section>
+  <c-hero variant="large" image='mainHero'>
+    <h2
+      class="blurred-background hero__title font-heading-2 color-white text-center margin-bottom-2">
+      Find, share and most importantly, drink.
+    </h2>
+    <c-button
+      *ngIf="isAuthorized | async"
+      routerLink="create-cocktail"
+      translation="addNewCocktail"
+      color="primary">
+      <mat-icon>add</mat-icon>
+    </c-button>
+  </c-hero>
+  <section class="margin-top-2 flex flex--center"></section>
 </section>

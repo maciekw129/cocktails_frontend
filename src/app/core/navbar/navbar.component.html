@@ -1,23 +1,31 @@
 <header class="flex flex--justify-center width-full">
   <div
     class="navbar main-container flex flex--align-center flex--justify-between width-full padding-16-8">
-    <div class="flex flex--align-center height-full">
-      <img class="navbar__image" src="assets/cocktail.png" alt="logo" />
+    <a
+      class="navbar__logo flex flex--align-center height-full color-black"
+      routerLink="">
+      <img
+        class="navbar__image"
+        src="../../../../assets/cocktail.png"
+        alt="logo" />
       <h2 class="navbar__title font-heading-1">Cocktails</h2>
-    </div>
-    <ng-container *ngIf='userData$ | async as userData; else authButtons'>
-        <c-button
-          translation='logout'
-          (buttonClick)='logout()'
-          [isLoading]='isLogoutPending$ | async'
-        ></c-button>
+    </a>
+    <ng-container *ngIf="userData$ | async as userData; else authButtons">
+      <c-button
+        translation="logout"
+        (buttonClick)="logout()"
+        [isLoading]="isLogoutPending$ | async"></c-button>
     </ng-container>
     <ng-template #authButtons>
       <div class="flex flex--align-center flex--justify-end gap-3">
-        <c-button class='navbar__login-button' design="secondary" (buttonClick)="openLoginDialog()"
-        ><p>{{'buttons.login' | translate}}</p><mat-icon>login</mat-icon></c-button
+        <c-button
+          class="navbar__login-button"
+          design="secondary"
+          (buttonClick)="openLoginDialog()"
+          ><p>{{ 'buttons.login' | translate }}</p>
+          <mat-icon>login</mat-icon></c-button
         >
-        <c-button translation='register' (buttonClick)='openRegisterDialog()'/>
+        <c-button translation="register" (buttonClick)="openRegisterDialog()" />
       </div>
     </ng-template>
   </div>

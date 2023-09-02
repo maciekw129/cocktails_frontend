@@ -1,14 +1,14 @@
 import { inject, Injectable } from '@angular/core';
-import { StatefulService } from '../shared/services/stateful-service';
-import { AuthApiService } from './auth-api.service';
+import { StatefulService } from '@app/shared/services/stateful-service';
+import { AuthApiService } from '@app/auth/auth-api.service';
 import {
   AuthState,
   LoginPayload,
   RegisterPayload,
   UserData,
-} from './auth.model';
+} from '@app/auth/auth.model';
 import { tap } from 'rxjs';
-import { TokenService } from './token/token.service';
+import { TokenService } from '@app/auth/token/token.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends StatefulService<AuthState> {
