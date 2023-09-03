@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { MatTableModule } from '@angular/material/table';
@@ -10,15 +16,21 @@ import { MatButtonModule } from '@angular/material/button';
   standalone: true,
   imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule],
   templateUrl: './ingredients-table.component.html',
-  styleUrls: ['./ingredients-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IngredientsTableComponent {
+  @Output() removeIngredient = new EventEmitter<Ingredient>();
   @Input() dataSource: Ingredient[];
 
-  displayedColumns: string[] = ['name', 'quantity', 'unit', 'remove'];
+  displayedColumns: string[] = [
+    'name',
+    'quantity',
+    'unit',
+    'isAlcoholic',
+    'remove',
+  ];
 
-  handleRemove(e) {
-    return;
+  handleRemove(ingredient: Ingredient) {
+    this.removeIngredient.emit(ingredient);
   }
 }

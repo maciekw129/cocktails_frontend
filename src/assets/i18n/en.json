@@ -8,6 +8,8 @@
     }
   },
   "buttons": {
+    "yes": "Yes",
+    "no": "No",
     "login": "Login",
     "register": "Register",
     "logout": "Logout",

@@ -19,6 +19,11 @@
     <td mat-cell *matCellDef="let element"> {{element.unit}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="isAlcoholic">
+    <th mat-header-cell *matHeaderCellDef> Alcoholic </th>
+    <td mat-cell *matCellDef="let element"> {{element.isAlcoholic}} </td>
+  </ng-container>
+
   <ng-container matColumnDef="remove" stickyEnd>
     <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
     <td mat-cell *matCellDef="let element">

@@ -10,6 +10,7 @@ import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-i
 import { unitOptions } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.data';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { FormService } from '@app/shared/forms/form.service';
+import { CheckboxComponent } from '@app/shared/forms/controls/checkbox/checkbox.component';
 
 @Component({
   selector: 'c-add-ingredient-form',
@@ -21,9 +22,9 @@ import { FormService } from '@app/shared/forms/form.service';
     SelectComponent,
     TextInputComponent,
     ButtonComponent,
+    CheckboxComponent,
   ],
   templateUrl: './add-ingredient-form.component.html',
-  styleUrls: ['./add-ingredient-form.component.scss'],
   providers: [FormService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

@@ -1,11 +1,15 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
 import { FormService } from '@app/shared/forms/form.service';
 import { FormComponent } from '@app/shared/forms/form.component';
 import {
   CreateCocktailForm,
-  IngredientGroup,
   Step1Form,
   Step2Form,
   Step3Form,
@@ -24,6 +28,8 @@ import { IngredientsTableComponent } from '@app/modules/create-cocktail/componen
 import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
 import { AddIngredientFormComponent } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.component';
 import { MatCardModule } from '@angular/material/card';
+import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'c-create-cocktail-form',
@@ -51,6 +57,8 @@ export class CreateCocktailFormComponent
   extends FormComponent<Cocktail, FormGroup<CreateCocktailForm>>
   implements OnInit
 {
+  private confirmationDialogService = inject(ConfirmationDialogService);
+
   get step1Group() {
     return this.form.controls.step1;
   }
@@ -91,6 +99,13 @@ export class CreateCocktailFormComponent
       ...this.ingredientsControl.value,
       ingredient,
     ]);
+  }
+
+  removeIngredient(ingredient: Ingredient) {
+    this.confirmationDialogService
+      .openConfirmationDialog$()
+      .pipe(tap(() => console.log('yes')))
+      .subscribe();
   }
 
   handleNextStep() {

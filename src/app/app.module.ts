@@ -17,6 +17,7 @@ import { USER_DATA } from './auth/auth.tokens';
 import { TokenInterceptor } from './auth/token/token.interceptor';
 import { GlobalLoaderInterceptor } from './core/global-loader/global-loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     HttpClientModule,
     MatSnackBarModule,
+    MatDialogModule,
     RouterModule.forRoot(routes),
     TranslateModule.forRoot({
       extend: true,
