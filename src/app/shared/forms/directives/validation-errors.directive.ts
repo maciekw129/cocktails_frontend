@@ -21,7 +21,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 @Directive({
   selector:
-    'input[validationErrors][formControl], textarea[validationErrors][formControl]',
+    'input[validationErrors][formControl], textarea[validationErrors][formControl], mat-select[validationErrors][formControl]',
   standalone: true,
   providers: [TranslatePipe],
 })

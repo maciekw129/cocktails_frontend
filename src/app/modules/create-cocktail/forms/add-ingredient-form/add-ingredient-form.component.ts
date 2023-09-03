@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '@app/shared/forms/form.component';
 import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
@@ -11,6 +11,8 @@ import { unitOptions } from '@app/modules/create-cocktail/forms/add-ingredient-f
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { FormService } from '@app/shared/forms/form.service';
 import { CheckboxComponent } from '@app/shared/forms/controls/checkbox/checkbox.component';
+import { tap } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'c-add-ingredient-form',
@@ -32,7 +34,22 @@ export class AddIngredientFormComponent extends FormComponent<
   Ingredient,
   FormGroup<IngredientForm>
 > {
+  private activatedRoute = inject(ActivatedRoute);
+
   unitOptions = unitOptions;
+  ingredients: string[];
+
+  resolve$ = this.activatedRoute.data.pipe(
+    tap(
+      ({ ingredients }: { ingredients: Ingredient[] }) =>
+        (this.ingredients = ingredients.map(ingredient => ingredient.name))
+    )
+  );
+
+  override ngOnInit() {
+    super.ngOnInit();
+    this.resolve$.subscribe();
+  }
 
   protected buildForm() {
     return this.fb.group<IngredientForm>({

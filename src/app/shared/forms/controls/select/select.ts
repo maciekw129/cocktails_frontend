@@ -31,15 +31,17 @@ export type SelectOptions<T> = SelectOption<T>[];
     MatSelectModule,
     FormsModule,
     NgForOf,
+    ValidationErrorsDirective,
   ],
   template: `
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
-      <mat-select [formControl]="control">
+      <mat-select [formControl]="control" [validationErrors]="validationErrors">
         <mat-option *ngFor="let option of options" [value]="option.value">
           {{ option.label }}
         </mat-option>
       </mat-select>
+      <mat-error #validationErrors></mat-error>
     </mat-form-field>
   `,
   styles: ['mat-select {width: 180px; max-width: 180px}'],

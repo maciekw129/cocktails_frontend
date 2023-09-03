@@ -34,7 +34,8 @@ import { map, Observable, startWith } from 'rxjs';
         [placeholder]="placeholder"
         matInput
         [formControl]="control"
-        [matAutocomplete]="auto" />
+        [matAutocomplete]="auto"
+        [validationErrors]="validationErrors" />
       <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
         <mat-option
           *ngFor="let option of filteredOptions | async"
@@ -64,7 +65,7 @@ export class TextAutocompleteInputComponent
   @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
-  @Input() options: string[] = ['One', 'Two', 'Three'];
+  @Input() options: string[] = [];
   filteredOptions: Observable<string[]>;
 
   override ngOnInit() {
