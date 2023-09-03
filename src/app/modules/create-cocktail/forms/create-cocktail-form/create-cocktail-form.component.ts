@@ -29,7 +29,7 @@ import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-
 import { AddIngredientFormComponent } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { tap } from 'rxjs';
+import { Observable, startWith, tap } from 'rxjs';
 
 @Component({
   selector: 'c-create-cocktail-form',
@@ -59,6 +59,8 @@ export class CreateCocktailFormComponent
 {
   private confirmationDialogService = inject(ConfirmationDialogService);
 
+  ingredients$: Observable<Ingredient[]>;
+
   get step1Group() {
     return this.form.controls.step1;
   }
@@ -77,6 +79,9 @@ export class CreateCocktailFormComponent
 
   override ngOnInit() {
     super.ngOnInit();
+    this.ingredients$ = this.ingredientsControl.valueChanges.pipe(
+      startWith([])
+    );
   }
 
   protected buildForm() {
@@ -104,7 +109,15 @@ export class CreateCocktailFormComponent
   removeIngredient(ingredient: Ingredient) {
     this.confirmationDialogService
       .openConfirmationDialog$()
-      .pipe(tap(() => console.log('yes')))
+      .pipe(
+        tap(() => {
+          this.ingredientsControl.setValue(
+            this.ingredientsControl.value.filter(
+              ({ name }) => name !== ingredient.name
+            )
+          );
+        })
+      )
       .subscribe();
   }
 

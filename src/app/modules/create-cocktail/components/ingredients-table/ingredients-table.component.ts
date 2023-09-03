@@ -10,11 +10,18 @@ import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UnitPipe } from '@app/modules/create-cocktail/components/ingredients-table/unit.pipe';
 
 @Component({
   selector: 'c-ingredients-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    MatTableModule,
+    MatIconModule,
+    MatButtonModule,
+    UnitPipe,
+  ],
   templateUrl: './ingredients-table.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

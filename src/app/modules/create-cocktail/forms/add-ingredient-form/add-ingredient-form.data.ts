@@ -1,16 +1,16 @@
-import { Units } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.model';
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
+import { Unit } from '@app/modules/create-cocktail/create-cocktail.model';
 
-export const unitLabels: Record<Units, string> = {
-  [Units.pcs]: 'pcs',
-  [Units.g]: 'g',
-  [Units.l]: 'l',
-  [Units.ml]: 'ml',
+export const unitLabels: Record<Unit, string> = {
+  [Unit.pcs]: 'pcs',
+  [Unit.g]: 'g',
+  [Unit.l]: 'l',
+  [Unit.ml]: 'ml',
 };
 
-export const unitOptions: SelectOptions<Units> = [
-  { value: Units.g, label: unitLabels[Units.g] },
-  { value: Units.l, label: unitLabels[Units.l] },
-  { value: Units.ml, label: unitLabels[Units.ml] },
-  { value: Units.pcs, label: unitLabels[Units.pcs] },
+export const unitOptions: SelectOptions<Unit> = [
+  { value: Unit.g, label: unitLabels[Unit.g] },
+  { value: Unit.l, label: unitLabels[Unit.l] },
+  { value: Unit.ml, label: unitLabels[Unit.ml] },
+  { value: Unit.pcs, label: unitLabels[Unit.pcs] },
 ];

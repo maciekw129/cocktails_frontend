@@ -14,6 +14,7 @@ import {
   NonNullableFormBuilder,
 } from '@angular/forms';
 import { FormService } from '@app/shared/forms/form.service';
+import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
 
 type FormFromObj<T extends object> = {
   [P in keyof T]: T[P] extends object
@@ -25,6 +26,7 @@ type FormFromObj<T extends object> = {
   template: '',
 })
 export abstract class FormComponent<T extends object, F extends FormGroup>
+  extends UnsubscribeOnDestroy
   implements OnInit
 {
   @ViewChild('ngForm') ngForm: NgForm;

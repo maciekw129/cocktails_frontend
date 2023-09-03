@@ -11,3 +11,10 @@ export interface Ingredient {
   unit: string;
   isAlcoholic: boolean;
 }
+
+export enum Unit {
+  g = 1,
+  ml = 2,
+  l = 3,
+  pcs = 4,
+}

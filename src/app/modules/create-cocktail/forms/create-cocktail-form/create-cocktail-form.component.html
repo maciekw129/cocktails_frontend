@@ -29,7 +29,9 @@
       <form [formGroup]='step2Group' class='flex flex--column flex--center gap-4 padding-4-0'>
         <ng-template matStepLabel>Ingredients</ng-template>
         <div class='flex flex--center gap-2'>
-          <c-ingredients-table *ngIf='ingredientsControl.value.length; else emptyIngredients' [dataSource]='ingredientsControl.value' (removeIngredient)='removeIngredient($event)'/>
+          <ng-container *ngIf='ingredients$ | async as ingredients'>
+            <c-ingredients-table *ngIf='ingredients.length; else emptyIngredients' [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
+          </ng-container>
           <ng-template #emptyIngredients>
             <p class='font-text-2'>You haven't added any ingredient.</p>
           </ng-template>
