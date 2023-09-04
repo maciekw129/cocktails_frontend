@@ -14,9 +14,7 @@
             <c-ingredients-table *ngIf='ingredients.length; else emptyIngredients' [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
           </ng-container>
           <ng-template #emptyIngredients>
-            <div>
-              <p class='font-text-2' [ngClass]="{'mat-mdc-form-field-error': wasSubmitClicked$ | async}">You haven"t added any ingredient.</p>
-            </div>
+            <p class='font-text-2'>You haven't added any ingredient.</p>
           </ng-template>
         </div>
         <mat-card>

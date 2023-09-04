@@ -30,7 +30,7 @@ import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-
 import { AddIngredientFormComponent } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { BehaviorSubject, map, Observable, startWith, take, tap } from 'rxjs';
+import { Observable, startWith, tap } from 'rxjs';
 import { CreateCocktailFormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.validators';
 import { CreateCocktailStep1FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component';
 
@@ -127,10 +127,6 @@ export class CreateCocktailFormComponent
         })
       )
       .subscribe();
-  }
-
-  nextStep() {
-    this.stepper.next();
   }
 
   protected setEmittingValue(): any {
