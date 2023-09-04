@@ -1,10 +1,15 @@
-import { AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  ValidationErrors,
+  ValidatorFn,
+} from '@angular/forms';
 import { Patterns } from '@app/shared/utils/patterns';
 import { UniversalLimits } from '@app/shared/forms/validators/universal-limits';
 import { FormUtils } from '@app/shared/forms/form-utils';
 
 export class CommonValidators {
-  public static email = () => {
+  public static email = (): ValidatorFn => {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value as string;
 
@@ -14,7 +19,7 @@ export class CommonValidators {
     };
   };
 
-  public static password = () => {
+  public static password = (): ValidatorFn => {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value as string;
 
@@ -28,7 +33,7 @@ export class CommonValidators {
     };
   };
 
-  public static twoControlsMatch = (otherControl: FormControl) => {
+  public static twoControlsMatch = (otherControl: FormControl): ValidatorFn => {
     return (control: FormControl): ValidationErrors | null => {
       const otherControlName = FormUtils.getControlName(otherControl);
       const isValid = otherControl.value === control.value;

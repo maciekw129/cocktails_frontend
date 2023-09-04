@@ -3,6 +3,7 @@ import {
   Component,
   inject,
   OnInit,
+  ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
@@ -20,7 +21,7 @@ import {
 } from '@app/modules/create-cocktail/create-cocktail.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TextareaInputComponent } from '@app/shared/forms/controls/textarea-input/textarea-input.component';
-import { MatStepperModule } from '@angular/material/stepper';
+import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
@@ -29,7 +30,9 @@ import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-
 import { AddIngredientFormComponent } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.component';
 import { MatCardModule } from '@angular/material/card';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { Observable, startWith, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, startWith, take, tap } from 'rxjs';
+import { CreateCocktailFormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.validators';
+import { CreateCocktailStep1FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component';
 
 @Component({
   selector: 'c-create-cocktail-form',
@@ -47,6 +50,7 @@ import { Observable, startWith, tap } from 'rxjs';
     TextAutocompleteInputComponent,
     AddIngredientFormComponent,
     MatCardModule,
+    CreateCocktailStep1FormComponent,
   ],
   providers: [FormService],
   templateUrl: './create-cocktail-form.component.html',
@@ -57,6 +61,8 @@ export class CreateCocktailFormComponent
   extends FormComponent<Cocktail, FormGroup<CreateCocktailForm>>
   implements OnInit
 {
+  @ViewChild('stepper') stepper: MatStepper;
+
   private confirmationDialogService = inject(ConfirmationDialogService);
 
   ingredients$: Observable<Ingredient[]>;
@@ -91,7 +97,9 @@ export class CreateCocktailFormComponent
         description: this.fb.control('', { validators: [Validators.required] }),
       }),
       step2: this.fb.group<Step2Form>({
-        ingredients: this.fb.control<Ingredient[]>([]),
+        ingredients: this.fb.control<Ingredient[]>([], {
+          validators: [CreateCocktailFormValidators.requiredIngredients()],
+        }),
       }),
       step3: this.fb.group<Step3Form>({
         preparation: this.fb.control(''),
@@ -121,8 +129,8 @@ export class CreateCocktailFormComponent
       .subscribe();
   }
 
-  handleNextStep() {
-    this.formService.emitFormSubmit();
+  nextStep() {
+    this.stepper.next();
   }
 
   protected setEmittingValue(): any {

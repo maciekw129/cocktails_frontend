@@ -1,0 +1,20 @@
+<form [formGroup]='form' (ngSubmit)='handleSubmit()' class='flex flex--column flex--center gap-4 padding-4-0'>
+  <mat-card>
+    <mat-card-content>
+      <div class='flex flex--column'>
+        <c-text-input
+          formControlName='name'
+          label='Cocktail name'
+          placeholder='Enter cocktail name'
+        />
+        <c-textarea-input
+          formControlName='description'
+          label='Cocktail description'
+          placeholder='Enter cocktail description'
+          [minRows]='5'
+        ></c-textarea-input>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <c-button translation='next' type='submit'></c-button>
+</form>

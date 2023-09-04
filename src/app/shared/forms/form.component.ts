@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   inject,
@@ -15,6 +16,7 @@ import {
 } from '@angular/forms';
 import { FormService } from '@app/shared/forms/form.service';
 import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
+import { BehaviorSubject, take, tap } from 'rxjs';
 
 type FormFromObj<T extends object> = {
   [P in keyof T]: T[P] extends object
@@ -36,16 +38,32 @@ export abstract class FormComponent<T extends object, F extends FormGroup>
 
   protected fb = inject(NonNullableFormBuilder);
   protected formService = inject(FormService);
+  private cdr = inject(ChangeDetectorRef);
 
   form!: F;
+  private readonly _wasSubmitClicked$ = new BehaviorSubject<boolean>(false);
+
+  get wasSubmitClicked$() {
+    return this._wasSubmitClicked$.asObservable();
+  }
 
   ngOnInit() {
     this.form = this.buildForm();
+    this.listenFormSubmit();
   }
 
   protected abstract buildForm(): F;
 
   protected abstract setEmittingValue(): T;
+
+  private listenFormSubmit() {
+    this.formService.formSubmit$
+      .pipe(
+        take(1),
+        tap(() => this._wasSubmitClicked$.next(true))
+      )
+      .subscribe();
+  }
 
   protected afterSubmit() {
     return;

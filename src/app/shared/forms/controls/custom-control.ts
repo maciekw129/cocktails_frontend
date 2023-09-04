@@ -14,7 +14,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormService } from '@app/shared/forms/form.service';
-import { take, tap } from 'rxjs';
+import { take, takeUntil, tap } from 'rxjs';
 
 @Component({ template: '' })
 // eslint-disable-next-line @angular-eslint/component-class-suffix
@@ -43,7 +43,7 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
       .pipe(
         take(1),
         tap(() => {
-          this.cdr.detectChanges();
+          this.cdr.markForCheck();
         })
       )
       .subscribe();

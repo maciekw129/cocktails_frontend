@@ -2,27 +2,8 @@
   <mat-stepper linear #stepper class='margin-bottom-3'>
 
     <mat-step [stepControl]="step1Group">
-      <form [formGroup]='step1Group' class='flex flex--column flex--center gap-4 padding-4-0'>
         <ng-template matStepLabel>Basic informations</ng-template>
-        <mat-card>
-          <mat-card-content>
-            <div class='flex flex--column'>
-              <c-text-input
-                formControlName='name'
-                label='Cocktail name'
-                placeholder='Enter cocktail name'
-              />
-              <c-textarea-input
-                formControlName='description'
-                label='Cocktail description'
-                placeholder='Enter cocktail description'
-                [minRows]='5'
-              ></c-textarea-input>
-            </div>
-          </mat-card-content>
-        </mat-card>
-        <button mat-flat-button color='primary' matStepperNext (click)='handleNextStep()'>Next</button>
-      </form>
+        <c-create-cocktail-step1-form (formSubmit)='step1Group.patchValue($event); stepper.next()'></c-create-cocktail-step1-form>
     </mat-step>
 
     <mat-step [stepControl]="step2Group">
@@ -33,7 +14,9 @@
             <c-ingredients-table *ngIf='ingredients.length; else emptyIngredients' [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
           </ng-container>
           <ng-template #emptyIngredients>
-            <p class='font-text-2'>You haven't added any ingredient.</p>
+            <div>
+              <p class='font-text-2' [ngClass]="{'mat-mdc-form-field-error': wasSubmitClicked$ | async}">You haven"t added any ingredient.</p>
+            </div>
           </ng-template>
         </div>
         <mat-card>
@@ -42,8 +25,8 @@
           </mat-card-content>
         </mat-card>
         <div class='flex flex--center gap-4 width-full'>
-          <button mat-flat-button color='primary' matStepperPrevious>Back</button>
-          <button mat-flat-button color='primary' matStepperNext>Next</button>
+          <button mat-flat-button color='primary' matStepperPrevious type='button'>Back</button>
+          <button mat-flat-button color='primary' matStepperNext type='button'>Next</button>
         </div>
       </form>
     </mat-step>
