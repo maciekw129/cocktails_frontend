@@ -1,8 +1,9 @@
 <form [formGroup]='form' (ngSubmit)='handleSubmit()' stopEventPropagation class='flex flex--column flex--center gap-4 padding-4-0'>
   <div class='flex flex--center gap-2'>
-    <ng-container *ngIf='ingredients$ | async as ingredients'>
+    <div class='flex flex--column flex--center gap-3' *ngIf='ingredients$ | async as ingredients'>
       <c-ingredients-table [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
-    </ng-container>
+      <c-custom-error [errors]='ingredientsControl.errors'></c-custom-error>
+    </div>
   </div>
   <mat-card>
     <mat-card-content>
