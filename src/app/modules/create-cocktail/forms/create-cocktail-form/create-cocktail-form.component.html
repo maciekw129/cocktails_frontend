@@ -7,26 +7,8 @@
     </mat-step>
 
     <mat-step [stepControl]="step2Group">
-      <form [formGroup]='step2Group' class='flex flex--column flex--center gap-4 padding-4-0'>
         <ng-template matStepLabel>Ingredients</ng-template>
-        <div class='flex flex--center gap-2'>
-          <ng-container *ngIf='ingredients$ | async as ingredients'>
-            <c-ingredients-table *ngIf='ingredients.length; else emptyIngredients' [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
-          </ng-container>
-          <ng-template #emptyIngredients>
-            <p class='font-text-2'>You haven't added any ingredient.</p>
-          </ng-template>
-        </div>
-        <mat-card>
-          <mat-card-content>
-            <c-add-ingredient-form (formSubmit)='addIngredient($event)'></c-add-ingredient-form>
-          </mat-card-content>
-        </mat-card>
-        <div class='flex flex--center gap-4 width-full'>
-          <button mat-flat-button color='primary' matStepperPrevious type='button'>Back</button>
-          <button mat-flat-button color='primary' matStepperNext type='button'>Next</button>
-        </div>
-      </form>
+        <c-create-cocktail-step2-form (formSubmit)='step2Group.patchValue($event); stepper.next()' (stepperBack)='stepper.previous()'></c-create-cocktail-step2-form>
     </mat-step>
 
     <mat-step [stepControl]="step3Group">

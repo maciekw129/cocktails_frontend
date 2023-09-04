@@ -1,0 +1,16 @@
+<form [formGroup]='form' (ngSubmit)='handleSubmit()' stopEventPropagation class='flex flex--column flex--center gap-4 padding-4-0'>
+  <div class='flex flex--center gap-2'>
+    <ng-container *ngIf='ingredients$ | async as ingredients'>
+      <c-ingredients-table [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
+    </ng-container>
+  </div>
+  <mat-card>
+    <mat-card-content>
+      <c-add-ingredient-form (formSubmit)='addIngredient($event)' stopEventPropagation></c-add-ingredient-form>
+    </mat-card-content>
+  </mat-card>
+  <div class='flex flex--center gap-4 width-full'>
+    <c-button translation='back' (buttonClick)='emitStepperBack()'></c-button>
+    <c-button translation='next' type='submit'></c-button>
+  </div>
+</form>

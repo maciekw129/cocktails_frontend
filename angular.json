@@ -15,6 +15,10 @@
         "@schematics/angular:pipe": {
           "standalone": true,
           "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "standalone": true,
+          "skipTests": true
         }
       },
       "root": "",

@@ -1,4 +1,4 @@
-<form [formGroup]='form' #ngForm="ngForm" (ngSubmit)='handleSubmit()' class='flex flex--column flex--center'>
+<form [formGroup]='form' #ngForm="ngForm" (ngSubmit)='handleSubmit()' stopEventPropagation class='flex flex--column flex--center'>
   <c-autocomplete-input formControlName='name' label='Name' placeholder='Enter ingredient name' [options]='ingredients'></c-autocomplete-input>
   <c-text-input formControlName='quantity' type='number' label='Quantity' placeholder='Enter quantity'></c-text-input>
   <c-select formControlName='unit' label='Unit' [options]='unitOptions'></c-select>

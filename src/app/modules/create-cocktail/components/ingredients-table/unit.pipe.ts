@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { unitLabels } from '@app/modules/create-cocktail/forms/add-ingredient-form/add-ingredient-form.data';
+import { unitLabels } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
 import { Unit } from '@app/modules/create-cocktail/create-cocktail.model';
 
 @Pipe({
