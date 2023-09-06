@@ -11,19 +11,19 @@ import { FooterComponent } from '@app/core/footer/footer.component';
   selector: 'c-shell',
   standalone: true,
   template: `
-    <div class="shell">
+    <div class="shell flex flex--column">
       <mat-progress-bar
         *ngIf="isLoading$ | async"
         mode="indeterminate"
         value="40"></mat-progress-bar>
-      <c-navbar class="main-container" />
+      <c-navbar />
       <main>
         <router-outlet></router-outlet>
       </main>
-      <c-footer />
+      <c-footer class="footer" />
     </div>
   `,
-  styles: ['.shell {min-height: 100vh; position: relative}'],
+  styles: ['.shell {min-height: 100vh} .footer {margin-top: auto}'],
   imports: [
     RouterOutlet,
     NavbarComponent,

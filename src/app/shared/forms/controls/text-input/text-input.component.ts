@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
 import { CustomControl } from '@app/shared/forms/controls/custom-control';
 
@@ -15,9 +15,10 @@ import { CustomControl } from '@app/shared/forms/controls/custom-control';
     NgIf,
     ReactiveFormsModule,
     ValidationErrorsDirective,
+    NgClass,
   ],
   template: `
-    <mat-form-field class="margin-bottom-3">
+    <mat-form-field [ngClass]="{ 'margin-bottom-3': hasBottomMargin }">
       <mat-label>{{ label }}</mat-label>
       <input
         [formControl]="control"
@@ -44,4 +45,5 @@ export class TextInputComponent extends CustomControl<string> {
   @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
+  @Input() hasBottomMargin = true;
 }

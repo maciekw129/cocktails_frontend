@@ -11,6 +11,7 @@ import { ThemePalette } from '@angular/material/core';
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'c-button',
@@ -22,6 +23,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     TranslateModule,
     AsyncPipe,
     MatProgressBarModule,
+    MatTooltipModule,
   ],
   template: `
     <button
@@ -30,6 +32,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
       [color]="color"
       (click)="handleClick()"
       [disabled]="disabled || isLoading"
+      [matTooltip]="tip"
       [type]="type">
       <ng-container *ngTemplateOutlet="content"></ng-container>
     </button>
@@ -41,6 +44,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         [color]="color"
         (click)="handleClick()"
         [disabled]="disabled || isLoading"
+        [matTooltip]="tip"
         [type]="type">
         <ng-container *ngTemplateOutlet="content"></ng-container>
       </button>
@@ -70,6 +74,7 @@ export class ButtonComponent {
   @Input() type: Type = 'button';
   @Input() translation = '';
   @Input() isLoading = false;
+  @Input() tip = '';
 
   get fullTranslation() {
     return this.translation ? `buttons.${this.translation}` : '';

@@ -59,5 +59,5 @@ export class SelectComponent extends CustomControl<string> {
   @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
-  @Input() options: SelectOptions<PrimitiveTypes> = [];
+  @Input() options: SelectOptions<unknown> = [];
 }

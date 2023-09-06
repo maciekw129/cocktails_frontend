@@ -12,14 +12,14 @@
     </mat-step>
 
     <mat-step [stepControl]="step3Group">
-      <form [formGroup]='step3Group' class='flex flex--column flex--center gap-4 padding-4-0'>
         <ng-template matStepLabel>Preparation</ng-template>
-
-        <div class='buttons'>
-          <button mat-flat-button color='primary' matStepperPrevious>Back</button>
-          <button mat-flat-button color='primary' matStepperNext>Next</button>
-        </div>
-      </form>
+      <ng-container *ngIf='ingredients$ | async as ingredients'>
+        <c-create-cocktail-step3-form
+          (formSubmit)='step3Group.patchValue($event); stepper.next()'
+          (stepperBack)='stepper.previous()'
+          [ingredients]='ingredients'
+        ></c-create-cocktail-step3-form>
+      </ng-container>
     </mat-step>
   </mat-stepper>
 </form>

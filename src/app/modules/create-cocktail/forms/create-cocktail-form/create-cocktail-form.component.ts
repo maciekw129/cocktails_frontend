@@ -28,6 +28,9 @@ import { CreateCocktailStep1FormComponent } from '@app/modules/create-cocktail/f
 import { CreateCocktailStep2FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.component';
 import { CreateCocktailStep1Form } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model';
 import { CreateCocktailStep2Form } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model';
+import { CreateCocktailStep3FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component';
+import { map, Observable } from 'rxjs';
+import { SelectOptions } from '@app/shared/forms/controls/select/select';
 
 @Component({
   selector: 'c-create-cocktail-form',
@@ -47,6 +50,7 @@ import { CreateCocktailStep2Form } from '@app/modules/create-cocktail/forms/crea
     MatCardModule,
     CreateCocktailStep1FormComponent,
     CreateCocktailStep2FormComponent,
+    CreateCocktailStep3FormComponent,
   ],
   providers: [FormService],
   templateUrl: './create-cocktail-form.component.html',
@@ -69,6 +73,21 @@ export class CreateCocktailFormComponent
 
   get step3Group() {
     return this.form.controls.step3;
+  }
+
+  ingredients$: Observable<SelectOptions<Ingredient>>;
+
+  override ngOnInit() {
+    super.ngOnInit();
+
+    this.ingredients$ =
+      this.form.controls.step2.controls.ingredients.valueChanges.pipe(
+        map(ingredients =>
+          ingredients.map(ingredient => {
+            return { value: ingredient, label: ingredient.name };
+          })
+        )
+      );
   }
 
   protected buildForm() {

@@ -21,7 +21,7 @@ import {
 } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model';
 import { CreateCocktailStep2FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
 import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
-import { BehaviorSubject, Observable, startWith, take, tap } from 'rxjs';
+import { Observable, startWith, tap } from 'rxjs';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { StopEventPropagationDirective } from '@app/shared/directives/stop-event-propagation.directive';

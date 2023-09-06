@@ -5,7 +5,8 @@
       "emailPattern": "E-mail is in wrong format.",
       "password": "Password must have letter, number and 8 chars. long.",
       "controlsMatch": "This field must match with {{otherControlName}}",
-      "requiredIngredients": "You must add at least one ingredient."
+      "requiredIngredients": "You must add at least one ingredient.",
+      "requiredSteps": "You must add at least one step."
     }
   },
   "buttons": {
@@ -19,6 +20,7 @@
     "addNewCocktail": "Add new cocktail",
     "next": "Next",
     "back": "Back",
-    "addIngredient": "Add ingredient"
+    "addIngredient": "Add ingredient",
+    "submit": "Submit"
   }
 }
