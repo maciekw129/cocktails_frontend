@@ -11,4 +11,8 @@ import { CreateCocktailFormComponent } from '@app/modules/create-cocktail/forms/
   styleUrls: ['create-cocktail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CreateCocktailComponent {}
+export class CreateCocktailComponent {
+  x(x: any) {
+    console.log(x);
+  }
+}

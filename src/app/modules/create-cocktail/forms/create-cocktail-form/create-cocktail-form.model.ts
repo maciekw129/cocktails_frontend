@@ -1,11 +1,12 @@
-import { FormControl, FormGroup } from '@angular/forms';
-import { CreateCocktailStep1Form } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model';
-import { CreateCocktailStep2Form } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model';
+import { FormControl } from '@angular/forms';
+import { PreparationStep } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
+import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 
 export interface CreateCocktailForm {
-  step1: FormGroup<CreateCocktailStep1Form>;
-  step2: FormGroup<CreateCocktailStep2Form>;
-  step3: FormGroup<any>;
+  name: FormControl<string>;
+  description: FormControl<string>;
+  preparation: FormControl<PreparationStep[]>;
+  ingredients: FormControl<Ingredient[]>;
 }
 
 export interface IngredientGroup {

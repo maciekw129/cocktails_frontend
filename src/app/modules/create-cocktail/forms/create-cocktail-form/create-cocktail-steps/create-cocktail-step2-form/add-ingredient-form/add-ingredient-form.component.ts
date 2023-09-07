@@ -56,7 +56,7 @@ export class AddIngredientFormComponent extends FormComponent<
   protected buildForm() {
     return this.fb.group<IngredientForm>({
       name: this.fb.control('', { validators: Validators.required }),
-      quantity: this.fb.control('', { validators: Validators.required }),
+      quantity: this.fb.control(null, { validators: Validators.required }),
       unit: this.fb.control('', { validators: Validators.required }),
       isAlcoholic: this.fb.control(false, { validators: Validators.required }),
     });

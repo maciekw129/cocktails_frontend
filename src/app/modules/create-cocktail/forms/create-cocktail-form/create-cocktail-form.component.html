@@ -1,21 +1,20 @@
 <form [formGroup]='form' class='width-full'>
   <mat-stepper linear #stepper class='margin-bottom-3'>
-
-    <mat-step [stepControl]="step1Group">
+    <mat-step>
         <ng-template matStepLabel>Basic informations</ng-template>
-        <c-create-cocktail-step1-form (formSubmit)='step1Group.patchValue($event); stepper.next()'></c-create-cocktail-step1-form>
+        <c-create-cocktail-step1-form (formSubmit)='patchFormValue($event); stepper.next()'></c-create-cocktail-step1-form>
     </mat-step>
 
-    <mat-step [stepControl]="step2Group">
+    <mat-step>
         <ng-template matStepLabel>Ingredients</ng-template>
-        <c-create-cocktail-step2-form (formSubmit)='step2Group.patchValue($event); stepper.next()' (stepperBack)='stepper.previous()'></c-create-cocktail-step2-form>
+        <c-create-cocktail-step2-form (formSubmit)='patchFormValue($event); stepper.next()' (stepperBack)='stepper.previous()'></c-create-cocktail-step2-form>
     </mat-step>
 
-    <mat-step [stepControl]="step3Group">
+    <mat-step>
         <ng-template matStepLabel>Preparation</ng-template>
       <ng-container *ngIf='ingredients$ | async as ingredients'>
         <c-create-cocktail-step3-form
-          (formSubmit)='step3Group.patchValue($event); stepper.next()'
+          (formSubmit)='patchFormValue($event); handleSubmit()'
           (stepperBack)='stepper.previous()'
           [ingredients]='ingredients'
         ></c-create-cocktail-step3-form>

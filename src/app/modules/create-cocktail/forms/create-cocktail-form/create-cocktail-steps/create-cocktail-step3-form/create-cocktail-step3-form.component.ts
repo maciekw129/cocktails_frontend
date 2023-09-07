@@ -1,5 +1,4 @@
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -21,7 +20,6 @@ import {
   SelectOptions,
 } from '@app/shared/forms/controls/select/select';
 import { FormService } from '@app/shared/forms/form.service';
-import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { actionSelectOptions } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.data';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
@@ -56,7 +54,8 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
   FormGroup<CreateCocktailStep3Form>
 > {
   @Output() stepperBack = new EventEmitter<void>();
-  @Input() ingredients: SelectOptions<Ingredient>;
+  @Output() submitParentForm = new EventEmitter<void>();
+  @Input() ingredients: SelectOptions<string>;
 
   private confirmationDialogService = inject(ConfirmationDialogService);
   private cdr = inject(ChangeDetectorRef);
@@ -105,6 +104,10 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
 
   protected setEmittingValue() {
     return this.form.getRawValue();
+  }
+
+  protected override afterSubmit() {
+    this.submitParentForm.emit();
   }
 
   emitStepperBack() {
