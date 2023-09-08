@@ -3,6 +3,6 @@
     <h2 class="blurred-background font-heading-2 color-white">Add new cocktail</h2>
   </c-hero>
   <section class='main-container'>
-    <c-create-cocktail-form></c-create-cocktail-form>
+    <c-create-cocktail-form (formSubmit)='createCocktail($event)'></c-create-cocktail-form>
   </section>
 </div>
