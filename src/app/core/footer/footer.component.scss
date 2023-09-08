@@ -2,6 +2,5 @@
 @use 'src/styles/palettes' as palette;
 
 .footer {
-  background-color: mat.get-color-from-palette(palette.$green-palette, 300);
-
+  background-color: mat.get-color-from-palette(palette.$gray-palette, 500);
 }
