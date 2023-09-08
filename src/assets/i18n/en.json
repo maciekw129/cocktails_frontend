@@ -6,7 +6,8 @@
       "password": "Password must have letter, number and 8 chars. long.",
       "controlsMatch": "This field must match with {{otherControlName}}",
       "requiredIngredients": "You must add at least one ingredient.",
-      "requiredSteps": "You must add at least one step."
+      "requiredSteps": "You must add at least one step.",
+      "uniqueIngredients": "You already added that ingedient."
     }
   },
   "buttons": {

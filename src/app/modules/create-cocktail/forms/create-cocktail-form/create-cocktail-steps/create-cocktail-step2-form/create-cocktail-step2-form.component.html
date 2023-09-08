@@ -1,17 +1,20 @@
-<form [formGroup]='form' (ngSubmit)='handleSubmit()' stopEventPropagation class='flex flex--column flex--center gap-4 padding-4-0'>
-  <div class='flex flex--center gap-2'>
-    <div class='flex flex--column flex--center gap-3' *ngIf='ingredients$ | async as ingredients'>
-      <c-ingredients-table [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
-      <c-custom-error [errors]='ingredientsControl.errors'></c-custom-error>
+<form [formGroup]='form' (ngSubmit)='handleSubmit()' class='flex flex--column flex--center gap-4 padding-4-0'>
+  <ng-container *ngIf='ingredients$ | async as ingredients'>
+    <div class='flex flex--center gap-2'>
+      <div class='flex flex--column flex--center gap-3' >
+        <c-ingredients-table [dataSource]='ingredients' (removeIngredient)='removeIngredient($event)'/>
+        <c-custom-error [errors]='ingredientsControl.errors'></c-custom-error>
+      </div>
     </div>
-  </div>
-  <mat-card>
-    <mat-card-content>
-      <c-add-ingredient-form (formSubmit)='addIngredient($event)' stopEventPropagation></c-add-ingredient-form>
-    </mat-card-content>
-  </mat-card>
-  <div class='flex flex--center gap-4 width-full'>
-    <c-button translation='back' (buttonClick)='emitStepperBack()'></c-button>
-    <c-button translation='next' type='submit'></c-button>
-  </div>
+    <mat-card>
+      <mat-card-content>
+        <c-add-ingredient-form (formSubmit)='addIngredient($event)' [ingredientsControl]='ingredientsControl'></c-add-ingredient-form>
+      </mat-card-content>
+    </mat-card>
+    <div class='flex flex--center gap-4 width-full'>
+      <c-button translation='back' (buttonClick)='emitStepperBack()'></c-button>
+      <c-button translation='next' type='submit'></c-button>
+    </div>
+  </ng-container>
+
 </form>
