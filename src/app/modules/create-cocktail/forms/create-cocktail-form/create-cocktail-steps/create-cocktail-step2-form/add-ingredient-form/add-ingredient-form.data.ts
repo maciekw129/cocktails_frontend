@@ -1,6 +1,10 @@
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
 import { Unit } from '@app/modules/create-cocktail/create-cocktail.model';
 
+export const limit = {
+  minQuantity: 0.01,
+};
+
 export const unitLabels: Record<Unit, string> = {
   [Unit.pcs]: 'pcs',
   [Unit.g]: 'g',
