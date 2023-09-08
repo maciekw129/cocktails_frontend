@@ -21,9 +21,16 @@ const routes: Route[] = [
           ingredients: IngredientsResolver,
         },
         loadComponent: () =>
-          import(
-            '../../modules/create-cocktail/create-cocktail.component'
-          ).then(m => m.CreateCocktailComponent),
+          import('@app/modules/create-cocktail/create-cocktail.component').then(
+            m => m.CreateCocktailComponent
+          ),
+      },
+      {
+        path: '**',
+        loadComponent: () =>
+          import('@app/core/empty-page/empty-page.component').then(
+            m => m.EmptyPageComponent
+          ),
       },
     ],
   },

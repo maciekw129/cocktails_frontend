@@ -3,7 +3,7 @@
 
 .link {
   text-decoration: underline;
-  color: palette.$dark-primary-text;
+  color: mat.get-color-from-palette(palette.$blue-palette, 500);
   transition: color 0.2s linear;
 
   &:hover {
