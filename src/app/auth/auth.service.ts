@@ -7,11 +7,16 @@ import {
   RegisterPayload,
   UserData,
 } from '@app/auth/auth.model';
-import { tap } from 'rxjs';
+import { map, tap } from 'rxjs';
 import { TokenService } from '@app/auth/token/token.service';
+import { USER_DATA } from '@app/auth/auth.tokens';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService extends StatefulService<AuthState> {
+  public static useIsAuthorized$() {
+    return inject(USER_DATA).pipe(map(userData => Boolean(userData)));
+  }
+
   private authApiService = inject(AuthApiService);
   private tokenService = inject(TokenService);
 
