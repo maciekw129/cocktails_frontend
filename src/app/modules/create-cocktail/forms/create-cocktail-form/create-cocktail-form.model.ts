@@ -8,10 +8,3 @@ export interface CreateCocktailForm {
   preparation: FormControl<PreparationStep[]>;
   ingredients: FormControl<Ingredient[]>;
 }
-
-export interface IngredientGroup {
-  name: FormControl<string>;
-  quantity: FormControl<string>;
-  unit: FormControl<string>;
-  isAlcoholic: FormControl<boolean>;
-}

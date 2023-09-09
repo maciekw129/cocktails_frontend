@@ -14,6 +14,18 @@ export interface Ingredient {
   isAlcoholic: boolean;
 }
 
+export enum Category {
+  shot = 1,
+  short = 2,
+  long = 3,
+}
+
+export enum Difficulty {
+  easy = 1,
+  medium = 2,
+  hard = 3,
+}
+
 export enum Unit {
   g = 1,
   ml = 2,

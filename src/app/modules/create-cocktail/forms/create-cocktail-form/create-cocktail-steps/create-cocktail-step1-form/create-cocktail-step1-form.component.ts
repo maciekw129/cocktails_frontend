@@ -13,6 +13,11 @@ import {
 } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model';
 import { FormService } from '@app/shared/forms/form.service';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { SelectComponent } from '@app/shared/forms/controls/select/select';
+import {
+  categoryOptions,
+  difficultyOptions,
+} from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.data';
 
 @Component({
   selector: 'c-create-cocktail-step1-form',
@@ -26,6 +31,7 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
     TextInputComponent,
     TextareaInputComponent,
     ButtonComponent,
+    SelectComponent,
   ],
   templateUrl: 'create-cocktail-step1-form.component.html',
   providers: [FormService],
@@ -35,10 +41,15 @@ export class CreateCocktailStep1FormComponent extends FormComponent<
   CreateCocktailStep1,
   FormGroup<CreateCocktailStep1Form>
 > {
+  categoryOptions = categoryOptions;
+  difficultyOptions = difficultyOptions;
+
   protected buildForm() {
     return this.fb.group<CreateCocktailStep1Form>({
       name: this.fb.control('', { validators: Validators.required }),
-      description: this.fb.control('', { validators: Validators.required }),
+      description: this.fb.control(''),
+      category: this.fb.control(null, { validators: Validators.required }),
+      difficulty: this.fb.control(null, { validators: Validators.required }),
     });
   }
 

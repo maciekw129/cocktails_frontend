@@ -13,6 +13,16 @@
           placeholder='Enter cocktail description'
           [minRows]='5'
         ></c-textarea-input>
+        <c-select
+          formControlName='category'
+          label='Category'
+          [options]='categoryOptions'
+        ></c-select>
+        <c-select
+          formControlName='difficulty'
+          label='Difficulty'
+          [options]='difficultyOptions'
+        ></c-select>
       </div>
     </mat-card-content>
   </mat-card>
