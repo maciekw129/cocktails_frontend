@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/hero/hero.component';
 import { CreateCocktailFormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component';
@@ -15,6 +20,11 @@ import { CreateCocktailApiService } from '@app/modules/create-cocktail/create-co
 })
 export class CreateCocktailComponent {
   private createCocktailApiService = inject(CreateCocktailApiService);
+
+  @HostListener('window:beforeunload')
+  unloadHandler() {
+    window.opener.location.reload();
+  }
 
   public createCocktail(cocktail: Cocktail) {
     this.createCocktailApiService.createCocktail(cocktail).subscribe();
