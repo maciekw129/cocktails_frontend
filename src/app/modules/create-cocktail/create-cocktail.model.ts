@@ -18,6 +18,7 @@ export enum Category {
   shot = 1,
   short = 2,
   long = 3,
+  other = 4,
 }
 
 export enum Difficulty {
@@ -31,4 +32,8 @@ export enum Unit {
   ml = 2,
   l = 3,
   pcs = 4,
+  cup = 5,
+  tbsp = 6,
+  tsp = 7,
+  pinch = 8,
 }

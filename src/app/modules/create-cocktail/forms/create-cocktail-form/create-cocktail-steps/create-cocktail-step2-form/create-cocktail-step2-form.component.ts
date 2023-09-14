@@ -21,11 +21,12 @@ import {
 } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model';
 import { CreateCocktailStep2FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
 import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
-import { Observable, startWith, tap } from 'rxjs';
+import { map, Observable, startWith, tap } from 'rxjs';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { StopEventPropagationDirective } from '@app/shared/directives/stop-event-propagation.directive';
 import { CustomErrorsComponent } from '@app/shared/forms/components/custom-error/custom-errors.component';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'c-create-cocktail-step2-form',
@@ -55,7 +56,7 @@ export class CreateCocktailStep2FormComponent
 
   private confirmationDialogService = inject(ConfirmationDialogService);
 
-  ingredients$: Observable<Ingredient[]>;
+  ingredients$: Observable<MatTableDataSource<Ingredient>>;
 
   get ingredientsControl() {
     return this.form.controls.ingredients;
@@ -65,7 +66,8 @@ export class CreateCocktailStep2FormComponent
     super.ngOnInit();
 
     this.ingredients$ = this.ingredientsControl.valueChanges.pipe(
-      startWith([])
+      startWith([]),
+      map(ingredients => new MatTableDataSource(ingredients))
     );
   }
 

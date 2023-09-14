@@ -2,7 +2,7 @@
   <section class='flex flex--column flex--center gap-3' formArrayName='preparation'>
     <div *ngFor='let step of preparationArray.controls; index as i'>
       <mat-card>
-        <div class='flex flex--center gap-2 padding-4' [formGroupName]='i'>
+        <div class='step3__single-step flex flex--center gap-2 padding-4' [formGroupName]='i'>
           <p>Step.{{i + 1}}</p>
           <c-select
             formControlName='action'
@@ -22,7 +22,6 @@
           <button mat-icon-button (click)='handleRemoveStep(i)' type='button'><mat-icon>delete</mat-icon></button>
         </div>
       </mat-card>
-
     </div>
   </section>
   <c-custom-error [errors]='preparationArray.errors'></c-custom-error>

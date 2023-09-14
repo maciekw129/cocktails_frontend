@@ -75,6 +75,8 @@ export class CreateCocktailFormComponent
     return this.fb.group<CreateCocktailForm>({
       name: this.fb.control(''),
       description: this.fb.control(''),
+      difficulty: this.fb.control(null),
+      category: this.fb.control(null),
       preparation: this.fb.control([]),
       ingredients: this.fb.control([]),
     });

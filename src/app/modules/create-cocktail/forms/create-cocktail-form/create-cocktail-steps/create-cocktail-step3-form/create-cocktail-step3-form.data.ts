@@ -7,6 +7,8 @@ export const actionLabels: Record<Action, string> = {
   [Action.MIX]: 'Mix',
   [Action.DECORATE]: 'Decorate',
   [Action.WAIT]: 'Wait',
+  [Action.SQUEEZE]: 'Squeeze',
+  [Action.SHAKE]: 'Shake',
 };
 
 export const actionSelectOptions: SelectOptions<Action> = [
@@ -15,4 +17,6 @@ export const actionSelectOptions: SelectOptions<Action> = [
   { value: Action.MIX, label: actionLabels[Action.MIX] },
   { value: Action.DECORATE, label: actionLabels[Action.DECORATE] },
   { value: Action.WAIT, label: actionLabels[Action.WAIT] },
+  { value: Action.SQUEEZE, label: actionLabels[Action.SQUEEZE] },
+  { value: Action.SHAKE, label: actionLabels[Action.SHAKE] },
 ];

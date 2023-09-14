@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UnitPipe } from '@app/modules/create-cocktail/components/ingredients-table/unit.pipe';
+import { CdkColumnDef } from '@angular/cdk/table';
 
 @Component({
   selector: 'c-ingredients-table',
@@ -23,13 +24,20 @@ import { UnitPipe } from '@app/modules/create-cocktail/components/ingredients-ta
     UnitPipe,
   ],
   templateUrl: './ingredients-table.component.html',
+  styleUrls: ['ingredients-table.component.scss'],
+  providers: [CdkColumnDef],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IngredientsTableComponent {
   @Output() removeIngredient = new EventEmitter<Ingredient>();
-  @Input() dataSource: Ingredient[];
+  @Input() dataSource: MatTableDataSource<Ingredient> =
+    new MatTableDataSource<Ingredient>([]);
+
+  dataSource2: MatTableDataSource<Ingredient> =
+    new MatTableDataSource<Ingredient>([]);
 
   displayedColumns: string[] = [
+    'position',
     'name',
     'quantity',
     'unit',

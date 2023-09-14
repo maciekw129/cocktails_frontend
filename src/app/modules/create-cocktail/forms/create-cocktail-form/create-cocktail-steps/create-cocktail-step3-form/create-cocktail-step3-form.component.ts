@@ -47,6 +47,7 @@ import { CustomErrorsComponent } from '@app/shared/forms/components/custom-error
     CustomErrorsComponent,
   ],
   templateUrl: './create-cocktail-step3-form.component.html',
+  styleUrls: ['./create-cocktail-step3-form.component.scss'],
   providers: [FormService],
 })
 export class CreateCocktailStep3FormComponent extends FormComponent<
@@ -69,7 +70,7 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
   protected buildForm() {
     return this.fb.group<CreateCocktailStep3Form>({
       preparation: this.fb.array<FormGroup<PreparationStepForm>>(
-        [this.createPreparationStepGroup()],
+        [this.createPreparationStepGroup(1)],
         {
           validators:
             CreateCocktailStep3FormValidators.requiredPreparationSteps(),
@@ -78,8 +79,11 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
     });
   }
 
-  createPreparationStepGroup(): FormGroup<PreparationStepForm> {
+  createPreparationStepGroup(
+    stepNumber: number
+  ): FormGroup<PreparationStepForm> {
     return this.fb.group({
+      step: this.fb.control(stepNumber),
       ingredient: this.fb.control('', { validators: Validators.required }),
       action: this.fb.control(null, { validators: Validators.required }),
       tip: this.fb.control(''),
@@ -87,7 +91,8 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
   }
 
   handleAddStepGroup() {
-    this.preparationArray.push(this.createPreparationStepGroup());
+    const stepNumber = this.preparationArray.length + 1;
+    this.preparationArray.push(this.createPreparationStepGroup(stepNumber));
   }
 
   handleRemoveStep(index: number) {

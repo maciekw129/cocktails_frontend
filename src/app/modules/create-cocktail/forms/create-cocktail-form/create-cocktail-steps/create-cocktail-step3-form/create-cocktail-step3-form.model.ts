@@ -5,6 +5,7 @@ export interface CreateCocktailStep3 {
 }
 
 export interface PreparationStep {
+  step: number;
   ingredient: string;
   action: string;
   tip: string;
@@ -16,6 +17,8 @@ export enum Action {
   MIX = 'MIX',
   DECORATE = 'DECORATE',
   WAIT = 'WAIT',
+  SQUEEZE = 'SQUEEZE',
+  SHAKE = 'SHAKE',
 }
 
 export interface CreateCocktailStep3Form {
@@ -23,6 +26,7 @@ export interface CreateCocktailStep3Form {
 }
 
 export interface PreparationStepForm {
+  step: FormControl<number>;
   ingredient: FormControl<string>;
   action: FormControl<Action>;
   tip: FormControl<string>;

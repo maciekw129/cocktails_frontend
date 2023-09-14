@@ -1,41 +1,42 @@
-<table mat-table [dataSource]="dataSource" class='mat-elevation-z8'>
+<mat-table [dataSource]="dataSource" class='mat-elevation-z8'>
   <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    <mat-header-cell class='table__header' *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index">
+      <p class='table__mobile-label'>No.:</p>{{i + 1}}
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Name: </p>{{element.name}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="quantity">
-    <th mat-header-cell *matHeaderCellDef> Quantity </th>
-    <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Quantity: </p>{{element.quantity}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="unit">
-    <th mat-header-cell *matHeaderCellDef> Unit </th>
-    <td mat-cell *matCellDef="let element"> {{element.unit | unit}} </td>
+    <mat-header-cell *matHeaderCellDef> Unit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Unit: </p>{{element.unit | unit}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="isAlcoholic">
-    <th mat-header-cell *matHeaderCellDef> Alcoholic </th>
-    <td mat-cell *matCellDef="let element"> {{element.isAlcoholic}} </td>
+    <mat-header-cell *matHeaderCellDef> Alcoholic </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Alcoholic: </p>{{element.isAlcoholic}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="remove" stickyEnd>
-    <th mat-header-cell *matHeaderCellDef>&nbsp;</th>
-    <td mat-cell *matCellDef="let element">
+    <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
+    <mat-cell *matCellDef="let element">
       <button mat-icon-button (click)='handleRemove(element)' type='button'><mat-icon>delete</mat-icon></button>
-    </td>
+    </mat-cell>
   </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-  <tr class="mat-row" *matNoDataRow>
-    <td class="mat-cell text-center padding-3" colspan="5">Ingredients are empty.</td>
-  </tr>
-</table>
+  <div class="mat-row table__empty" *matNoDataRow><div class="mat-cell text-center padding-2 font-text-2">Ingredients are empty.</div></div>
+
+</mat-table>
 

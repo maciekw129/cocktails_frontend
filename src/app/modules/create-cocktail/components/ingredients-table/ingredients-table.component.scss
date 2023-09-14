@@ -1,0 +1,49 @@
+@use '@angular/material' as mat;
+@use 'src/styles/palettes' as palette;
+
+table {
+  width: 100%;
+}
+
+.table {
+  &__mobile-label {
+    display: none;
+    margin-right: 4px;
+    font-weight: bold;
+  }
+
+  &__header {
+    min-width: fit-content;
+  }
+}
+
+mat-header-cell {
+  min-width: fit-content;
+}
+
+@media only screen and (max-width: 550px){
+  .table {
+    &__mobile-label {
+      display: inline;
+    }
+
+    &__empty {
+      min-width: 220px;
+    }
+  }
+
+  mat-header-row {
+    display: none;
+  }
+
+  mat-row {
+    flex-direction: column;
+    width: 220px;
+    border-top: 0.5px solid mat.get-color-from-palette(palette.$gray-palette, 500);
+  }
+
+  mat-cell {
+    border: none;
+  }
+}
+
