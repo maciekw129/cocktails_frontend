@@ -12,5 +12,5 @@
     type="password"
     label="Password"
     placeholder="Enter password" />
-  <c-button [isLoading]="isRequestPending" translation="send" type="submit" />
+  <c-button [isDisabledOnRequest]='true' translation="send" type="submit" />
 </form>

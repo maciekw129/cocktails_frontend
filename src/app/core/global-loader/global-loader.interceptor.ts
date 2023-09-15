@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { catchError, finalize, Observable, tap } from 'rxjs';
+import { catchError, finalize, Observable } from 'rxjs';
 import { GlobalLoaderService } from '@app/core/global-loader/global-loader.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 

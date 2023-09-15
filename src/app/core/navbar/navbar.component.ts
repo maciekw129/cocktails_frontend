@@ -13,10 +13,9 @@ import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialo
 import { MatIconModule } from '@angular/material/icon';
 import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
 import { USER_DATA } from '@app/auth/auth.tokens';
-import { AsyncPipe, CommonModule, NgClass, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { AuthService } from '@app/auth/auth.service';
 import { TranslateModule } from '@ngx-translate/core';
-import { BehaviorSubject, finalize } from 'rxjs';
 
 @Component({
   selector: 'c-navbar',
@@ -41,11 +40,6 @@ export class NavbarComponent {
   public userData$ = inject(USER_DATA);
 
   public hasBackground = false;
-  private readonly _isLogoutPending$ = new BehaviorSubject<boolean>(false);
-
-  get isLogoutPending$() {
-    return this._isLogoutPending$.asObservable();
-  }
 
   @HostListener('window:scroll')
   manageNavbarColor() {
@@ -61,14 +55,6 @@ export class NavbarComponent {
   }
 
   public logout() {
-    this._isLogoutPending$.next(true);
-    this.authService
-      .logout()
-      .pipe(
-        finalize(() => {
-          this._isLogoutPending$.next(false);
-        })
-      )
-      .subscribe();
+    this.authService.logout().subscribe();
   }
 }

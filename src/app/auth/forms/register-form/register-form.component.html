@@ -28,5 +28,5 @@
     label="Confirm password"
     placeholder="Confirm password"
     type="password"></c-text-input>
-  <c-button [isLoading]="isRequestPending" translation="send" type="submit" />
+  <c-button [isDisabledOnRequest]='true' translation="send" type="submit" />
 </form>

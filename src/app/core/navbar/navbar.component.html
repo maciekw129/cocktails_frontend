@@ -15,7 +15,7 @@
       <c-button
         translation="logout"
         (buttonClick)="logout()"
-        [isLoading]="isLogoutPending$ | async"></c-button>
+        [isDisabledOnRequest]='true'></c-button>
     </ng-container>
     <ng-template #authButtons>
       <div class="flex flex--align-center flex--justify-end gap-3">

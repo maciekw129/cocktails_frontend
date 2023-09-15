@@ -10,7 +10,7 @@ import { AuthService } from '@app/auth/auth.service';
 import { RegisterPayload } from '@app/auth/auth.model';
 import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialog.component';
 import { LinkComponent } from '@app/shared/components/link/link.component';
-import { BehaviorSubject, finalize, tap } from 'rxjs';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'c-register-dialog',
@@ -29,21 +29,13 @@ export class RegisterDialogComponent {
   private registerDialogRef = inject(MatDialogRef<LoginDialogComponent>);
   private dialogRef = inject(MatDialog);
 
-  private readonly _isRegisterPending$ = new BehaviorSubject<boolean>(false);
-
-  get isRegisterPending$() {
-    return this._isRegisterPending$.asObservable();
-  }
-
   public register(registerPayload: RegisterPayload) {
-    this._isRegisterPending$.next(true);
     this.authService
       .register(registerPayload)
       .pipe(
         tap(() => {
           this.registerDialogRef.close();
-        }),
-        finalize(() => this._isRegisterPending$.next(false))
+        })
       )
       .subscribe();
   }

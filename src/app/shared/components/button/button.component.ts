@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  inject,
   Input,
   Output,
 } from '@angular/core';
@@ -12,6 +13,7 @@ import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { GlobalLoaderService } from '@app/core/global-loader/global-loader.service';
 
 @Component({
   selector: 'c-button',
@@ -31,7 +33,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
       mat-flat-button
       [color]="color"
       (click)="handleClick()"
-      [disabled]="disabled || isLoading"
+      [disabled]="disabled || (isDisabledOnRequest && isLoading$ | async)"
       [matTooltip]="tip"
       [type]="type">
       <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -43,7 +45,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         class="button--secondary"
         [color]="color"
         (click)="handleClick()"
-        [disabled]="disabled || isLoading"
+        [disabled]="disabled || (isDisabledOnRequest && isLoading$ | async)"
         [matTooltip]="tip"
         [type]="type">
         <ng-container *ngTemplateOutlet="content"></ng-container>
@@ -55,12 +57,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
         {{ fullTranslation | translate }}
         <ng-content></ng-content>
       </div>
-      <mat-progress-bar
-        *ngIf="isLoading"
-        class="margin-top-1"
-        mode="indeterminate"
-        value="40"
-        color="accent"></mat-progress-bar>
     </ng-template>
   `,
   styleUrls: ['./button.component.scss'],
@@ -73,8 +69,10 @@ export class ButtonComponent {
   @Input() disabled = false;
   @Input() type: Type = 'button';
   @Input() translation = '';
-  @Input() isLoading = false;
+  @Input() isDisabledOnRequest = false;
   @Input() tip = '';
+
+  public isLoading$ = inject(GlobalLoaderService).getStateSlice('isLoading');
 
   get fullTranslation() {
     return this.translation ? `buttons.${this.translation}` : '';

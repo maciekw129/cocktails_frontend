@@ -20,7 +20,7 @@ export abstract class StatefulService<T extends Record<string, any>> {
     });
   }
 
-  public getStateSlice(key: keyof T): Observable<Partial<T>> {
+  public getStateSlice(key: keyof T): Observable<T[keyof T]> {
     return this.state$$.pipe(map(state => state[key]));
   }
 }

@@ -32,7 +32,6 @@ export abstract class FormComponent<T extends object, F extends FormGroup>
   @ViewChild('ngForm') ngForm: NgForm;
   @Output()
   formSubmit = new EventEmitter<T>();
-  @Input() isRequestPending = false;
 
   protected fb = inject(NonNullableFormBuilder);
   protected formService = inject(FormService);
