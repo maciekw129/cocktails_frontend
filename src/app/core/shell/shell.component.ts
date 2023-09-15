@@ -6,6 +6,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { GlobalLoaderService } from '../global-loader/global-loader.service';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { FooterComponent } from '@app/core/footer/footer.component';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'c-shell',
@@ -38,5 +39,7 @@ import { FooterComponent } from '@app/core/footer/footer.component';
 export default class ShellComponent {
   private globalLoaderService = inject(GlobalLoaderService);
 
-  isLoading$ = this.globalLoaderService.getStateSlice('isLoading');
+  isLoading$ = this.globalLoaderService
+    .getStateSlice('isLoading')
+    .pipe(tap(console.log));
 }

@@ -8,7 +8,7 @@ import { GlobalLoaderState } from '@app/core/global-loader/global-loader.model';
 export class GlobalLoaderService extends StatefulService<GlobalLoaderState> {
   constructor() {
     super({
-      isLoading: false,
+      isLoading: true,
     });
   }
 

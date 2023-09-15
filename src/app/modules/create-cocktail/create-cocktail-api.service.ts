@@ -20,7 +20,7 @@ export class CreateCocktailApiService {
   public createCocktail(cocktail: Cocktail) {
     return this.httpWithMessage.post<Cocktail>(
       `${this.API_URL}/cocktails`,
-      'You successfully added cocktail!',
+      'You successfully created new cocktail!',
       cocktail
     );
   }

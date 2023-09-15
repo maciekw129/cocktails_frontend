@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { catchError, finalize, Observable, tap } from 'rxjs';
 import { GlobalLoaderService } from '@app/core/global-loader/global-loader.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -23,16 +23,16 @@ export class GlobalLoaderInterceptor implements HttpInterceptor {
     this.globalLoaderService.setIsLoading(true);
 
     return next.handle(request).pipe(
-      tap({
-        next: () => this.globalLoaderService.setIsLoading(false),
-        error: error => {
-          this.globalLoaderService.setIsLoading(false);
-          this.snackBar.open(`Error: ${error.error.message}`, 'X', {
-            verticalPosition: 'top',
-            duration: this.ERROR_MESSAGE_DURATION,
-            panelClass: ['error'],
-          });
-        },
+      catchError((error, caught) => {
+        this.snackBar.open(`Error: ${error.error.message}`, 'X', {
+          verticalPosition: 'top',
+          duration: this.ERROR_MESSAGE_DURATION,
+          panelClass: ['error'],
+        });
+        return caught;
+      }),
+      finalize(() => {
+        this.globalLoaderService.setIsLoading(false);
       })
     );
   }
