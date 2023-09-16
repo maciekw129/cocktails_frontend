@@ -32,11 +32,9 @@ export class IngredientsTableComponent {
   @Output() removeIngredient = new EventEmitter<Ingredient>();
   @Input() dataSource: MatTableDataSource<Ingredient> =
     new MatTableDataSource<Ingredient>([]);
+  @Input() isReadonly = true;
 
-  dataSource2: MatTableDataSource<Ingredient> =
-    new MatTableDataSource<Ingredient>([]);
-
-  displayedColumns: string[] = [
+  public displayedColumns: string[] = [
     'position',
     'name',
     'quantity',
@@ -45,7 +43,7 @@ export class IngredientsTableComponent {
     'remove',
   ];
 
-  handleRemove(ingredient: Ingredient) {
+  public handleRemove(ingredient: Ingredient) {
     this.removeIngredient.emit(ingredient);
   }
 }

@@ -7,7 +7,7 @@ export interface CreateCocktailStep3 {
 export interface PreparationStep {
   step: number;
   ingredient: string;
-  action: string;
+  action: Action;
   tip: string;
 }
 

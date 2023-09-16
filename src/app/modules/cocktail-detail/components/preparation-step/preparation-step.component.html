@@ -1,0 +1,8 @@
+<div class='step flex flex--align-center flex--justify-start gap-2 padding-2'>
+  <p class='bold'>step {{step.step}}:</p>
+  <p>{{step.action | actionLabel}}</p>
+  <p>{{step.ingredient}}</p>
+  <p>{{step.tip}}</p>
+  <img class='step__image' [src]='step.action | actionIcon' alt='Action icon'/>
+</div>
+

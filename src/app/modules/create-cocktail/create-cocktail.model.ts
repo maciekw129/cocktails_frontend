@@ -2,7 +2,10 @@ import { PreparationStep } from '@app/modules/create-cocktail/forms/create-cockt
 
 export interface Cocktail {
   name: string;
+  imageUrl: string;
   description: string;
+  category: Category;
+  difficulty: Difficulty;
   preparation: PreparationStep[];
   ingredients: Ingredient[];
 }

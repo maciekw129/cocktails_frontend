@@ -33,8 +33,8 @@
     </mat-cell>
   </ng-container>
 
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-header-row *matHeaderRowDef="isReadonly ? displayedReadonlyColumns : displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: isReadonly ? displayedReadonlyColumns : displayedColumns;"></mat-row>
 
   <div class="mat-row table__empty" *matNoDataRow><div class="mat-cell text-center padding-2 font-text-2">Ingredients are empty.</div></div>
 

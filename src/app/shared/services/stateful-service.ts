@@ -5,7 +5,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 export abstract class StatefulService<T extends Record<string, any>> {
   protected _state$$: BehaviorSubject<T>;
 
-  get state$$() {
+  getWholeState() {
     return this._state$$.asObservable();
   }
 
@@ -21,6 +21,6 @@ export abstract class StatefulService<T extends Record<string, any>> {
   }
 
   public getStateSlice(key: keyof T): Observable<T[keyof T]> {
-    return this.state$$.pipe(map(state => state[key]));
+    return this.getWholeState().pipe(map((state: T[keyof T]) => state[key]));
   }
 }
