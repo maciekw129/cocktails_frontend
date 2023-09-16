@@ -43,6 +43,13 @@ export class IngredientsTableComponent {
     'remove',
   ];
 
+  public displayedReadonlyColumns: string[] = [
+    'position',
+    'name',
+    'quantity',
+    'unit',
+  ];
+
   public handleRemove(ingredient: Ingredient) {
     this.removeIngredient.emit(ingredient);
   }
