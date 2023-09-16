@@ -24,7 +24,9 @@ import { tap } from 'rxjs';
       <c-footer class="footer" />
     </div>
   `,
-  styles: ['.shell {min-height: 100vh} .footer {margin-top: auto}'],
+  styles: [
+    '.shell {min-height: 100vh} .loader {position: fixed; z-index: 999} .footer {margin-top: auto}',
+  ],
   imports: [
     RouterOutlet,
     NavbarComponent,
@@ -39,7 +41,5 @@ import { tap } from 'rxjs';
 export default class ShellComponent {
   private globalLoaderService = inject(GlobalLoaderService);
 
-  isLoading$ = this.globalLoaderService
-    .getStateSlice('isLoading')
-    .pipe(tap(console.log));
+  isLoading$ = this.globalLoaderService.getStateSlice('isLoading');
 }

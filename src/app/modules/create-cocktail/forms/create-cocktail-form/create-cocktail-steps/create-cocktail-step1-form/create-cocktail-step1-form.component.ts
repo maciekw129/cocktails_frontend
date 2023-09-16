@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -48,6 +48,7 @@ export class CreateCocktailStep1FormComponent extends FormComponent<
     return this.fb.group<CreateCocktailStep1Form>({
       name: this.fb.control('', { validators: Validators.required }),
       description: this.fb.control(''),
+      imageUrl: this.fb.control('', { validators: Validators.required }),
       category: this.fb.control(null, { validators: Validators.required }),
       difficulty: this.fb.control(null, { validators: Validators.required }),
     });

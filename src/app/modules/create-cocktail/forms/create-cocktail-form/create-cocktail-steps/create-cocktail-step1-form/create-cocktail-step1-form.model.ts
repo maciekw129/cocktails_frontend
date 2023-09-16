@@ -7,6 +7,7 @@ import {
 export interface CreateCocktailStep1 {
   name: string;
   description: string;
+  imageUrl: string;
   category: Category;
   difficulty: Difficulty;
 }
@@ -14,6 +15,7 @@ export interface CreateCocktailStep1 {
 export interface CreateCocktailStep1Form {
   name: FormControl<string>;
   description: FormControl<string>;
+  imageUrl: FormControl<string>;
   category: FormControl<Category>;
   difficulty: FormControl<Difficulty>;
 }
