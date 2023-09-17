@@ -1,20 +1,22 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API_URL } from '@app/env.token';
-import {
-  Cocktail,
-  Ingredient,
-} from '@app/modules/create-cocktail/create-cocktail.model';
 import { HttpWithMessage } from '@app/shared/services/http-with-message';
+import { Cocktail, CocktailApi } from '@app/core/model/cocktails.model';
+import { API_URL } from '@app/env.token';
+import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class CreateCocktailApiService {
+export class CocktailsApiService {
   private http = inject(HttpClient);
   private httpWithMessage = inject(HttpWithMessage);
   private readonly API_URL = inject(API_URL);
 
-  public getSavedIngredients() {
-    return this.http.get<Ingredient[]>(`${this.API_URL}/ingredients`);
+  public getCocktail(cocktailId: string): Observable<Cocktail> {
+    return this.http.get<Cocktail>(`${this.API_URL}/cocktails/${cocktailId}`);
+  }
+
+  public getAllCocktails(): Observable<CocktailApi[]> {
+    return this.http.get<CocktailApi[]>(`${this.API_URL}/cocktails`);
   }
 
   public createCocktail(cocktail: Cocktail) {

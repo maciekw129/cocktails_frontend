@@ -12,10 +12,10 @@ import {
 } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AuthService } from './auth/auth.service';
+import { AuthStatefulService } from './auth/auth-stateful.service';
 import { USER_DATA } from './auth/auth.tokens';
 import { TokenInterceptor } from './auth/token/token.interceptor';
-import { GlobalLoaderInterceptor } from './core/global-loader/global-loader.interceptor';
+import { GlobalLoaderInterceptor } from '@app/core/shell/global-loader/global-loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 
@@ -57,13 +57,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     {
       provide: APP_INITIALIZER,
       useFactory: () => {
-        inject(AuthService).initializeAuth();
+        inject(AuthStatefulService).initializeAuth();
       },
     },
     {
       provide: USER_DATA,
       useFactory: () => {
-        return inject(AuthService).getStateSlice('userData');
+        return inject(AuthStatefulService).getStateSlice('userData');
       },
     },
     {

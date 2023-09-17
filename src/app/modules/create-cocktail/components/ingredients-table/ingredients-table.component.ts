@@ -6,12 +6,12 @@ import {
   Output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UnitPipe } from '@app/modules/create-cocktail/components/ingredients-table/unit.pipe';
 import { CdkColumnDef } from '@angular/cdk/table';
+import { Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-ingredients-table',

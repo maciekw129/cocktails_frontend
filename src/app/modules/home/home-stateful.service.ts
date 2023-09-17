@@ -1,6 +1,6 @@
 import { StatefulService } from '@app/shared/services/stateful-service';
 import { Injectable } from '@angular/core';
-import { CocktailApi } from '@app/core/cocktails/cocktails.model';
+import { CocktailApi } from '@app/core/model/cocktails.model';
 
 export interface HomeState {
   cocktails: CocktailApi[];

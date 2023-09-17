@@ -43,7 +43,7 @@ const routes: Route[] = [
       {
         path: '**',
         loadComponent: () =>
-          import('@app/core/empty-page/empty-page.component').then(
+          import('@app/core/components/empty-page/empty-page.component').then(
             m => m.EmptyPageComponent
           ),
       },

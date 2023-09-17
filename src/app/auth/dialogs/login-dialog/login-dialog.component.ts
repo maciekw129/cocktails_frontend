@@ -7,7 +7,7 @@ import {
 } from '@angular/material/dialog';
 import { LoginFormComponent } from '@app/auth/forms/login-form/login-form.component';
 import { LoginPayload } from '@app/auth/auth.model';
-import { AuthService } from '@app/auth/auth.service';
+import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { LinkComponent } from '@app/shared/components/link/link.component';
 import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
 import { tap } from 'rxjs';
@@ -20,7 +20,7 @@ import { tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LoginDialogComponent {
-  private authService = inject(AuthService);
+  private authService = inject(AuthStatefulService);
   private loginDialogRef = inject(MatDialogRef<LoginDialogComponent>);
   private dialogRef = inject(MatDialog);
 

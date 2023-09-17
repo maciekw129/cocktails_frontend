@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { HeroImagesValue } from '@app/core/hero/hero.model';
-import { heroImages } from '@app/core/hero/hero.data';
+import { HeroImagesValue } from '@app/core/components/hero/hero.model';
+import { heroImages } from '@app/core/components/hero/hero.data';
 
 @Pipe({
   name: 'heroImage',

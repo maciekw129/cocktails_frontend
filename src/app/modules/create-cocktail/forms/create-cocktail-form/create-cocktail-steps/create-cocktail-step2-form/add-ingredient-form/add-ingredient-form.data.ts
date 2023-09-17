@@ -1,5 +1,5 @@
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
-import { Unit } from '@app/modules/create-cocktail/create-cocktail.model';
+import { Unit } from '@app/core/model/cocktails.model';
 
 export const limit = {
   minQuantity: 0.01,

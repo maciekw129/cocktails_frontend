@@ -9,7 +9,6 @@ import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-i
 import { FormService } from '@app/shared/forms/form.service';
 import { FormComponent } from '@app/shared/forms/form.component';
 import { CreateCocktailForm } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.model';
-import { Cocktail } from '@app/modules/create-cocktail/create-cocktail.model';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TextareaInputComponent } from '@app/shared/forms/controls/textarea-input/textarea-input.component';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
@@ -25,6 +24,7 @@ import { CreateCocktailStep2FormComponent } from '@app/modules/create-cocktail/f
 import { CreateCocktailStep3FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component';
 import { map, Observable } from 'rxjs';
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
+import { Cocktail } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-create-cocktail-form',

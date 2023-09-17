@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { HeroComponent } from '../hero/hero.component';
+import { NavbarComponent } from '@app/core/components/navbar/navbar.component';
+import { HeroComponent } from '@app/core/components/hero/hero.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { GlobalLoaderService } from '../global-loader/global-loader.service';
+import { GlobalLoaderService } from '@app/core/shell/global-loader/global-loader.service';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { FooterComponent } from '@app/core/footer/footer.component';
+import { FooterComponent } from '@app/core/components/footer/footer.component';
 import { tap } from 'rxjs';
 
 @Component({

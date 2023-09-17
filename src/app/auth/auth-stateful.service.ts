@@ -12,7 +12,7 @@ import { TokenService } from '@app/auth/token/token.service';
 import { USER_DATA } from '@app/auth/auth.tokens';
 
 @Injectable({ providedIn: 'root' })
-export class AuthService extends StatefulService<AuthState> {
+export class AuthStatefulService extends StatefulService<AuthState> {
   public static useIsAuthorized$() {
     return inject(USER_DATA).pipe(map(userData => Boolean(userData)));
   }

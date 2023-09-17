@@ -5,13 +5,9 @@ import {
   OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/hero/hero.component';
+import { HeroComponent } from '@app/core/components/hero/hero.component';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
-import {
-  Cocktail,
-  Ingredient,
-} from '@app/modules/create-cocktail/create-cocktail.model';
 import { CocktailDetailStatefulService } from '@app/modules/cocktail-detail/cocktail-detail-stateful.service';
 import { IngredientsTableComponent } from '@app/modules/create-cocktail/components/ingredients-table/ingredients-table.component';
 import { MatTableDataSource } from '@angular/material/table';
@@ -19,6 +15,7 @@ import { PreparationStepComponent } from '@app/modules/cocktail-detail/component
 import { MatCardModule } from '@angular/material/card';
 import { CategoryLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/category-label.pipe';
 import { DifficultyLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/difficulty-label.pipe';
+import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-cocktail-detail',

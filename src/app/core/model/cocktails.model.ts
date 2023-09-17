@@ -1,4 +1,6 @@
-import { PreparationStep } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
+export interface CocktailApi extends Cocktail {
+  id: string;
+}
 
 export interface Cocktail {
   name: string;
@@ -8,13 +10,6 @@ export interface Cocktail {
   difficulty: Difficulty;
   preparation: PreparationStep[];
   ingredients: Ingredient[];
-}
-
-export interface Ingredient {
-  name: string;
-  quantity: number;
-  unit: string;
-  isAlcoholic: boolean;
 }
 
 export enum Category {
@@ -28,6 +23,30 @@ export enum Difficulty {
   easy = 1,
   medium = 2,
   hard = 3,
+}
+
+export interface PreparationStep {
+  step: number;
+  ingredient: string;
+  action: Action;
+  tip: string;
+}
+
+export enum Action {
+  ADD = 'ADD',
+  POUR = 'POUR',
+  MIX = 'MIX',
+  DECORATE = 'DECORATE',
+  WAIT = 'WAIT',
+  SQUEEZE = 'SQUEEZE',
+  SHAKE = 'SHAKE',
+}
+
+export interface Ingredient {
+  name: string;
+  quantity: number;
+  unit: Unit;
+  isAlcoholic: boolean;
 }
 
 export enum Unit {

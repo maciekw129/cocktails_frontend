@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { catchError, EMPTY, finalize, Observable } from 'rxjs';
-import { GlobalLoaderService } from '@app/core/global-loader/global-loader.service';
+import { GlobalLoaderService } from '@app/core/shell/global-loader/global-loader.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()

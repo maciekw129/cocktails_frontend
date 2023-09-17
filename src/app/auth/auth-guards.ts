@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthService } from '@app/auth/auth.service';
+import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { tap } from 'rxjs';
 import { inject } from '@angular/core';
 
@@ -8,7 +8,7 @@ export class AuthGuards {
     return () => {
       const router = inject(Router);
 
-      return AuthService.useIsAuthorized$().pipe(
+      return AuthStatefulService.useIsAuthorized$().pipe(
         tap(isAuthorized => (isAuthorized ? true : router.navigateByUrl('/')))
       );
     };

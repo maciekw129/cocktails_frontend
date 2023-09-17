@@ -14,7 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
 import { USER_DATA } from '@app/auth/auth.tokens';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '@app/auth/auth.service';
+import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -36,7 +36,7 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class NavbarComponent {
   private dialogRef = inject(MatDialog);
-  private authService = inject(AuthService);
+  private authService = inject(AuthStatefulService);
   public userData$ = inject(USER_DATA);
 
   public hasBackground = false;

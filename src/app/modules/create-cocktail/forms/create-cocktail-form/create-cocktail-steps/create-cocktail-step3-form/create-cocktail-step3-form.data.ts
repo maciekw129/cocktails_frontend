@@ -1,5 +1,5 @@
-import { Action } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
+import { Action } from '@app/core/model/cocktails.model';
 
 export const actionLabels: Record<Action, string> = {
   [Action.ADD]: 'Add',

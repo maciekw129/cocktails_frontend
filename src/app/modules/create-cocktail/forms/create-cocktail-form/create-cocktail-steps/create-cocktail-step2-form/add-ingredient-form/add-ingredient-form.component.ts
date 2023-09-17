@@ -6,7 +6,6 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '@app/shared/forms/form.component';
-import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { IngredientForm } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.model';
 import {
   FormControl,
@@ -28,6 +27,7 @@ import { tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { StopEventPropagationDirective } from '@app/shared/directives/stop-event-propagation.directive';
 import { CreateCocktailStep2FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
+import { Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-add-ingredient-form',
@@ -82,7 +82,7 @@ export class AddIngredientFormComponent extends FormComponent<
       quantity: this.fb.control(null, {
         validators: [Validators.required, Validators.min(limit.minQuantity)],
       }),
-      unit: this.fb.control('', { validators: Validators.required }),
+      unit: this.fb.control(null, { validators: Validators.required }),
       isAlcoholic: this.fb.control(false, { validators: Validators.required }),
     });
   }

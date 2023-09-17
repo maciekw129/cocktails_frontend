@@ -1,4 +1,4 @@
-import { Action } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
+import { Action } from '@app/core/model/cocktails.model';
 
 export const actionIcons: Record<Action, string> = {
   [Action.SQUEEZE]: 'assets/images/juicer.png',

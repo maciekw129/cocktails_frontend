@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PreparationStep } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
 import { ActionIconPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/action-icon.pipe';
 import { ActionLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/action-label.pipe';
+import { PreparationStep } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-preparation-step',

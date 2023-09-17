@@ -5,10 +5,10 @@ import {
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/hero/hero.component';
+import { HeroComponent } from '@app/core/components/hero/hero.component';
 import { CreateCocktailFormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component';
-import { Cocktail } from '@app/modules/create-cocktail/create-cocktail.model';
-import { CreateCocktailApiService } from '@app/modules/create-cocktail/create-cocktail-api.service';
+import { Cocktail } from '@app/core/model/cocktails.model';
+import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
 
 @Component({
   selector: 'c-create-cocktail',
@@ -19,7 +19,7 @@ import { CreateCocktailApiService } from '@app/modules/create-cocktail/create-co
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateCocktailComponent {
-  private createCocktailApiService = inject(CreateCocktailApiService);
+  private cocktailsApiService = inject(CocktailsApiService);
 
   @HostListener('window:beforeunload')
   unloadHandler() {
@@ -27,6 +27,6 @@ export class CreateCocktailComponent {
   }
 
   public createCocktail(cocktail: Cocktail) {
-    this.createCocktailApiService.createCocktail(cocktail).subscribe();
+    this.cocktailsApiService.createCocktail(cocktail).subscribe();
   }
 }

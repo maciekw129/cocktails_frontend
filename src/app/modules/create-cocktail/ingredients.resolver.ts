@@ -1,8 +1,8 @@
 import { ResolveFn } from '@angular/router';
-import { Ingredient } from '@app/modules/create-cocktail/create-cocktail.model';
 import { inject } from '@angular/core';
-import { CreateCocktailApiService } from '@app/modules/create-cocktail/create-cocktail-api.service';
+import { Ingredient } from '@app/core/model/cocktails.model';
+import { IngredientsApiService } from '@app/core/services/ingredients-api.service';
 
 export const IngredientsResolver: ResolveFn<Ingredient[]> = () => {
-  return inject(CreateCocktailApiService).getSavedIngredients();
+  return inject(IngredientsApiService).getSavedIngredients();
 };

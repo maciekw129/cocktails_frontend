@@ -1,8 +1,5 @@
-import {
-  Category,
-  Difficulty,
-} from '@app/modules/create-cocktail/create-cocktail.model';
 import { SelectOptions } from '@app/shared/forms/controls/select/select';
+import { Category, Difficulty } from '@app/core/model/cocktails.model';
 
 export const categoryLables: Record<Category, string> = {
   [Category.shot]: 'Shot',

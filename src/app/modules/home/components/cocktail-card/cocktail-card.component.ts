@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CategoryLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/category-label.pipe';
 import { DifficultyLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/difficulty-label.pipe';
 import { RouterLink } from '@angular/router';
-import { CocktailApi } from '@app/core/cocktails/cocktails.model';
+import { CocktailApi } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-cocktail-card',

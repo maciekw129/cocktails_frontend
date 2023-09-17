@@ -1,10 +1,10 @@
 import { FormControl } from '@angular/forms';
-import { PreparationStep } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
 import {
   Category,
   Difficulty,
   Ingredient,
-} from '@app/modules/create-cocktail/create-cocktail.model';
+  PreparationStep,
+} from '@app/core/model/cocktails.model';
 
 export interface CreateCocktailForm {
   name: FormControl<string>;
