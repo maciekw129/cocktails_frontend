@@ -1,5 +1,15 @@
 .cocktail {
   &__image {
     border-radius: 5px;
+    max-width: 350px;
   }
 }
+
+@media only screen and (max-width: 550px) {
+  .cocktail {
+    &__top {
+      justify-items: center;
+    }
+  }
+}
+
