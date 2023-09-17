@@ -12,5 +12,7 @@
       <mat-icon>add</mat-icon>
     </c-button>
   </c-hero>
-  <section class="margin-top-2 flex flex--center"></section>
+  <section class="grid grid--center grid-row-3-3-3 padding-16-8">
+    <c-cocktail-card *ngFor='let cocktail of cocktails$ | async' [cocktail]='cocktail'></c-cocktail-card>
+  </section>
 </section>

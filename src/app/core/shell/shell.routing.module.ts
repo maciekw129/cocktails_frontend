@@ -5,6 +5,7 @@ import { HomeComponent } from '@app/modules/home/home.component';
 import { IngredientsResolver } from '@app/modules/create-cocktail/ingredients.resolver';
 import { AuthGuards } from '@app/auth/auth-guards';
 import { CocktailResolver } from '@app/modules/cocktail-detail/cocktail.resolver';
+import { CocktailsResolver } from '@app/modules/home/cocktails.resolver';
 
 const routes: Route[] = [
   {
@@ -14,6 +15,9 @@ const routes: Route[] = [
       {
         path: '',
         component: HomeComponent,
+        resolve: {
+          cocktails: CocktailsResolver,
+        },
       },
       {
         path: 'create-cocktail',

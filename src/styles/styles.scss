@@ -263,6 +263,10 @@ body {
   row-gap: 16px;
   width: 100%;
   grid-template-columns: 1fr;
+
+  &--center {
+    justify-items: center;
+  }
 }
 
 .grid-row-4-8 {
@@ -271,6 +275,10 @@ body {
 
 .grid-row-6-6 {
   grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+}
+
+.grid-row-3-3-3 {
+  grid-template-columns: minmax(0, 3fr) minmax(0, 3fr) minmax(0, 3fr);
 }
 
 // material styles overrides
