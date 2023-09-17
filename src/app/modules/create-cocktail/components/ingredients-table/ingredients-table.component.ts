@@ -32,7 +32,7 @@ export class IngredientsTableComponent {
   @Output() removeIngredient = new EventEmitter<Ingredient>();
   @Input() dataSource: MatTableDataSource<Ingredient> =
     new MatTableDataSource<Ingredient>([]);
-  @Input() isReadonly = true;
+  @Input() isReadonly = false;
 
   public displayedColumns: string[] = [
     'position',

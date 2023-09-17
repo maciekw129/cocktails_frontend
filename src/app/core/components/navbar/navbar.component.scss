@@ -1,6 +1,6 @@
-@use 'material/index' as mat;
-@use '../../../styles/typography' as typography;
-@use 'palettes' as palette;
+@use '@angular/material' as mat;
+@use 'src/styles/typography' as typography;
+@use 'src/styles/palettes' as palette;
 
 .navbar {
   top: 0;

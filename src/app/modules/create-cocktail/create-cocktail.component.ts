@@ -9,6 +9,8 @@ import { HeroComponent } from '@app/core/components/hero/hero.component';
 import { CreateCocktailFormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component';
 import { Cocktail } from '@app/core/model/cocktails.model';
 import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
+import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'c-create-cocktail',
@@ -20,6 +22,7 @@ import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
 })
 export class CreateCocktailComponent {
   private cocktailsApiService = inject(CocktailsApiService);
+  private router = inject(Router);
 
   @HostListener('window:beforeunload')
   unloadHandler() {
@@ -27,6 +30,9 @@ export class CreateCocktailComponent {
   }
 
   public createCocktail(cocktail: Cocktail) {
-    this.cocktailsApiService.createCocktail(cocktail).subscribe();
+    this.cocktailsApiService
+      .createCocktail(cocktail)
+      .pipe(tap(({ id }) => this.router.navigate(['cocktail', id])))
+      .subscribe();
   }
 }

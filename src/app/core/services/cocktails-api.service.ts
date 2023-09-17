@@ -19,8 +19,8 @@ export class CocktailsApiService {
     return this.http.get<CocktailApi[]>(`${this.API_URL}/cocktails`);
   }
 
-  public createCocktail(cocktail: Cocktail) {
-    return this.httpWithMessage.post<Cocktail>(
+  public createCocktail(cocktail: Cocktail): Observable<CocktailApi> {
+    return this.httpWithMessage.post<CocktailApi>(
       `${this.API_URL}/cocktails`,
       'You successfully created new cocktail!',
       cocktail
