@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/components/hero/hero.component';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
@@ -11,6 +16,7 @@ import { CocktailCardComponent } from '@app/modules/home/components/cocktail-car
 import { CocktailApi } from '@app/core/model/cocktails.model';
 import { FiltersFormComponent } from '@app/modules/home/forms/filters-form/filters-form.component';
 import { Filters } from '@app/modules/home/home.model';
+import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
 
 @Component({
   selector: 'app-home',
@@ -29,9 +35,10 @@ import { Filters } from '@app/modules/home/home.model';
   providers: [HomeStatefulService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private homeStatefulService = inject(HomeStatefulService);
+  private cocktailsApiService = inject(CocktailsApiService);
 
   public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
 
@@ -48,7 +55,7 @@ export class HomeComponent {
     this.resolve$.subscribe();
   }
 
-  handleFilter(filters: Filters) {
-    console.log(filters);
+  handleFilter(filters: Partial<Filters>) {
+    this.cocktailsApiService.getAllCocktails(filters).subscribe();
   }
 }

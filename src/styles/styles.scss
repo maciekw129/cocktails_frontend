@@ -69,6 +69,10 @@ body {
   border: 1px;
 }
 
+.bottom-shadow {
+  box-shadow: 0px 5px 9px -7px rgba(66, 68, 90, 1);
+}
+
 // colors
 
 .mat-mdc-snack-bar-container {
@@ -254,6 +258,10 @@ body {
 
   &--align-end {
     align-items: flex-end;
+  }
+
+  &--wrap {
+    flex-wrap: wrap;
   }
 }
 

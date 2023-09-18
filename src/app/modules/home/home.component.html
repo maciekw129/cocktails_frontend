@@ -12,7 +12,7 @@
       <mat-icon>add</mat-icon>
     </c-button>
   </c-hero>
-  <section class="flex--center flex--column padding-16-8">
+  <section class="flex--center flex--column">
     <c-filters-form (formSubmit)='handleFilter($event)'></c-filters-form>
     <div class='home__cocktails grid grid--center'>
       <c-cocktail-card *ngFor='let cocktail of cocktails$ | async' [cocktail]='cocktail'></c-cocktail-card>

@@ -24,6 +24,7 @@
     "back": "Back",
     "addIngredient": "Add ingredient",
     "submit": "Submit",
-    "filter": "Filter"
+    "filter": "Filter",
+    "clearFilters": "Clear filters"
   }
 }

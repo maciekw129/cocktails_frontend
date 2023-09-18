@@ -28,28 +28,30 @@ import { GlobalLoaderService } from '@app/core/shell/global-loader/global-loader
     MatTooltipModule,
   ],
   template: `
-    <button
-      *ngIf="design === 'primary'; else secondaryButton"
-      mat-flat-button
-      [color]="color"
-      (click)="handleClick()"
-      [disabled]="disabled || (isDisabledOnRequest && isLoading$ | async)"
-      [matTooltip]="tip"
-      [type]="type">
-      <ng-container *ngTemplateOutlet="content"></ng-container>
-    </button>
-
-    <ng-template #secondaryButton>
+    <span [matTooltip]="showTip ? tip : null">
       <button
-        mat-stroked-button
-        class="button--secondary"
+        *ngIf="design === 'primary'; else secondaryButton"
+        mat-flat-button
         [color]="color"
         (click)="handleClick()"
         [disabled]="disabled || (isDisabledOnRequest && isLoading$ | async)"
-        [matTooltip]="tip"
         [type]="type">
         <ng-container *ngTemplateOutlet="content"></ng-container>
       </button>
+    </span>
+
+    <ng-template #secondaryButton>
+      <span [matTooltip]="showTip ? tip : null">
+        <button
+          mat-stroked-button
+          class="button--secondary"
+          [color]="color"
+          (click)="handleClick()"
+          [disabled]="disabled || (isDisabledOnRequest && isLoading$ | async)"
+          [type]="type">
+          <ng-container *ngTemplateOutlet="content"></ng-container>
+        </button>
+      </span>
     </ng-template>
 
     <ng-template #content>
@@ -71,6 +73,7 @@ export class ButtonComponent {
   @Input() translation = '';
   @Input() isDisabledOnRequest = false;
   @Input() tip = '';
+  @Input() showTip = true;
 
   public isLoading$ = inject(GlobalLoaderService).getStateSlice('isLoading');
 
