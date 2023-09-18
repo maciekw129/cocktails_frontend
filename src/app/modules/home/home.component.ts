@@ -9,6 +9,8 @@ import { Observable, tap } from 'rxjs';
 import { HomeStatefulService } from '@app/modules/home/home-stateful.service';
 import { CocktailCardComponent } from '@app/modules/home/components/cocktail-card/cocktail-card.component';
 import { CocktailApi } from '@app/core/model/cocktails.model';
+import { FiltersFormComponent } from '@app/modules/home/forms/filters-form/filters-form.component';
+import { Filters } from '@app/modules/home/home.model';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +22,7 @@ import { CocktailApi } from '@app/core/model/cocktails.model';
     MatIconModule,
     RouterLink,
     CocktailCardComponent,
+    FiltersFormComponent,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -29,19 +32,23 @@ import { CocktailApi } from '@app/core/model/cocktails.model';
 export class HomeComponent {
   private activatedRoute = inject(ActivatedRoute);
   private homeStatefulService = inject(HomeStatefulService);
-  public isAuthorized = AuthStatefulService.useIsAuthorized$();
+
+  public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
 
   cocktails$: Observable<CocktailApi[]> =
     this.homeStatefulService.getStateSlice('cocktails');
 
   resolve$ = this.activatedRoute.data.pipe(
     tap(({ cocktails }: { cocktails: CocktailApi[] }) => {
-      console.log(cocktails);
       this.homeStatefulService.patchCocktailsState(cocktails);
     })
   );
 
   ngOnInit() {
     this.resolve$.subscribe();
+  }
+
+  handleFilter(filters: Filters) {
+    console.log(filters);
   }
 }

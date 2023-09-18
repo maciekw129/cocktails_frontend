@@ -1,0 +1,26 @@
+<form [formGroup]='form' (ngSubmit)='handleSubmit()'>
+  <c-text-input
+    formControlName='name'
+    label='Cocktail name'
+  ></c-text-input>
+  <c-select
+    formControlName='category'
+    label='Category'
+    [options]='categoryOptions'
+  ></c-select>
+  <c-select
+    formControlName='difficulty'
+    label='Difficulty'
+    [options]='difficultyOptions'
+  ></c-select>
+  <c-select
+    formControlName='ingredients'
+    label='Ingredients'
+    [multiple]='true'
+    [options]='ingredientsOptions$ | async'
+  ></c-select>
+  <c-button
+    type='submit'
+    translation='filter'
+  ></c-button>
+</form>

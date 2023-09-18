@@ -9,9 +9,9 @@ import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { UnitPipe } from '@app/modules/create-cocktail/components/ingredients-table/unit.pipe';
 import { CdkColumnDef } from '@angular/cdk/table';
 import { Ingredient } from '@app/core/model/cocktails.model';
+import { UnitLabelPipe } from '@app/core/pipes/unit-label.pipe';
 
 @Component({
   selector: 'c-ingredients-table',
@@ -21,7 +21,7 @@ import { Ingredient } from '@app/core/model/cocktails.model';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    UnitPipe,
+    UnitLabelPipe,
   ],
   templateUrl: './ingredients-table.component.html',
   styleUrls: ['ingredients-table.component.scss'],

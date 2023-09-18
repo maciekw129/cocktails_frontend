@@ -13,8 +13,8 @@ import { IngredientsTableComponent } from '@app/modules/create-cocktail/componen
 import { MatTableDataSource } from '@angular/material/table';
 import { PreparationStepComponent } from '@app/modules/cocktail-detail/components/preparation-step/preparation-step.component';
 import { MatCardModule } from '@angular/material/card';
-import { CategoryLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/category-label.pipe';
-import { DifficultyLabelPipe } from '@app/modules/cocktail-detail/components/preparation-step/pipes/difficulty-label.pipe';
+import { CategoryLabelPipe } from '@app/core/pipes/category-label.pipe';
+import { DifficultyLabelPipe } from '@app/core/pipes/difficulty-label.pipe';
 import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({

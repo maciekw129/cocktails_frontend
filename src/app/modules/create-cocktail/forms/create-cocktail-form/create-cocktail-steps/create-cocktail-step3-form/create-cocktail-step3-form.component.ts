@@ -20,7 +20,6 @@ import {
   SelectOptions,
 } from '@app/shared/forms/controls/select/select';
 import { FormService } from '@app/shared/forms/form.service';
-import { actionSelectOptions } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.data';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,6 +29,7 @@ import { tap } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { CreateCocktailStep3FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators';
 import { CustomErrorsComponent } from '@app/shared/forms/components/custom-error/custom-errors.component';
+import { actionSelectOptions } from '@app/core/data/action.data';
 
 @Component({
   selector: 'c-create-cocktail-step3-form',

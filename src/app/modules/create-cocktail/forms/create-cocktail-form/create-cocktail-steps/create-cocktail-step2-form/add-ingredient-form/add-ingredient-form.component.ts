@@ -16,10 +16,7 @@ import {
 import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
 import { SelectComponent } from '@app/shared/forms/controls/select/select';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import {
-  limit,
-  unitOptions,
-} from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
+import { limit } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { FormService } from '@app/shared/forms/form.service';
 import { CheckboxComponent } from '@app/shared/forms/controls/checkbox/checkbox.component';
@@ -28,6 +25,7 @@ import { ActivatedRoute } from '@angular/router';
 import { StopEventPropagationDirective } from '@app/shared/directives/stop-event-propagation.directive';
 import { CreateCocktailStep2FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
 import { Ingredient } from '@app/core/model/cocktails.model';
+import { unitOptions } from '@app/core/data/unit.data';
 
 @Component({
   selector: 'c-add-ingredient-form',

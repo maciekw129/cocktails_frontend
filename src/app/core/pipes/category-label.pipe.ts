@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { categoryLables } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.data';
 import { Category } from '@app/core/model/cocktails.model';
+import { categoryLables } from '@app/core/data/category.data';
 
 @Pipe({
   name: 'categoryLabel',

@@ -5,7 +5,7 @@
       Find, share and most importantly, drink.
     </h2>
     <c-button
-      *ngIf="isAuthorized | async"
+      *ngIf="isAuthorized$ | async"
       routerLink="create-cocktail"
       translation="createNewCocktail"
       color="primary">
@@ -13,6 +13,7 @@
     </c-button>
   </c-hero>
   <section class="flex--center flex--column padding-16-8">
+    <c-filters-form (formSubmit)='handleFilter($event)'></c-filters-form>
     <div class='home__cocktails grid grid--center'>
       <c-cocktail-card *ngFor='let cocktail of cocktails$ | async' [cocktail]='cocktail'></c-cocktail-card>
     </div>

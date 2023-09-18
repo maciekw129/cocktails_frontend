@@ -14,10 +14,8 @@ import {
 import { FormService } from '@app/shared/forms/form.service';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { SelectComponent } from '@app/shared/forms/controls/select/select';
-import {
-  categoryOptions,
-  difficultyOptions,
-} from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.data';
+import { categoryOptions } from '@app/core/data/category.data';
+import { difficultyOptions } from '@app/core/data/difficulty.data';
 
 @Component({
   selector: 'c-create-cocktail-step1-form',

@@ -10,7 +10,6 @@ import { NgForOf, NgIf } from '@angular/common';
 import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
 import { CustomControl } from '@app/shared/forms/controls/custom-control';
 import { MatSelectModule } from '@angular/material/select';
-import { PrimitiveTypes } from '@angular/cli/src/analytics/analytics-parameters';
 
 interface SelectOption<T> {
   value: T;
@@ -36,7 +35,10 @@ export type SelectOptions<T> = SelectOption<T>[];
   template: `
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
-      <mat-select [formControl]="control" [validationErrors]="validationErrors">
+      <mat-select
+        [formControl]="control"
+        [validationErrors]="validationErrors"
+        [multiple]="multiple">
         <mat-option *ngFor="let option of options" [value]="option.value">
           {{ option.label }}
         </mat-option>
@@ -60,4 +62,5 @@ export class SelectComponent extends CustomControl<string> {
   @Input() icon = '';
   @Input() hint = '';
   @Input() options: SelectOptions<unknown> = [];
+  @Input() multiple = false;
 }

@@ -18,7 +18,7 @@
 
   <ng-container matColumnDef="unit">
     <mat-header-cell *matHeaderCellDef> Unit </mat-header-cell>
-    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Unit: </p>{{element.unit | unit}} </mat-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Unit: </p>{{element.unit | unitLabel}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="isAlcoholic">
