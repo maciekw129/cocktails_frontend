@@ -56,6 +56,13 @@ export class HomeComponent implements OnInit {
   }
 
   handleFilter(filters: Partial<Filters>) {
-    this.cocktailsApiService.getAllCocktails(filters).subscribe();
+    this.cocktailsApiService
+      .getAllCocktails(filters)
+      .pipe(
+        tap(cocktails => {
+          this.homeStatefulService.patchCocktailsState(cocktails);
+        })
+      )
+      .subscribe();
   }
 }

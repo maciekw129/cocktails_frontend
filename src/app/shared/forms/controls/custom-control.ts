@@ -81,8 +81,8 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   }
 
   setDisabledState(disabled: boolean) {
-    disabled
-      ? this.control.disable({ emitEvent: false })
-      : this.control.enable({ emitEvent: false });
+    // disabled
+    //   ? this.control.disable({ emitEvent: false })
+    //   : this.control.enable({ emitEvent: false });
   }
 }

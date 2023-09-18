@@ -14,7 +14,7 @@ import {
   Difficulty,
   Ingredient,
 } from '@app/core/model/cocktails.model';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
 import {
   SelectComponent,
@@ -44,7 +44,6 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
     ButtonComponent,
   ],
   templateUrl: './filters-form.component.html',
-  styleUrls: ['./filters-form.component.scss'],
   providers: [FormService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -82,7 +81,7 @@ export class FiltersFormComponent
   }
 
   public clearFilters() {
-    this.form.reset(undefined, { emitEvent: false });
+    this.form.reset(undefined);
   }
 
   private manageFilterDisabledState() {
@@ -94,11 +93,13 @@ export class FiltersFormComponent
   }
 
   protected setEmittingValue() {
-    Object.values(this.form.controls).forEach((control: FormControl) => {
-      if (!control.value) control.disable({ emitEvent: false });
+    const formValues = { ...this.form.getRawValue() };
+
+    Object.keys(formValues).forEach((key: keyof typeof formValues) => {
+      if (!formValues[key]) delete formValues[key];
     });
 
-    return this.form.value;
+    return formValues;
   }
 
   protected override afterSubmit() {
