@@ -9,7 +9,6 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [CommonModule, HeroComponent, LinkComponent, MatCardModule],
   templateUrl: './empty-page.component.html',
-  styleUrls: ['./empty-page.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EmptyPageComponent {}
