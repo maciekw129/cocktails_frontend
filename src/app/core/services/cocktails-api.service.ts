@@ -16,13 +16,15 @@ export class CocktailsApiService {
     return this.http.get<Cocktail>(`${this.API_URL}/cocktails/${cocktailId}`);
   }
 
-  public getAllCocktails(params?: Partial<Filters>): Observable<CocktailApi[]> {
-    return this.http.get<CocktailApi[]>(`${this.API_URL}/cocktails`, {
+  public getAllCocktails(params?: Partial<Filters>): Observable<CocktailApi> {
+    return this.http.get<CocktailApi>(`${this.API_URL}/cocktails`, {
       params,
     });
   }
 
-  public createCocktail(cocktail: Cocktail): Observable<CocktailApi> {
+  public createCocktail(
+    cocktail: Omit<Cocktail, 'id'>
+  ): Observable<CocktailApi> {
     return this.httpWithMessage.post<CocktailApi>(
       `${this.API_URL}/cocktails`,
       'You successfully created new cocktail!',

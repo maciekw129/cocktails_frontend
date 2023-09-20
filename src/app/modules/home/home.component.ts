@@ -10,7 +10,7 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthStatefulService } from '@app/auth/auth-stateful.service';
-import { Observable, tap } from 'rxjs';
+import { tap } from 'rxjs';
 import { HomeStatefulService } from '@app/modules/home/home-stateful.service';
 import { CocktailCardComponent } from '@app/modules/home/components/cocktail-card/cocktail-card.component';
 import { CocktailApi } from '@app/core/model/cocktails.model';
@@ -42,12 +42,14 @@ export class HomeComponent implements OnInit {
 
   public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
 
-  cocktails$: Observable<CocktailApi[]> =
-    this.homeStatefulService.getStateSlice('cocktails');
+  cocktails$ = this.homeStatefulService.getStateSlice('cocktails');
 
   resolve$ = this.activatedRoute.data.pipe(
-    tap(({ cocktails }: { cocktails: CocktailApi[] }) => {
-      this.homeStatefulService.patchCocktailsState(cocktails);
+    tap(({ cocktailsApi }: { cocktailsApi: CocktailApi }) => {
+      const { data, meta } = cocktailsApi;
+
+      this.homeStatefulService.patchState({ cocktails: data });
+      this.homeStatefulService.patchState({ pageMeta: meta });
     })
   );
 
@@ -59,8 +61,9 @@ export class HomeComponent implements OnInit {
     this.cocktailsApiService
       .getAllCocktails(filters)
       .pipe(
-        tap(cocktails => {
-          this.homeStatefulService.patchCocktailsState(cocktails);
+        tap(({ data, meta }) => {
+          this.homeStatefulService.patchState({ cocktails: data });
+          this.homeStatefulService.patchState({ pageMeta: meta });
         })
       )
       .subscribe();

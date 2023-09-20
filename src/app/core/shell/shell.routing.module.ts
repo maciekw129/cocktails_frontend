@@ -16,7 +16,7 @@ const routes: Route[] = [
         path: '',
         component: HomeComponent,
         resolve: {
-          cocktails: CocktailsResolver,
+          cocktailsApi: CocktailsResolver,
           ingredients: IngredientsResolver,
         },
       },

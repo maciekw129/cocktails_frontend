@@ -1,8 +1,10 @@
 export interface CocktailApi extends Cocktail {
-  id: string;
+  data: Cocktail[];
+  meta: PageMeta;
 }
 
 export interface Cocktail {
+  id: string;
   name: string;
   imageUrl: string;
   description: string;
@@ -10,6 +12,15 @@ export interface Cocktail {
   difficulty: Difficulty;
   preparation: PreparationStep[];
   ingredients: Ingredient[];
+}
+
+export interface PageMeta {
+  page: number;
+  take: number;
+  itemCount: number;
+  pageCount: number;
+  hasPreviousPage: boolean;
+  hasNextPage: boolean;
 }
 
 export enum Category {

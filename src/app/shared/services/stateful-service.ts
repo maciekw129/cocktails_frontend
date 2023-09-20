@@ -13,14 +13,14 @@ export abstract class StatefulService<T extends Record<string, any>> {
     this._state$$ = new BehaviorSubject<T>(initialState);
   }
 
-  protected patchState(stateSlice: Partial<T>) {
+  public patchState(stateSlice: Partial<T>) {
     this._state$$.next({
       ...this._state$$.value,
       ...stateSlice,
     });
   }
 
-  public getStateSlice(key: keyof T): Observable<T[keyof T]> {
+  public getStateSlice<K extends keyof T>(key: K): Observable<T[K]> {
     return this.getWholeState().pipe(map((state: T[keyof T]) => state[key]));
   }
 }
