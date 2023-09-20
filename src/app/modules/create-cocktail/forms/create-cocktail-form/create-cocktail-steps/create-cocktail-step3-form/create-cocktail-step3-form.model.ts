@@ -11,7 +11,7 @@ export interface CreateCocktailStep3Form {
 
 export interface PreparationStepForm {
   step: FormControl<number>;
-  ingredient: FormControl<string>;
+  ingredient: FormControl<string | null>;
   action: FormControl<Action>;
   tip: FormControl<string>;
 }

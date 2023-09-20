@@ -4,7 +4,7 @@
       <mat-card-title>{{cocktail.name}}</mat-card-title>
       <mat-card-subtitle>{{cocktail.category | categoryLabel}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="cocktail.imageUrl" alt="Cocktail image" />
+    <img class='cocktail-card__image' mat-card-image [src]="cocktail.imageUrl" alt="Cocktail image" />
     <mat-card-content>
       <p class='font-text-2'>Difficulty: {{cocktail.difficulty | difficultyLabel}}</p>
     </mat-card-content>

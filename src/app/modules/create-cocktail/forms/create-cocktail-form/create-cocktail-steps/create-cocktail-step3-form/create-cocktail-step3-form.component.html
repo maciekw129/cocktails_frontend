@@ -12,7 +12,7 @@
           <c-select
             formControlName='ingredient'
             label='Ingredient'
-            [options]='ingredients'
+            [options]='ingredientsOpions$ | async'
           ></c-select>
           <c-text-input
             formControlName='tip'

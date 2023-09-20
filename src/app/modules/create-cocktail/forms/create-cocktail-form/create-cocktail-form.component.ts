@@ -22,9 +22,8 @@ import { MatCardModule } from '@angular/material/card';
 import { CreateCocktailStep1FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component';
 import { CreateCocktailStep2FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.component';
 import { CreateCocktailStep3FormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component';
-import { map, Observable } from 'rxjs';
-import { SelectOptions } from '@app/shared/forms/controls/select/select';
-import { Cocktail } from '@app/core/model/cocktails.model';
+import { Observable } from 'rxjs';
+import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-create-cocktail-form',
@@ -57,18 +56,12 @@ export class CreateCocktailFormComponent
 {
   @ViewChild('stepper') stepper: MatStepper;
 
-  ingredients$: Observable<SelectOptions<string>>;
+  ingredients$: Observable<Ingredient[]>;
 
   override ngOnInit() {
     super.ngOnInit();
 
-    this.ingredients$ = this.form.controls.ingredients.valueChanges.pipe(
-      map(ingredients =>
-        ingredients.map(ingredient => {
-          return { value: ingredient.name, label: ingredient.name };
-        })
-      )
-    );
+    this.ingredients$ = this.form.controls.ingredients.valueChanges;
   }
 
   protected buildForm() {

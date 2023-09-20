@@ -4,6 +4,7 @@ import {
   EventEmitter,
   inject,
   Input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,11 +26,12 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
 import { CreateCocktailStep3FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators';
 import { CustomErrorsComponent } from '@app/shared/forms/components/custom-error/custom-errors.component';
 import { actionSelectOptions } from '@app/core/data/action.data';
+import { Ingredient } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-create-cocktail-step3-form',
@@ -50,21 +52,35 @@ import { actionSelectOptions } from '@app/core/data/action.data';
   styleUrls: ['./create-cocktail-step3-form.component.scss'],
   providers: [FormService],
 })
-export class CreateCocktailStep3FormComponent extends FormComponent<
-  CreateCocktailStep3,
-  FormGroup<CreateCocktailStep3Form>
-> {
+export class CreateCocktailStep3FormComponent
+  extends FormComponent<CreateCocktailStep3, FormGroup<CreateCocktailStep3Form>>
+  implements OnInit
+{
   @Output() stepperBack = new EventEmitter<void>();
   @Output() submitParentForm = new EventEmitter<void>();
-  @Input() ingredients: SelectOptions<string>;
+  @Input() ingredients$: Observable<Ingredient[]>;
 
   private confirmationDialogService = inject(ConfirmationDialogService);
   private cdr = inject(ChangeDetectorRef);
 
   actionOptions = actionSelectOptions;
 
+  ingredientsOpions$: Observable<SelectOptions<string>>;
+
   get preparationArray() {
     return this.form.controls.preparation;
+  }
+
+  override ngOnInit() {
+    super.ngOnInit();
+
+    this.ingredientsOpions$ = this.ingredients$.pipe(
+      map(ingredients =>
+        ingredients.map(ingredient => {
+          return { value: ingredient.name, label: ingredient.name };
+        })
+      )
+    );
   }
 
   protected buildForm() {
@@ -84,7 +100,7 @@ export class CreateCocktailStep3FormComponent extends FormComponent<
   ): FormGroup<PreparationStepForm> {
     return this.fb.group({
       step: this.fb.control(stepNumber),
-      ingredient: this.fb.control('', { validators: Validators.required }),
+      ingredient: this.fb.control(''),
       action: this.fb.control(null, { validators: Validators.required }),
       tip: this.fb.control(''),
     });

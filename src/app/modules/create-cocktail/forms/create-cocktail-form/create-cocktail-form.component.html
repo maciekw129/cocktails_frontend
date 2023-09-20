@@ -16,7 +16,7 @@
           #step3
           (formSubmit)='patchFormValue($event); handleSubmit()'
           (stepperBack)='stepper.previous()'
-          [ingredients]='ingredients$ | async'
+          [ingredients$]='ingredients$'
         ></c-create-cocktail-step3-form>
     </mat-step>
   </mat-stepper>
