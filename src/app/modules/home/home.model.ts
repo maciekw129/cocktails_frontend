@@ -4,4 +4,5 @@ export interface Filters {
   name: string;
   category: Category;
   difficulty: Difficulty;
+  userId: string;
 }

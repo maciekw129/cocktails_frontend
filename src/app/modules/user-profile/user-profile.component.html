@@ -7,7 +7,9 @@
       <mat-tab label="User data">
         <c-user-data-form #userDataForm (formSubmit)='handlePatchUser($event)' />
       </mat-tab>
-      <mat-tab label="My cocktails">Content 2</mat-tab>
+      <mat-tab label="My cocktails">
+        <c-my-cocktails/>
+      </mat-tab>
     </mat-tab-group>
   </section>
 </div>

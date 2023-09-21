@@ -12,12 +12,14 @@ export class CocktailsApiService {
   private httpWithMessage = inject(HttpWithMessage);
   private readonly API_URL = inject(API_URL);
 
+  private readonly COCKTAILS_URL = `${this.API_URL}/cocktails`;
+
   public getCocktail(cocktailId: string): Observable<Cocktail> {
-    return this.http.get<Cocktail>(`${this.API_URL}/cocktails/${cocktailId}`);
+    return this.http.get<Cocktail>(`${this.COCKTAILS_URL}/${cocktailId}`);
   }
 
   public getAllCocktails(params?: Partial<Filters>): Observable<CocktailApi> {
-    return this.http.get<CocktailApi>(`${this.API_URL}/cocktails`, {
+    return this.http.get<CocktailApi>(`${this.COCKTAILS_URL}`, {
       params,
     });
   }
@@ -26,7 +28,7 @@ export class CocktailsApiService {
     cocktail: Omit<Cocktail, 'id'>
   ): Observable<CocktailApi> {
     return this.httpWithMessage.post<CocktailApi>(
-      `${this.API_URL}/cocktails`,
+      `${this.COCKTAILS_URL}`,
       'You successfully created new cocktail!',
       cocktail
     );

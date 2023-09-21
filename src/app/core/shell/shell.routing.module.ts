@@ -6,6 +6,7 @@ import { IngredientsResolver } from '@app/modules/create-cocktail/ingredients.re
 import { AuthGuards } from '@app/auth/auth-guards';
 import { CocktailResolver } from '@app/modules/cocktail-detail/cocktail.resolver';
 import { CocktailsResolver } from '@app/modules/home/cocktails.resolver';
+import { UserCocktailsResolver } from '@app/modules/user-profile/user-cocktails.resolver';
 
 const routes: Route[] = [
   {
@@ -44,6 +45,9 @@ const routes: Route[] = [
       {
         path: 'user-profile',
         canActivate: [AuthGuards.authentication()],
+        resolve: {
+          cocktails: UserCocktailsResolver,
+        },
         loadComponent: () =>
           import('@app/modules/user-profile/user-profile.component').then(
             m => m.UserProfileComponent

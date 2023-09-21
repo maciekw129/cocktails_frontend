@@ -14,11 +14,18 @@ import { switchMap, tap } from 'rxjs';
 import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
 import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { UserData } from '@app/auth/auth.model';
+import { MyCocktailsComponent } from '@app/modules/user-profile/components/my-cocktails/my-cocktails.component';
 
 @Component({
   selector: 'c-user-profile',
   standalone: true,
-  imports: [CommonModule, HeroComponent, MatTabsModule, UserDataFormComponent],
+  imports: [
+    CommonModule,
+    HeroComponent,
+    MatTabsModule,
+    UserDataFormComponent,
+    MyCocktailsComponent,
+  ],
   templateUrl: './user-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
