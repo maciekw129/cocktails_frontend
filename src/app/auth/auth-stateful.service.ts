@@ -26,6 +26,10 @@ export class AuthStatefulService extends StatefulService<AuthState> {
     });
   }
 
+  public getUserDataValue() {
+    return this._state$$.value.userData;
+  }
+
   public initializeAuth() {
     if (this.tokenService.isTokenValid()) {
       this.authApiService.getUserData().subscribe(user => {

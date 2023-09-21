@@ -11,11 +11,18 @@
         alt="logo" />
       <h2 class="navbar__title font-heading-1">Cocktails</h2>
     </a>
-    <ng-container *ngIf="userData$ | async as userData; else authButtons">
-      <c-button
-        translation="logout"
-        (buttonClick)="logout()"
-        [isDisabledOnRequest]='true'></c-button>
+    <ng-container *ngIf="isAuthorized$ | async; else authButtons">
+      <div class='flex gap-2'>
+        <c-button
+          routerLink='user-profile'
+          design='secondary'
+        ><mat-icon class='color-black'>person</mat-icon></c-button>
+        <c-button
+
+          translation="logout"
+          (buttonClick)="logout()"
+          [isDisabledOnRequest]='true'></c-button>
+      </div>
     </ng-container>
     <ng-template #authButtons>
       <div class="flex flex--align-center flex--justify-end gap-3">

@@ -18,8 +18,8 @@ import { ButtonComponent } from '@app/shared/components/button/button.component'
       <p>{{ content }}</p>
     </div>
     <div mat-dialog-actions class="gap-3" align="center">
-      <c-button translation="yes" (buttonClick)="close(true)"></c-button>
       <c-button translation="no" (buttonClick)="close(false)"></c-button>
+      <c-button translation="yes" (buttonClick)="close(true)"></c-button>
     </div>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -37,7 +37,7 @@ import { TranslateModule } from '@ngx-translate/core';
 export class NavbarComponent {
   private dialogRef = inject(MatDialog);
   private authService = inject(AuthStatefulService);
-  public userData$ = inject(USER_DATA);
+  public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
 
   public hasBackground = false;
 

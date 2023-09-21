@@ -20,6 +20,16 @@ export class HttpWithMessage {
       .pipe(this.getSnackBarPipe<T>(message));
   }
 
+  public patch<T>(
+    url: string,
+    message: string,
+    payload: object
+  ): Observable<T> {
+    return this.http
+      .patch<T>(url, payload)
+      .pipe(this.getSnackBarPipe<T>(message));
+  }
+
   private getSnackBarPipe<T>(message: string): OperatorFunction<T, T> {
     return pipe(
       tap(() =>

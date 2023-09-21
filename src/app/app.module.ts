@@ -13,7 +13,7 @@ import {
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthStatefulService } from './auth/auth-stateful.service';
-import { USER_DATA } from './auth/auth.tokens';
+import { USER_DATA, USER_DATA_VALUE } from './auth/auth.tokens';
 import { TokenInterceptor } from './auth/token/token.interceptor';
 import { GlobalLoaderInterceptor } from '@app/core/shell/global-loader/global-loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -64,6 +64,12 @@ export function HttpLoaderFactory(http: HttpClient) {
       provide: USER_DATA,
       useFactory: () => {
         return inject(AuthStatefulService).getStateSlice('userData');
+      },
+    },
+    {
+      provide: USER_DATA_VALUE,
+      useFactory: () => {
+        return inject(AuthStatefulService).getUserDataValue();
       },
     },
     {

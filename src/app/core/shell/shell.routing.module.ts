@@ -42,6 +42,14 @@ const routes: Route[] = [
           ),
       },
       {
+        path: 'user-profile',
+        canActivate: [AuthGuards.authentication()],
+        loadComponent: () =>
+          import('@app/modules/user-profile/user-profile.component').then(
+            m => m.UserProfileComponent
+          ),
+      },
+      {
         path: '**',
         loadComponent: () =>
           import('@app/core/components/empty-page/empty-page.component').then(
