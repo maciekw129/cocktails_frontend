@@ -67,11 +67,17 @@ export class FiltersFormComponent
     );
 
   protected buildForm() {
+    const { queryParams } = this.activatedRoute.snapshot;
+
     return this.fb.group<FiltersForm>({
-      name: this.fb.control<string>(''),
-      difficulty: this.fb.control<Difficulty>(null),
-      category: this.fb.control<Category>(null),
-      ingredients: this.fb.control<string>(''),
+      name: this.fb.control<string>(queryParams['name'] ?? null),
+      difficulty: this.fb.control<Difficulty>(
+        Number(queryParams['difficulty']) ?? null
+      ),
+      category: this.fb.control<Category>(
+        Number(queryParams['category']) ?? null
+      ),
+      ingredients: this.fb.control<string>(queryParams['ingredients'] ?? null),
     });
   }
 
