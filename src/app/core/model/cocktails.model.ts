@@ -1,5 +1,7 @@
-export interface CocktailApi extends Cocktail {
-  data: Cocktail[];
+import { UserData } from '@app/auth/auth.model';
+
+export interface CocktailsApi extends Cocktail {
+  data: CocktailListItem[];
   meta: PageMeta;
 }
 
@@ -12,7 +14,10 @@ export interface Cocktail {
   difficulty: Difficulty;
   preparation: PreparationStep[];
   ingredients: Ingredient[];
+  author: UserData;
 }
+
+export type CocktailListItem = Omit<Cocktail, 'preparation'>;
 
 export interface PageMeta {
   page: number;

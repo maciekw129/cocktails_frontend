@@ -51,7 +51,10 @@ import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateCocktailFormComponent
-  extends FormComponent<Omit<Cocktail, 'id'>, FormGroup<CreateCocktailForm>>
+  extends FormComponent<
+    Omit<Cocktail, 'id' | 'author'>,
+    FormGroup<CreateCocktailForm>
+  >
   implements OnInit
 {
   @ViewChild('stepper') stepper: MatStepper;

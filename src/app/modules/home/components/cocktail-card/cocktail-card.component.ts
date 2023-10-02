@@ -4,7 +4,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CategoryLabelPipe } from '@app/core/pipes/category-label.pipe';
 import { DifficultyLabelPipe } from '@app/core/pipes/difficulty-label.pipe';
 import { RouterLink } from '@angular/router';
-import { Cocktail } from '@app/core/model/cocktails.model';
+import { CocktailListItem } from '@app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-cocktail-card',
@@ -21,5 +21,5 @@ import { Cocktail } from '@app/core/model/cocktails.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailCardComponent {
-  @Input() cocktail: Cocktail;
+  @Input() cocktail: CocktailListItem;
 }

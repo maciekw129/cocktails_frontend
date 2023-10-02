@@ -13,7 +13,7 @@ import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { tap } from 'rxjs';
 import { HomeStatefulService } from '@app/modules/home/home-stateful.service';
 import { CocktailCardComponent } from '@app/modules/home/components/cocktail-card/cocktail-card.component';
-import { CocktailApi } from '@app/core/model/cocktails.model';
+import { CocktailsApi } from '@app/core/model/cocktails.model';
 import { FiltersFormComponent } from '@app/modules/home/forms/filters-form/filters-form.component';
 import { Filters } from '@app/modules/home/home.model';
 import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   pageMeta$ = this.homeStatefulService.getStateSlice('pageMeta');
 
   resolve$ = this.activatedRoute.data.pipe(
-    tap(({ cocktailsApi }: { cocktailsApi: CocktailApi }) => {
+    tap(({ cocktailsApi }: { cocktailsApi: CocktailsApi }) => {
       const { data, meta } = cocktailsApi;
 
       this.homeStatefulService.patchState({ cocktails: data });

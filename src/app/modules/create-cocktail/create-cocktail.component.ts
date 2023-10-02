@@ -29,7 +29,7 @@ export class CreateCocktailComponent {
     window.opener.location.reload();
   }
 
-  public createCocktail(cocktail: Omit<Cocktail, 'id'>) {
+  public createCocktail(cocktail: Omit<Cocktail, 'id' | 'author'>) {
     this.cocktailsApiService
       .createCocktail(cocktail)
       .pipe(tap(({ id }) => this.router.navigate(['cocktail', id])))
