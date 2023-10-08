@@ -19,7 +19,7 @@
 - **RxJS** 7.8.0,
 - **Angular Material**,
 - **TypeScript** 4.9.4,
-- **HTML**, **CSS**,
+- **HTML**, **SCSS**,
 
 I also used ***jwt-decode***, and ***ngx-translate***.
 ## 4. Features
