@@ -25,13 +25,14 @@ import { difficultyOptions } from '@src/app/core/data/difficulty.data';
 import { ActivatedRoute } from '@angular/router';
 import {
   BehaviorSubject,
-  distinctUntilChanged,
+  distinctUntilChanged, finalize,
   map,
   Observable,
   take,
   tap,
 } from 'rxjs';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import {IngredientsApiService} from "@app/core/services/ingredients-api.service";
 
 @Component({
   selector: 'c-filters-form',
@@ -52,18 +53,21 @@ export class FiltersFormComponent
   implements OnInit
 {
   private activatedRoute = inject(ActivatedRoute);
+  private ingredientsApiService = inject(IngredientsApiService);
 
   categoryOptions = categoryOptions;
   difficultyOptions = difficultyOptions;
   isSubmitDisabled$ = new BehaviorSubject<boolean>(true);
+  isIngredientsLoading$ = new BehaviorSubject(true);
 
   ingredientsOptions$: Observable<SelectOptions<string>> =
-    this.activatedRoute.data.pipe(
-      map(({ ingredients }: { ingredients: Ingredient[] }) => {
+    this.ingredientsApiService.getSavedIngredients().pipe(
+      map(( ingredients) => {
         return ingredients.map(({ name }) => {
           return { value: name, label: name };
         });
-      })
+      }),
+      finalize(() => this.isIngredientsLoading$.next(false))
     );
 
   protected buildForm() {

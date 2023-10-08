@@ -10,7 +10,7 @@ import {ButtonComponent} from '@src/app/shared/components/button/button.componen
 import {MatIconModule} from '@angular/material/icon';
 import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {AuthStatefulService} from '@src/app/auth/auth-stateful.service';
-import {combineLatest, switchMap, take, tap} from 'rxjs';
+import {BehaviorSubject, combineLatest, switchMap, take, tap} from 'rxjs';
 import {HomeStatefulService} from '@src/app/modules/home/home-stateful.service';
 import {CocktailCardComponent} from '@src/app/modules/home/components/cocktail-card/cocktail-card.component';
 import {CocktailsApi} from '@src/app/core/model/cocktails.model';
@@ -19,6 +19,7 @@ import {Filters} from '@src/app/modules/home/home.model';
 import {CocktailsApiService} from '@src/app/core/services/cocktails-api.service';
 import {MatPaginatorIntl, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
 import {PaginatorService} from "@src/app/modules/home/paginator.service";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @Component({
   selector: 'app-home',
@@ -32,6 +33,7 @@ import {PaginatorService} from "@src/app/modules/home/paginator.service";
     CocktailCardComponent,
     FiltersFormComponent,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
@@ -46,6 +48,7 @@ export class HomeComponent implements OnInit {
   private cocktailsApiService = inject(CocktailsApiService);
 
   public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
+  public isLoading$ = new BehaviorSubject(false);
 
   public cocktails$ = this.homeStatefulService.getStateSlice('cocktails');
   public pageMeta$ = this.homeStatefulService.getStateSlice('pageMeta');
@@ -65,6 +68,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.resolve$.subscribe();
+    this.getCocktails();
   }
 
   private getCocktails(): void {
@@ -72,6 +76,7 @@ export class HomeComponent implements OnInit {
       this.page$,
       this.filters$
     ]).pipe(
+      tap(() => this.isLoading$.next(true)),
       take(1),
       switchMap(([page, filters]) => {
         this.updateUrl(page, filters);
@@ -82,6 +87,7 @@ export class HomeComponent implements OnInit {
           cocktails: data,
           pageMeta: meta
         })
+        this.isLoading$.next(false);
       })
     ).subscribe()
   }

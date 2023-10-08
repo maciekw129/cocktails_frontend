@@ -22,6 +22,7 @@
         label='Ingredients'
         [multiple]='true'
         [options]='ingredientsOptions$ | async'
+        [isLoading]="isIngredientsLoading$ | async"
       ></c-select>
     </div>
   </div>
