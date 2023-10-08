@@ -1,5 +1,5 @@
-import { Action } from '@frontend/src/app/core/model/cocktails.model';
-import { SelectOptions } from '@frontend/src/app/shared/forms/controls/select/select';
+import { Action } from '@src/app/core/model/cocktails.model';
+import { SelectOptions } from '@src/app/shared/forms/controls/select/select';
 
 export const actionLabels: Record<Action, string> = {
   [Action.ADD]: 'Add',

@@ -1,5 +1,5 @@
-import { Unit } from '@frontend/src/app/core/model/cocktails.model';
-import { SelectOptions } from '@frontend/src/app/shared/forms/controls/select/select';
+import { Unit } from '@src/app/core/model/cocktails.model';
+import { SelectOptions } from '@src/app/shared/forms/controls/select/select';
 
 export const unitLabels: Record<Unit, string> = {
   [Unit.pcs]: 'pcs',

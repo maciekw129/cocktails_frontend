@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use 'apps/cocktails-frontend/src/styles/palettes' as palette;
+@use 'src/styles/palettes' as palette;
 
 .footer {
   background-color: mat.get-color-from-palette(palette.$gray-palette, 500);
