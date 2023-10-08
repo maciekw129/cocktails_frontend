@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@use 'apps/cocktails-frontend/src/styles/palettes' as palette;
+@use 'src/styles/palettes' as palette;
 
 .create-cocktail {
   &__heading {
