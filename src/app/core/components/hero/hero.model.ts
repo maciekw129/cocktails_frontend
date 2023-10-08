@@ -1,4 +1,4 @@
-import { heroImages } from '@app/core/components/hero/hero.data';
+import { heroImages } from '@src/app/core/components/hero/hero.data';
 
 export type HeroImages = keyof typeof heroImages;
 

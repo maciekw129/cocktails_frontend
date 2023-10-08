@@ -5,27 +5,27 @@ import {
   Input,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from '@app/shared/forms/form.component';
-import { IngredientForm } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.model';
+import { FormComponent } from '@src/app/shared/forms/form.component';
+import { IngredientForm } from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.model';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { TextAutocompleteInputComponent } from '@app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
-import { SelectComponent } from '@app/shared/forms/controls/select/select';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import { limit } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
-import { FormService } from '@app/shared/forms/form.service';
-import { CheckboxComponent } from '@app/shared/forms/controls/checkbox/checkbox.component';
+import { TextAutocompleteInputComponent } from '@src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
+import { SelectComponent } from '@src/app/shared/forms/controls/select/select';
+import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
+import { limit } from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { FormService } from '@src/app/shared/forms/form.service';
+import { CheckboxComponent } from '@src/app/shared/forms/controls/checkbox/checkbox.component';
 import { tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { StopEventPropagationDirective } from '@app/shared/directives/stop-event-propagation.directive';
-import { CreateCocktailStep2FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
-import { Ingredient } from '@app/core/model/cocktails.model';
-import { unitOptions } from '@app/core/data/unit.data';
+import { StopEventPropagationDirective } from '@src/app/shared/directives/stop-event-propagation.directive';
+import { CreateCocktailStep2FormValidators } from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
+import { Ingredient } from '@src/app/core/model/cocktails.model';
+import { unitOptions } from '@src/app/core/data/unit.data';
 
 @Component({
   selector: 'c-add-ingredient-form',

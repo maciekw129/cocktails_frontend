@@ -4,7 +4,7 @@ import {
   Difficulty,
   Ingredient,
   PreparationStep,
-} from '@app/core/model/cocktails.model';
+} from '@src/app/core/model/cocktails.model';
 
 export interface CreateCocktailForm {
   name: FormControl<string>;

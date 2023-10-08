@@ -1,4 +1,4 @@
-import { UserData } from '@app/auth/auth.model';
+import { UserData } from '@src/app/auth/auth.model';
 
 export interface CocktailsApi extends Cocktail {
   data: CocktailListItem[];

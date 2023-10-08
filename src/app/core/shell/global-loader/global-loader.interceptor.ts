@@ -6,7 +6,7 @@ import {
   HttpInterceptor,
 } from '@angular/common/http';
 import { catchError, EMPTY, finalize, Observable } from 'rxjs';
-import { GlobalLoaderService } from '@app/core/shell/global-loader/global-loader.service';
+import { GlobalLoaderService } from '@src/app/core/shell/global-loader/global-loader.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
@@ -24,10 +24,12 @@ export class GlobalLoaderInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError(error => {
-        this.snackBar.open(`Error: ${error.error.message}`, 'X', {
+        const message = error.error.message;
+
+        this.snackBar.open(Array.isArray(message) ? message.join(` `) : message, 'X', {
           verticalPosition: 'top',
           duration: this.ERROR_MESSAGE_DURATION,
-          panelClass: ['error'],
+          panelClass: ['error', 'snack-bar--error'],
         });
         return EMPTY;
       }),

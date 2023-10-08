@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Category } from '@app/core/model/cocktails.model';
-import { categoryLables } from '@app/core/data/category.data';
+import { Category } from '@src/app/core/model/cocktails.model';
+import { categoryLables } from '@src/app/core/data/category.data';
 
 @Pipe({
   name: 'categoryLabel',

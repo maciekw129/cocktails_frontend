@@ -1,6 +1,5 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   inject,
   Input,
@@ -8,10 +7,9 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ValidationErrors } from '@angular/forms';
-import { FormService } from '@app/shared/forms/form.service';
+import { FormService } from '@src/app/shared/forms/form.service';
 import { BehaviorSubject, take, tap } from 'rxjs';
 import { TranslateModule } from '@ngx-translate/core';
-import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
 
 @Component({
   selector: 'c-custom-error',

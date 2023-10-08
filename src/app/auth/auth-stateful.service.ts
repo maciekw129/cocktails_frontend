@@ -1,15 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { StatefulService } from '@app/shared/services/stateful-service';
-import { AuthApiService } from '@app/auth/auth-api.service';
+import { StatefulService } from '@src/app/shared/services/stateful-service';
+import { AuthApiService } from '@src/app/auth/auth-api.service';
 import {
   AuthState,
   LoginPayload,
   RegisterPayload,
   UserData,
-} from '@app/auth/auth.model';
+} from '@src/app/auth/auth.model';
 import { map, tap } from 'rxjs';
-import { TokenService } from '@app/auth/token/token.service';
-import { USER_DATA } from '@app/auth/auth.tokens';
+import { TokenService } from '@src/app/auth/token/token.service';
+import { USER_DATA } from '@src/app/auth/auth.tokens';
 
 @Injectable({ providedIn: 'root' })
 export class AuthStatefulService extends StatefulService<AuthState> {

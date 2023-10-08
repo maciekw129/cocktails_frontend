@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { CustomControl } from '@app/shared/forms/controls/custom-control';
+import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 
 @Component({
   selector: 'c-checkbox',

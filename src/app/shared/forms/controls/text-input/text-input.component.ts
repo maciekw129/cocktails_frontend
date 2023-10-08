@@ -3,8 +3,8 @@ import { NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgIf } from '@angular/common';
-import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
-import { CustomControl } from '@app/shared/forms/controls/custom-control';
+import { ValidationErrorsDirective } from '@src/app/shared/forms/directives/validation-errors.directive';
+import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 
 @Component({
   selector: 'c-text-input',

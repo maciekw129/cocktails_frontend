@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CategoryLabelPipe } from '@app/core/pipes/category-label.pipe';
-import { DifficultyLabelPipe } from '@app/core/pipes/difficulty-label.pipe';
+import { CategoryLabelPipe } from '@src/app/core/pipes/category-label.pipe';
+import { DifficultyLabelPipe } from '@src/app/core/pipes/difficulty-label.pipe';
 import { RouterLink } from '@angular/router';
-import { CocktailListItem } from '@app/core/model/cocktails.model';
+import { CocktailListItem } from '@src/app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-cocktail-card',

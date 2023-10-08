@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Action } from '@app/core/model/cocktails.model';
-import { actionLabels } from '@app/core/data/action.data';
+import { Action } from '@src/app/core/model/cocktails.model';
+import { actionLabels } from '@src/app/core/data/action.data';
 
 @Pipe({
   name: 'actionLabel',

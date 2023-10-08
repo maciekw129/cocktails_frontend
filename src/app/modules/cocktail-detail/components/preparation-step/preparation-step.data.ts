@@ -1,4 +1,4 @@
-import { Action } from '@app/core/model/cocktails.model';
+import { Action } from '@src/app/core/model/cocktails.model';
 
 export const actionIcons: Record<Action, string> = {
   [Action.SQUEEZE]: 'assets/images/juicer.png',

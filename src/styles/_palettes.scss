@@ -1,7 +1,10 @@
+@use '@angular/material' as mat;
+
 $dark-primary-text: #333;
 $light-primary-text: #ffffff;
 
 $white: #ffffff;
+$black: #000000;
 
 $red-palette: (
   100: #fae0e5,
@@ -62,3 +65,15 @@ $gray-palette: (
     900: $light-primary-text,
   ),
 );
+
+$cocktails-primary: mat.define-palette($green-palette, 500);
+$cocktails-accent: mat.define-palette($blue-palette, 100);
+$cocktails-warn: mat.define-palette($red-palette, 300);
+
+.color-white {
+  color: $white;
+}
+
+.color-black {
+  color: $black;
+}

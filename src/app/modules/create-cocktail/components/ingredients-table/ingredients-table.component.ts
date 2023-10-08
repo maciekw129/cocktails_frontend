@@ -10,8 +10,8 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CdkColumnDef } from '@angular/cdk/table';
-import { Ingredient } from '@app/core/model/cocktails.model';
-import { UnitLabelPipe } from '@app/core/pipes/unit-label.pipe';
+import { Ingredient } from '@src/app/core/model/cocktails.model';
+import { UnitLabelPipe } from '@src/app/core/pipes/unit-label.pipe';
 
 @Component({
   selector: 'c-ingredients-table',

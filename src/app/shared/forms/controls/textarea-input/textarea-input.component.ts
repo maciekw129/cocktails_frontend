@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { CustomControl } from '@app/shared/forms/controls/custom-control';
+import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 import { MatInputModule } from '@angular/material/input';
-import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
+import { ValidationErrorsDirective } from '@src/app/shared/forms/directives/validation-errors.directive';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({

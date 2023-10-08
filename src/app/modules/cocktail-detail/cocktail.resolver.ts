@@ -1,7 +1,7 @@
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { Cocktail } from '@app/core/model/cocktails.model';
-import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
+import { Cocktail } from '@src/app/core/model/cocktails.model';
+import { CocktailsApiService } from '@src/app/core/services/cocktails-api.service';
 
 export const CocktailResolver: ResolveFn<Cocktail> = (
   route: ActivatedRouteSnapshot

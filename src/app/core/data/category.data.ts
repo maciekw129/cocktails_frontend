@@ -1,5 +1,5 @@
-import { Category } from '@app/core/model/cocktails.model';
-import { SelectOptions } from '@app/shared/forms/controls/select/select';
+import { Category } from '@frontend/src/app/core/model/cocktails.model';
+import { SelectOptions } from '@frontend/src/app/shared/forms/controls/select/select';
 
 export const categoryLables: Record<Category, string> = {
   [Category.shot]: 'Shot',

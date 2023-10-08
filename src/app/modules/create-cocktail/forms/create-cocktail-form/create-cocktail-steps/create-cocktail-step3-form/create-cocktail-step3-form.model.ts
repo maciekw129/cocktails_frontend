@@ -1,5 +1,5 @@
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
-import { Action, PreparationStep } from '@app/core/model/cocktails.model';
+import { Action, PreparationStep } from '@src/app/core/model/cocktails.model';
 
 export interface CreateCocktailStep3 {
   preparation: PreparationStep[];

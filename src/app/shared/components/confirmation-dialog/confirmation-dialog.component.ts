@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 
 @Component({
   selector: 'c-confirmation-dialog',

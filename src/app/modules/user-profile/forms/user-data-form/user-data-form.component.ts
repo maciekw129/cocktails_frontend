@@ -5,19 +5,19 @@ import {
   OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from '@app/shared/forms/form.component';
-import { FormService } from '@app/shared/forms/form.service';
+import { FormComponent } from '@src/app/shared/forms/form.component';
+import { FormService } from '@src/app/shared/forms/form.service';
 import {
   PatchUserDto,
   UserData,
-} from '@app/modules/user-profile/user-profile.model';
-import { UserDataForm } from '@app/modules/user-profile/forms/user-data-form/user-data-form.model';
+} from '@src/app/modules/user-profile/user-profile.model';
+import { UserDataForm } from '@src/app/modules/user-profile/forms/user-data-form/user-data-form.model';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import { USER_DATA, USER_DATA_VALUE } from '@app/auth/auth.tokens';
+import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
+import { USER_DATA, USER_DATA_VALUE } from '@src/app/auth/auth.tokens';
 import { BehaviorSubject, take, takeUntil, tap } from 'rxjs';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({

@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   inject,
-  Input,
   OnInit,
   Output,
   ViewChild,
@@ -13,8 +12,8 @@ import {
   NgForm,
   NonNullableFormBuilder,
 } from '@angular/forms';
-import { FormService } from '@app/shared/forms/form.service';
-import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
+import { FormService } from '@src/app/shared/forms/form.service';
+import { UnsubscribeOnDestroy } from '@src/app/shared/services/unsubscribe-on-destroy';
 
 type FormFromObj<T extends object> = {
   [P in keyof T]: T[P] extends object

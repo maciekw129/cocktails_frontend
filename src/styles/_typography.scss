@@ -43,3 +43,42 @@ $text-2: mat.define-typography-level(
   $line-height: 14.06px,
   $letter-spacing: normal,
 );
+
+$typography-config: mat.define-typography-config(
+  $headline-1: $heading-1,
+  $headline-2: $heading-2,
+  $headline-3: $heading-3,
+  $body-1: $text-1,
+  $body-2: $text-2,
+);
+
+.font-heading-1 {
+  @include mat.typography-level($typography-config, 'headline-1');
+  font-weight: bold;
+}
+
+.font-heading-2 {
+  @include mat.typography-level($typography-config, 'headline-2');
+  font-weight: bold;
+}
+
+.font-heading-3 {
+  @include mat.typography-level($typography-config, 'headline-3');
+  font-weight: bold;
+}
+
+.font-text-1 {
+  @include mat.typography-level($typography-config, 'body-1');
+}
+
+.font-text-2 {
+  @include mat.typography-level($typography-config, 'body-2');
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: bold;
+}

@@ -1,0 +1,27 @@
+.snack-bar--error {
+  white-space: pre-wrap;
+}
+
+.mat-mdc-snack-bar-container {
+  &.error {
+    // snack bar error colors
+    --mdc-snackbar-container-color: #d01e50;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+  &.success {
+    // snack bar success colors
+    --mdc-snackbar-container-color: #3d9037;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+  }
+}
+
+div.mat-mdc-form-field-infix {
+  width: 100%;
+  max-width: 180px;
+}
+
+div.mat-mdc-paginator-container {
+  justify-content: center;
+}

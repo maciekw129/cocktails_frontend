@@ -7,13 +7,13 @@ import {
   Output,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Design, Type } from '@app/shared/components/button/button.model';
+import { Design, Type } from '@src/app/shared/components/button/button.model';
 import { ThemePalette } from '@angular/material/core';
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { GlobalLoaderService } from '@app/core/shell/global-loader/global-loader.service';
+import { GlobalLoaderService } from '@src/app/core/shell/global-loader/global-loader.service';
 
 @Component({
   selector: 'c-button',

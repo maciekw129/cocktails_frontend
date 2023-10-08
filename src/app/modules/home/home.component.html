@@ -28,14 +28,16 @@
       <ng-template #emptyCocktails>
         <p class="width-full text-center">We haven't found any cocktails.</p>
       </ng-template>
-
     </div>
+
     <ng-container *ngIf='pageMeta$ | async as pageMeta'>
       <mat-paginator
         [hidePageSize]=true
-        [length]="pageMeta.pageCount"
+        [length]="pageMeta.itemCount"
         [pageSize]="10"
-        aria-label="Select page">
+        [pageIndex]="pageMeta.page - 1"
+        (page)="handlePageChange($event)"
+      >
       </mat-paginator>
     </ng-container>
   </section>

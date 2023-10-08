@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/components/hero/hero.component';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { HeroComponent } from '@src/app/core/components/hero/hero.component';
+import { LinkComponent } from '@src/app/shared/components/link/link.component';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({

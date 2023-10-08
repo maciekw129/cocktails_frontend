@@ -5,10 +5,10 @@ import {
   inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/components/hero/hero.component';
-import { CreateCocktailFormComponent } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component';
-import { Cocktail } from '@app/core/model/cocktails.model';
-import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
+import { HeroComponent } from '@src/app/core/components/hero/hero.component';
+import { CreateCocktailFormComponent } from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component';
+import { Cocktail } from '@src/app/core/model/cocktails.model';
+import { CocktailsApiService } from '@src/app/core/services/cocktails-api.service';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
 

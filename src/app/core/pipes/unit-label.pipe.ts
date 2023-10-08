@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Unit } from '@app/core/model/cocktails.model';
-import { unitLabels } from '@app/core/data/unit.data';
+import { Unit } from '@src/app/core/model/cocktails.model';
+import { unitLabels } from '@src/app/core/data/unit.data';
 
 @Pipe({
   name: 'unitLabel',

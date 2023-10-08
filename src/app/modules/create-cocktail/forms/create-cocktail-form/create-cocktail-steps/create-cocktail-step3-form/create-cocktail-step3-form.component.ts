@@ -8,30 +8,30 @@ import {
   Output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormComponent } from '@app/shared/forms/form.component';
+import { FormComponent } from '@src/app/shared/forms/form.component';
 import {
   CreateCocktailStep3,
   CreateCocktailStep3Form,
   PreparationStepForm,
-} from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
+} from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import {
   SelectComponent,
   SelectOptions,
-} from '@app/shared/forms/controls/select/select';
-import { FormService } from '@app/shared/forms/form.service';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+} from '@src/app/shared/forms/controls/select/select';
+import { FormService } from '@src/app/shared/forms/form.service';
+import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
+import { ConfirmationDialogService } from '@src/app/shared/components/confirmation-dialog/confirmation-dialog.service';
 import { map, Observable, tap } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
-import { CreateCocktailStep3FormValidators } from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators';
-import { CustomErrorsComponent } from '@app/shared/forms/components/custom-error/custom-errors.component';
-import { actionSelectOptions } from '@app/core/data/action.data';
-import { Ingredient } from '@app/core/model/cocktails.model';
+import { CreateCocktailStep3FormValidators } from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators';
+import { CustomErrorsComponent } from '@src/app/shared/forms/components/custom-error/custom-errors.component';
+import { actionSelectOptions } from '@src/app/core/data/action.data';
+import { Ingredient } from '@src/app/core/model/cocktails.model';
 
 @Component({
   selector: 'c-create-cocktail-step3-form',

@@ -4,20 +4,21 @@ import {
   inject,
   OnInit,
 } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
-import { HeroComponent } from '@app/core/components/hero/hero.component';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
-import { MatIconModule } from '@angular/material/icon';
-import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { AuthStatefulService } from '@app/auth/auth-stateful.service';
-import { tap } from 'rxjs';
-import { HomeStatefulService } from '@app/modules/home/home-stateful.service';
-import { CocktailCardComponent } from '@app/modules/home/components/cocktail-card/cocktail-card.component';
-import { CocktailsApi } from '@app/core/model/cocktails.model';
-import { FiltersFormComponent } from '@app/modules/home/forms/filters-form/filters-form.component';
-import { Filters } from '@app/modules/home/home.model';
-import { CocktailsApiService } from '@app/core/services/cocktails-api.service';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import {CommonModule, Location} from '@angular/common';
+import {HeroComponent} from '@src/app/core/components/hero/hero.component';
+import {ButtonComponent} from '@src/app/shared/components/button/button.component';
+import {MatIconModule} from '@angular/material/icon';
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
+import {AuthStatefulService} from '@src/app/auth/auth-stateful.service';
+import {combineLatest, switchMap, take, tap} from 'rxjs';
+import {HomeStatefulService} from '@src/app/modules/home/home-stateful.service';
+import {CocktailCardComponent} from '@src/app/modules/home/components/cocktail-card/cocktail-card.component';
+import {CocktailsApi} from '@src/app/core/model/cocktails.model';
+import {FiltersFormComponent} from '@src/app/modules/home/forms/filters-form/filters-form.component';
+import {Filters} from '@src/app/modules/home/home.model';
+import {CocktailsApiService} from '@src/app/core/services/cocktails-api.service';
+import {MatPaginatorIntl, MatPaginatorModule, PageEvent} from '@angular/material/paginator';
+import {PaginatorService} from "@src/app/modules/home/paginator.service";
 
 @Component({
   selector: 'app-home',
@@ -34,7 +35,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [HomeStatefulService],
+  providers: [HomeStatefulService, {provide: MatPaginatorIntl, useClass: PaginatorService}],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
@@ -46,15 +47,19 @@ export class HomeComponent implements OnInit {
 
   public isAuthorized$ = AuthStatefulService.useIsAuthorized$();
 
-  cocktails$ = this.homeStatefulService.getStateSlice('cocktails');
-  pageMeta$ = this.homeStatefulService.getStateSlice('pageMeta');
+  public cocktails$ = this.homeStatefulService.getStateSlice('cocktails');
+  public pageMeta$ = this.homeStatefulService.getStateSlice('pageMeta');
+  private filters$ = this.homeStatefulService.getStateSlice('filters');
+  private page$ = this.homeStatefulService.getStateSlice('page');
 
-  resolve$ = this.activatedRoute.data.pipe(
-    tap(({ cocktailsApi }: { cocktailsApi: CocktailsApi }) => {
-      const { data, meta } = cocktailsApi;
+  private resolve$ = this.activatedRoute.data.pipe(
+    tap(({cocktailsApi}: { cocktailsApi: CocktailsApi }) => {
+      const {data, meta} = cocktailsApi;
 
-      this.homeStatefulService.patchState({ cocktails: data });
-      this.homeStatefulService.patchState({ pageMeta: meta });
+      this.homeStatefulService.patchState({
+        cocktails: data,
+        pageMeta: meta
+      });
     })
   );
 
@@ -62,22 +67,43 @@ export class HomeComponent implements OnInit {
     this.resolve$.subscribe();
   }
 
-  handleFilter(filters: Partial<Filters>) {
-    this.cocktailsApiService
-      .getAllCocktails(filters)
-      .pipe(
-        tap(({ data, meta }) => {
-          const urlTree = this.router.createUrlTree([''], {
-            relativeTo: this.activatedRoute,
-            queryParams: filters,
-          });
-
-          this.location.replaceState(urlTree.toString());
-
-          this.homeStatefulService.patchState({ cocktails: data });
-          this.homeStatefulService.patchState({ pageMeta: meta });
+  private getCocktails(): void {
+    combineLatest([
+      this.page$,
+      this.filters$
+    ]).pipe(
+      take(1),
+      switchMap(([page, filters]) => {
+        this.updateUrl(page, filters);
+        return this.cocktailsApiService.getAllCocktails(page, filters);
+      }),
+      tap(({data, meta}) => {
+        this.homeStatefulService.patchState({
+          cocktails: data,
+          pageMeta: meta
         })
-      )
-      .subscribe();
+      })
+    ).subscribe()
+  }
+
+  private updateUrl(page: number, filters: Partial<Filters>): void {
+    const urlTree = this.router.createUrlTree([''], {
+      relativeTo: this.activatedRoute,
+      queryParams: {...filters, page},
+    });
+
+    this.location.replaceState(urlTree.toString());
+  }
+
+  public handleFilter(filters: Partial<Filters>): void {
+    this.homeStatefulService.patchState({filters});
+
+    this.getCocktails();
+  }
+
+  public handlePageChange({pageIndex}: PageEvent): void {
+    this.homeStatefulService.patchState({page: pageIndex + 1});
+
+    this.getCocktails();
   }
 }

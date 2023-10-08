@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { Unit } from '@app/core/model/cocktails.model';
+import { Unit } from '@src/app/core/model/cocktails.model';
 
 export interface IngredientForm {
   name: FormControl<string>;

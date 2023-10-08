@@ -4,9 +4,9 @@ import {
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
-import { Patterns } from '@app/shared/utils/patterns';
-import { UniversalLimits } from '@app/shared/forms/validators/universal-limits';
-import { FormUtils } from '@app/shared/forms/form-utils';
+import { Patterns } from '@src/app/shared/utils/patterns';
+import { UniversalLimits } from '@src/app/shared/forms/validators/universal-limits';
+import { FormUtils } from '@src/app/shared/forms/form-utils';
 
 export class CommonValidators {
   public static email = (): ValidatorFn => {

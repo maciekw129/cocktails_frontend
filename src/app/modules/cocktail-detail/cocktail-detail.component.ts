@@ -5,17 +5,20 @@ import {
   OnInit,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/components/hero/hero.component';
+import { HeroComponent } from '@src/app/core/components/hero/hero.component';
 import { ActivatedRoute } from '@angular/router';
-import { map, Observable, tap } from 'rxjs';
-import { CocktailDetailStatefulService } from '@app/modules/cocktail-detail/cocktail-detail-stateful.service';
-import { IngredientsTableComponent } from '@app/modules/create-cocktail/components/ingredients-table/ingredients-table.component';
+import {combineLatestWith, map, Observable, tap} from 'rxjs';
+import { CocktailDetailStatefulService } from '@src/app/modules/cocktail-detail/cocktail-detail-stateful.service';
+import { IngredientsTableComponent } from '@src/app/modules/create-cocktail/components/ingredients-table/ingredients-table.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { PreparationStepComponent } from '@app/modules/cocktail-detail/components/preparation-step/preparation-step.component';
+import { PreparationStepComponent } from '@src/app/modules/cocktail-detail/components/preparation-step/preparation-step.component';
 import { MatCardModule } from '@angular/material/card';
-import { CategoryLabelPipe } from '@app/core/pipes/category-label.pipe';
-import { DifficultyLabelPipe } from '@app/core/pipes/difficulty-label.pipe';
-import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
+import { CategoryLabelPipe } from '@src/app/core/pipes/category-label.pipe';
+import { DifficultyLabelPipe } from '@src/app/core/pipes/difficulty-label.pipe';
+import { Cocktail, Ingredient } from '@src/app/core/model/cocktails.model';
+import {USER_DATA} from "@src/app/auth/auth.tokens";
+import {ButtonComponent} from "@src/app/shared/components/button/button.component";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
   selector: 'c-cocktail-detail',
@@ -28,6 +31,8 @@ import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
     MatCardModule,
     CategoryLabelPipe,
     DifficultyLabelPipe,
+    ButtonComponent,
+    MatIconModule,
   ],
   templateUrl: './cocktail-detail.component.html',
   styleUrls: ['./cocktail-detail.component.scss'],
@@ -37,6 +42,7 @@ import { Cocktail, Ingredient } from '@app/core/model/cocktails.model';
 export class CocktailDetailComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private cocktailDetailStatefulService = inject(CocktailDetailStatefulService);
+  private userData$ = inject(USER_DATA);
 
   cocktail$: Observable<Cocktail> =
     this.cocktailDetailStatefulService.getWholeState();
@@ -50,6 +56,11 @@ export class CocktailDetailComponent implements OnInit {
             new MatTableDataSource<Ingredient>(ingredients)
         )
       );
+
+  isCocktailAuthor$: Observable<boolean> = this.cocktail$.pipe(
+    combineLatestWith(this.userData$),
+    map(([cocktail, userData]) => cocktail.author.id === userData.id)
+  )
 
   ngOnInit() {
     this.resolve$.subscribe();

@@ -5,16 +5,15 @@ import {
   inject,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { LinkComponent } from '@src/app/shared/components/link/link.component';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialog.component';
+import { LoginDialogComponent } from '@src/app/auth/dialogs/login-dialog/login-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
-import { RegisterDialogComponent } from '@app/auth/dialogs/register-dialog/register-dialog.component';
-import { USER_DATA } from '@app/auth/auth.tokens';
+import { RegisterDialogComponent } from '@src/app/auth/dialogs/register-dialog/register-dialog.component';
 import { CommonModule } from '@angular/common';
-import { AuthStatefulService } from '@app/auth/auth-stateful.service';
+import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({

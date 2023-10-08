@@ -1,5 +1,5 @@
 import { FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { Ingredient } from '@app/core/model/cocktails.model';
+import { Ingredient } from '@src/app/core/model/cocktails.model';
 
 export class CreateCocktailStep2FormValidators {
   public static requiredIngredients(): ValidatorFn {

@@ -4,18 +4,18 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import { TextareaInputComponent } from '@app/shared/forms/controls/textarea-input/textarea-input.component';
-import { FormComponent } from '@app/shared/forms/form.component';
+import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
+import { TextareaInputComponent } from '@src/app/shared/forms/controls/textarea-input/textarea-input.component';
+import { FormComponent } from '@src/app/shared/forms/form.component';
 import {
   CreateCocktailStep1,
   CreateCocktailStep1Form,
-} from '@app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model';
-import { FormService } from '@app/shared/forms/form.service';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
-import { SelectComponent } from '@app/shared/forms/controls/select/select';
-import { categoryOptions } from '@app/core/data/category.data';
-import { difficultyOptions } from '@app/core/data/difficulty.data';
+} from '@src/app/modules/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model';
+import { FormService } from '@src/app/shared/forms/form.service';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { SelectComponent } from '@src/app/shared/forms/controls/select/select';
+import { categoryOptions } from '@src/app/core/data/category.data';
+import { difficultyOptions } from '@src/app/core/data/difficulty.data';
 
 @Component({
   selector: 'c-create-cocktail-step1-form',

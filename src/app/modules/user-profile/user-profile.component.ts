@@ -5,16 +5,15 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@app/core/components/hero/hero.component';
+import { HeroComponent } from '@src/app/core/components/hero/hero.component';
 import { MatTabsModule } from '@angular/material/tabs';
-import { UserDataFormComponent } from '@app/modules/user-profile/forms/user-data-form/user-data-form.component';
-import { PatchUserDto } from '@app/modules/user-profile/user-profile.model';
-import { UserProfileApiService } from '@app/modules/user-profile/user-profile-api.service';
+import { UserDataFormComponent } from '@src/app/modules/user-profile/forms/user-data-form/user-data-form.component';
+import { PatchUserDto } from '@src/app/modules/user-profile/user-profile.model';
+import { UserProfileApiService } from '@src/app/modules/user-profile/user-profile-api.service';
 import { switchMap, tap } from 'rxjs';
-import { ConfirmationDialogService } from '@app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { AuthStatefulService } from '@app/auth/auth-stateful.service';
-import { UserData } from '@app/auth/auth.model';
-import { MyCocktailsComponent } from '@app/modules/user-profile/components/my-cocktails/my-cocktails.component';
+import { ConfirmationDialogService } from '@src/app/shared/components/confirmation-dialog/confirmation-dialog.service';
+import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
+import { UserData } from '@src/app/auth/auth.model';
 
 @Component({
   selector: 'c-user-profile',
@@ -24,7 +23,6 @@ import { MyCocktailsComponent } from '@app/modules/user-profile/components/my-co
     HeroComponent,
     MatTabsModule,
     UserDataFormComponent,
-    MyCocktailsComponent,
   ],
   templateUrl: './user-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

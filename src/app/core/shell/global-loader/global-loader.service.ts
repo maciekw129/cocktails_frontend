@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { StatefulService } from '@app/shared/services/stateful-service';
-import { GlobalLoaderState } from '@app/core/shell/global-loader/global-loader.model';
+import { StatefulService } from '@src/app/shared/services/stateful-service';
+import { GlobalLoaderState } from '@src/app/core/shell/global-loader/global-loader.model';
 
 @Injectable({
   providedIn: 'root',

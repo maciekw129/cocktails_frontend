@@ -16,7 +16,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { UnsubscribeOnDestroy } from '@app/shared/services/unsubscribe-on-destroy';
+import { UnsubscribeOnDestroy } from '@src/app/shared/services/unsubscribe-on-destroy';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Directive({

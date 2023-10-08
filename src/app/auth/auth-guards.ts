@@ -1,5 +1,5 @@
 import { CanActivateFn, Router } from '@angular/router';
-import { AuthStatefulService } from '@app/auth/auth-stateful.service';
+import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
 import { tap } from 'rxjs';
 import { inject } from '@angular/core';
 

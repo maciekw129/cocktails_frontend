@@ -1,5 +1,5 @@
 import { FormControl } from '@angular/forms';
-import { Ingredient } from '@app/core/model/cocktails.model';
+import { Ingredient } from '@src/app/core/model/cocktails.model';
 
 export interface CreateCocktailStep2 {
   ingredients: Ingredient[];

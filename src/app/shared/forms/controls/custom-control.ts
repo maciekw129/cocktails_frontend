@@ -13,7 +13,7 @@ import {
   Input,
   OnInit,
 } from '@angular/core';
-import { FormService } from '@app/shared/forms/form.service';
+import { FormService } from '@src/app/shared/forms/form.service';
 import { take, tap } from 'rxjs';
 
 @Component({ template: '' })
@@ -68,8 +68,8 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
   }
 
   writeValue(value: T): void {
-    if (this.control && this.control.value != value)
-      this.control.setValue(value, { emitEvent: false });
+    // if (this.control && this.control.value != value)
+    //   this.control.setValue(value, { emitEvent: false });
   }
 
   registerOnChange(fn: any) {

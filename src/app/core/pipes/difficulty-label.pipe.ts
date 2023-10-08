@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Difficulty } from '@app/core/model/cocktails.model';
-import { difficultyLabels } from '@app/core/data/difficulty.data';
+import { Difficulty } from '@src/app/core/model/cocktails.model';
+import { difficultyLabels } from '@src/app/core/data/difficulty.data';
 
 @Pipe({
   name: 'difficultyLabel',

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
-import ShellComponent from '@app/core/shell/shell.component';
-import { HomeComponent } from '@app/modules/home/home.component';
-import { IngredientsResolver } from '@app/modules/create-cocktail/ingredients.resolver';
-import { AuthGuards } from '@app/auth/auth-guards';
-import { CocktailResolver } from '@app/modules/cocktail-detail/cocktail.resolver';
-import { CocktailsResolver } from '@app/modules/home/cocktails.resolver';
-import { UserCocktailsResolver } from '@app/modules/user-profile/user-cocktails.resolver';
+import ShellComponent from '@src/app/core/shell/shell.component';
+import { HomeComponent } from '@src/app/modules/home/home.component';
+import { IngredientsResolver } from '@src/app/modules/create-cocktail/ingredients.resolver';
+import { AuthGuards } from '@src/app/auth/auth-guards';
+import { CocktailResolver } from '@src/app/modules/cocktail-detail/cocktail.resolver';
+import { CocktailsResolver } from '@src/app/modules/home/cocktails.resolver';
 
 const routes: Route[] = [
   {
@@ -28,7 +27,7 @@ const routes: Route[] = [
           ingredients: IngredientsResolver,
         },
         loadComponent: () =>
-          import('@app/modules/create-cocktail/create-cocktail.component').then(
+          import('@src/app/modules/create-cocktail/create-cocktail.component').then(
             m => m.CreateCocktailComponent
           ),
       },
@@ -38,25 +37,22 @@ const routes: Route[] = [
           cocktail: CocktailResolver,
         },
         loadComponent: () =>
-          import('@app/modules/cocktail-detail/cocktail-detail.component').then(
+          import('@src/app/modules/cocktail-detail/cocktail-detail.component').then(
             m => m.CocktailDetailComponent
           ),
       },
       {
         path: 'user-profile',
         canActivate: [AuthGuards.authentication()],
-        resolve: {
-          cocktails: UserCocktailsResolver,
-        },
         loadComponent: () =>
-          import('@app/modules/user-profile/user-profile.component').then(
+          import('@src/app/modules/user-profile/user-profile.component').then(
             m => m.UserProfileComponent
           ),
       },
       {
         path: '**',
         loadComponent: () =>
-          import('@app/core/components/empty-page/empty-page.component').then(
+          import('@src/app/core/components/empty-page/empty-page.component').then(
             m => m.EmptyPageComponent
           ),
       },

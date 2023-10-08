@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
+import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { LoginForm } from '@app/auth/forms/login-form/login-form.model';
-import { LoginPayload } from '@app/auth/auth.model';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
-import { CommonValidators } from '@app/shared/forms/validators/common-validators';
-import { FormComponent } from '@app/shared/forms/form.component';
-import { FormService } from '@app/shared/forms/form.service';
+import { LoginForm } from '@src/app/auth/forms/login-form/login-form.model';
+import { LoginPayload } from '@src/app/auth/auth.model';
+import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { CommonValidators } from '@src/app/shared/forms/validators/common-validators';
+import { FormComponent } from '@src/app/shared/forms/form.component';
+import { FormService } from '@src/app/shared/forms/form.service';
 
 @Component({
   selector: 'c-login-form',

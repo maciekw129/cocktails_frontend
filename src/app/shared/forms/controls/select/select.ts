@@ -7,8 +7,8 @@ import {
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { NgForOf, NgIf } from '@angular/common';
-import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
-import { CustomControl } from '@app/shared/forms/controls/custom-control';
+import { ValidationErrorsDirective } from '@src/app/shared/forms/directives/validation-errors.directive';
+import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 import { MatSelectModule } from '@angular/material/select';
 
 interface SelectOption<T> {

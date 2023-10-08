@@ -8,8 +8,8 @@ import { NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { AsyncPipe, NgForOf, NgIf } from '@angular/common';
-import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
-import { CustomControl } from '@app/shared/forms/controls/custom-control';
+import { ValidationErrorsDirective } from '@src/app/shared/forms/directives/validation-errors.directive';
+import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { map, Observable, startWith } from 'rxjs';
 

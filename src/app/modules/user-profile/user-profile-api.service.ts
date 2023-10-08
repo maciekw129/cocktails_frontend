@@ -1,9 +1,9 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpWithMessage } from '@app/shared/services/http-with-message';
-import { API_URL } from '@app/env.token';
-import { PatchUserDto } from '@app/modules/user-profile/user-profile.model';
+import { HttpWithMessage } from '@src/app/shared/services/http-with-message';
+import { API_URL } from '@src/app/env.token';
+import { PatchUserDto } from '@src/app/modules/user-profile/user-profile.model';
 import { Observable } from 'rxjs';
-import { UserData } from '@app/auth/auth.model';
+import { UserData } from '@src/app/auth/auth.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserProfileApiService {

@@ -7,8 +7,8 @@ import {
   RegisterPayload,
   UserData,
 } from './auth.model';
-import { API_URL } from '@app/env.token';
-import { HttpWithMessage } from '@app/shared/services/http-with-message';
+import { API_URL } from '@src/app/env.token';
+import { HttpWithMessage } from '@src/app/shared/services/http-with-message';
 
 @Injectable({ providedIn: 'root' })
 export class AuthApiService {
