@@ -13,7 +13,6 @@ import {AuthStatefulService} from '@src/app/auth/auth-stateful.service';
 import {BehaviorSubject, combineLatest, switchMap, take, tap} from 'rxjs';
 import {HomeStatefulService} from '@src/app/modules/home/home-stateful.service';
 import {CocktailCardComponent} from '@src/app/modules/home/components/cocktail-card/cocktail-card.component';
-import {CocktailsApi} from '@src/app/core/model/cocktails.model';
 import {FiltersFormComponent} from '@src/app/modules/home/forms/filters-form/filters-form.component';
 import {Filters} from '@src/app/modules/home/home.model';
 import {CocktailsApiService} from '@src/app/core/services/cocktails-api.service';
@@ -55,19 +54,7 @@ export class HomeComponent implements OnInit {
   private filters$ = this.homeStatefulService.getStateSlice('filters');
   private page$ = this.homeStatefulService.getStateSlice('page');
 
-  private resolve$ = this.activatedRoute.data.pipe(
-    tap(({cocktailsApi}: { cocktailsApi: CocktailsApi }) => {
-      const {data, meta} = cocktailsApi;
-
-      this.homeStatefulService.patchState({
-        cocktails: data,
-        pageMeta: meta
-      });
-    })
-  );
-
   ngOnInit() {
-    this.resolve$.subscribe();
     this.getCocktails();
   }
 
@@ -103,13 +90,11 @@ export class HomeComponent implements OnInit {
 
   public handleFilter(filters: Partial<Filters>): void {
     this.homeStatefulService.patchState({filters});
-
     this.getCocktails();
   }
 
   public handlePageChange({pageIndex}: PageEvent): void {
     this.homeStatefulService.patchState({page: pageIndex + 1});
-
     this.getCocktails();
   }
 }
