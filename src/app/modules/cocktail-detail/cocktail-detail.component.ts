@@ -16,9 +16,9 @@ import { MatCardModule } from '@angular/material/card';
 import { CategoryLabelPipe } from '@src/app/core/pipes/category-label.pipe';
 import { DifficultyLabelPipe } from '@src/app/core/pipes/difficulty-label.pipe';
 import { Cocktail, Ingredient } from '@src/app/core/model/cocktails.model';
-import {USER_DATA} from "@src/app/auth/auth.tokens";
 import {ButtonComponent} from "@src/app/shared/components/button/button.component";
 import {MatIconModule} from "@angular/material/icon";
+import {USER_DATA} from "@app/auth/auth.tokens";
 
 @Component({
   selector: 'c-cocktail-detail',
@@ -59,7 +59,7 @@ export class CocktailDetailComponent implements OnInit {
 
   isCocktailAuthor$: Observable<boolean> = this.cocktail$.pipe(
     combineLatestWith(this.userData$),
-    map(([cocktail, userData]) => cocktail.author.id === userData.id)
+    map(([cocktail, userData]) => cocktail.author.id === userData?.id)
   )
 
   ngOnInit() {
