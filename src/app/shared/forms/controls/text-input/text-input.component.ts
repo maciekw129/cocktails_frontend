@@ -42,7 +42,6 @@ import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 })
 export class TextInputComponent extends CustomControl<string> {
   @Input() label = '';
-  @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
   @Input() hasBottomMargin = true;

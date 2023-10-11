@@ -43,7 +43,6 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class TextareaInputComponent extends CustomControl<string> {
   @Input() label = '';
-  @Input() placeholder = '';
   @Input() hint = '';
   @Input() minRows = 5;
   @Input() maxRows = 15;
