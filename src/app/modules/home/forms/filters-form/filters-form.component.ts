@@ -9,11 +9,7 @@ import { FormService } from '@src/app/shared/forms/form.service';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { Filters } from '@src/app/modules/home/home.model';
 import { FiltersForm } from '@src/app/modules/home/forms/filters-form/filters-form.model';
-import {
-  Category,
-  Difficulty,
-  Ingredient,
-} from '@src/app/core/model/cocktails.model';
+import { Category, Difficulty } from '@src/app/core/model/cocktails.model';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import {
@@ -25,14 +21,15 @@ import { difficultyOptions } from '@src/app/core/data/difficulty.data';
 import { ActivatedRoute } from '@angular/router';
 import {
   BehaviorSubject,
-  distinctUntilChanged, finalize,
+  distinctUntilChanged,
+  finalize,
   map,
   Observable,
   take,
   tap,
 } from 'rxjs';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
-import {IngredientsApiService} from "@app/core/services/ingredients-api.service";
+import { IngredientsApiService } from '@app/core/services/ingredients-api.service';
 
 @Component({
   selector: 'c-filters-form',
@@ -60,14 +57,21 @@ export class FiltersFormComponent
   isSubmitDisabled$ = new BehaviorSubject<boolean>(true);
   isIngredientsLoading$ = new BehaviorSubject(true);
 
+  get ingredientsControl() {
+    return this.form.controls.ingredients;
+  }
+
   ingredientsOptions$: Observable<SelectOptions<string>> =
     this.ingredientsApiService.getSavedIngredients().pipe(
-      map(( ingredients) => {
+      map(ingredients => {
         return ingredients.map(({ name }) => {
           return { value: name, label: name };
         });
       }),
-      finalize(() => this.isIngredientsLoading$.next(false))
+      finalize(() => {
+        this.isIngredientsLoading$.next(false);
+        this.ingredientsControl.enable();
+      })
     );
 
   protected buildForm() {
@@ -75,7 +79,7 @@ export class FiltersFormComponent
       name: this.fb.control<string>(null),
       difficulty: this.fb.control<Difficulty>(null),
       category: this.fb.control<Category>(null),
-      ingredients: this.fb.control<string>(null),
+      ingredients: this.fb.control<string>({ value: null, disabled: true }),
     });
   }
 
@@ -90,10 +94,14 @@ export class FiltersFormComponent
 
     this.form.patchValue({
       name: queryParams['name'] ?? null,
-      difficulty: queryParams['difficulty'] ? Number(queryParams['difficulty']) : null,
-      category: queryParams['category'] ? Number(queryParams['category']) : null,
-      ingredients: queryParams['ingredients'] ?? null
-    })
+      difficulty: queryParams['difficulty']
+        ? Number(queryParams['difficulty'])
+        : null,
+      category: queryParams['category']
+        ? Number(queryParams['category'])
+        : null,
+      ingredients: queryParams['ingredients'] ?? null,
+    });
   }
 
   public clearFilters() {

@@ -10,7 +10,7 @@ import { NgForOf, NgIf } from '@angular/common';
 import { ValidationErrorsDirective } from '@src/app/shared/forms/directives/validation-errors.directive';
 import { CustomControl } from '@src/app/shared/forms/controls/custom-control';
 import { MatSelectModule } from '@angular/material/select';
-import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 interface SelectOption<T> {
   value: T;
@@ -36,18 +36,20 @@ export type SelectOptions<T> = SelectOption<T>[];
   ],
   template: `
     <mat-form-field>
+      <div matPrefix class="padding-1">
+        <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+      </div>
+
       <mat-label>{{ label }}</mat-label>
       <mat-select
         [formControl]="control"
         [validationErrors]="validationErrors"
-        [disabled]="isLoading"
         [multiple]="multiple">
         <mat-option *ngFor="let option of options" [value]="option.value">
           {{ option.label }}
         </mat-option>
       </mat-select>
       <mat-error #validationErrors></mat-error>
-      <mat-spinner *ngIf="isLoading" matSuffix diameter="20"></mat-spinner>
     </mat-form-field>
   `,
   styles: ['mat-select {width: 180px; max-width: 180px}'],
@@ -62,10 +64,9 @@ export type SelectOptions<T> = SelectOption<T>[];
 })
 export class SelectComponent extends CustomControl<string> {
   @Input() label = '';
-  @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
   @Input() options: SelectOptions<unknown> = [];
   @Input() multiple = false;
-  @Input() isLoading = false;
+  @Input() isLoading: boolean;
 }
