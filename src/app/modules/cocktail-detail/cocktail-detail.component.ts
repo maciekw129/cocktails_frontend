@@ -19,6 +19,7 @@ import { Cocktail, Ingredient } from '@src/app/core/model/cocktails.model';
 import { USER_DATA } from '@app/auth/auth.tokens';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
+import { AuthorPipe } from '@app/core/pipes/author.pipe';
 
 @Component({
   selector: 'c-cocktail-detail',
@@ -33,6 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
     DifficultyLabelPipe,
     ButtonComponent,
     MatIconModule,
+    AuthorPipe,
   ],
   templateUrl: './cocktail-detail.component.html',
   styleUrls: ['./cocktail-detail.component.scss'],

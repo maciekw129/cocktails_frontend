@@ -3,15 +3,15 @@
     <h2 class="blurred-background font-heading-2 color-white">{{cocktail.name}}</h2>
   </c-hero>
   <div class='main-container'>
-    <div class="width-full flex flex--justify-end padding-top-3">
-      <c-button
-        *ngIf="isCocktailAuthor$ | async"
-        design="secondary"
-        translation="edit"
-      >
-        <mat-icon>settings</mat-icon>
-      </c-button>
-    </div>
+<!--    <div class="width-full flex flex&#45;&#45;justify-end padding-top-3">-->
+<!--      <c-button-->
+<!--        *ngIf="isCocktailAuthor$ | async"-->
+<!--        design="secondary"-->
+<!--        translation="edit"-->
+<!--      >-->
+<!--        <mat-icon>settings</mat-icon>-->
+<!--      </c-button>-->
+<!--    </div>-->
     <div class='cocktail flex flex--column gap-4 padding-4'>
       <section class='cocktail__top grid grid-row-4-8'>
         <img class='cocktail__image width-full' [src]='cocktail.imageUrl' alt='Cocktail image.'/>
@@ -33,7 +33,7 @@
                 <p><span class='bold font-text-2'>Category: </span>{{cocktail.category | categoryLabel}}</p>
                 <p><span class='bold font-text-2'>Difficulty: </span>{{cocktail.difficulty | difficultyLabel}}</p>
                 <p><span class='bold font-text-2'>Description: </span>{{cocktail.description}}</p>
-                <p><span class='bold font-text-2'>Author: </span>{{cocktail.author.firstName + ' ' + cocktail.author.lastName}}</p>
+                <p><span class='bold font-text-2'>Author: </span>{{cocktail.author | author}}</p>
               </div>
             </mat-card-content>
           </mat-card>
