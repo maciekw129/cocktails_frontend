@@ -6,7 +6,7 @@
 * [Features](#4-features)
 
 ## 1. General informations
-  Cocktails is a fullstack application (backend: [repository](https://github.com/maciekw129/cocktails_rest)) where you can find cocktail recipies or create your own.
+  Cocktails is a fullstack application ([backend repository](https://github.com/maciekw129/cocktails_rest)) where you can find cocktail recipies or create your own.
 
 ## 2. Launch
 ### Starting the project

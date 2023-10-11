@@ -62,7 +62,6 @@ export class TextAutocompleteInputComponent
   implements OnInit
 {
   @Input() label = '';
-  @Input() placeholder = '';
   @Input() icon = '';
   @Input() hint = '';
   @Input() options: string[] = [];

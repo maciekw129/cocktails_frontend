@@ -14,26 +14,37 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { take, tap } from 'rxjs';
+import { Observable, take, tap } from 'rxjs';
+import { MatFormFieldControl } from '@angular/material/form-field';
 
 @Component({ template: '' })
-// eslint-disable-next-line @angular-eslint/component-class-suffix
-export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
+export abstract class CustomControl<T>
+  implements MatFormFieldControl<T>, ControlValueAccessor, OnInit
+{
   @Input() formControlName!: string;
   @Input() type = 'text';
-  @Input() isDisabled = false;
+  @Input() placeholder: string;
+  @Input() required: boolean;
 
   private injector = inject(Injector);
   private cdr = inject(ChangeDetectorRef);
   private formService = inject(FormService);
 
+  readonly autofilled: boolean;
+  readonly controlType: string;
+  readonly empty: boolean;
+  readonly errorState: boolean;
+  readonly focused: boolean;
+  readonly id: string;
+  readonly shouldLabelFloat: boolean;
+  readonly stateChanges: Observable<void>;
+  readonly userAriaDescribedBy: string;
+  disabled: boolean;
+  value: T | null;
+
+  readonly ngControl: NgControl;
+
   control!: FormControl<T>;
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onChange = (value: T) => {};
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  onTouched: any = () => {};
 
   ngOnInit() {
     this.validateRequiredInputs();
@@ -63,26 +74,17 @@ export abstract class CustomControl<T> implements ControlValueAccessor, OnInit {
     this.control = formGroup.getControl(control as FormControlName);
   }
 
-  handleChange() {
-    this.onChange(this.control.value);
+  setDisabledState(isDisabled: boolean) {
+    this.disabled = isDisabled;
   }
 
-  writeValue(value: T): void {
-    // if (this.control && this.control.value != value)
-    //   this.control.setValue(value, { emitEvent: false });
-  }
+  registerOnChange(fn: any): void {}
 
-  registerOnChange(fn: any) {
-    this.onChange = fn;
-  }
+  registerOnTouched(fn: any): void {}
 
-  registerOnTouched(fn: any) {
-    this.onTouched = fn;
-  }
+  writeValue(obj: any): void {}
 
-  setDisabledState(disabled: boolean) {
-    // disabled
-    //   ? this.control.disable({ emitEvent: false })
-    //   : this.control.enable({ emitEvent: false });
-  }
+  onContainerClick(event: MouseEvent): void {}
+
+  setDescribedByIds(ids: string[]): void {}
 }
