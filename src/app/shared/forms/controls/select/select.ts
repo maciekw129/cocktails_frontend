@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  SimpleChanges,
+} from '@angular/core';
 import {
   FormsModule,
   NG_VALUE_ACCESSOR,
@@ -69,4 +74,19 @@ export class SelectComponent extends CustomControl<string> {
   @Input() options: SelectOptions<unknown> = [];
   @Input() multiple = false;
   @Input() isLoading: boolean;
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['isLoading']) {
+      this.manageDisabledState();
+    }
+  }
+
+  override ngOnInit() {
+    super.ngOnInit();
+    this.manageDisabledState();
+  }
+
+  private manageDisabledState() {
+    this.isLoading ? this.control?.disable() : this.control?.enable();
+  }
 }

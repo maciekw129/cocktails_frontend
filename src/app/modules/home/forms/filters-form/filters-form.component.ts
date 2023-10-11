@@ -57,10 +57,6 @@ export class FiltersFormComponent
   isSubmitDisabled$ = new BehaviorSubject<boolean>(true);
   isIngredientsLoading$ = new BehaviorSubject(true);
 
-  get ingredientsControl() {
-    return this.form.controls.ingredients;
-  }
-
   ingredientsOptions$: Observable<SelectOptions<string>> =
     this.ingredientsApiService.getSavedIngredients().pipe(
       map(ingredients => {
@@ -68,10 +64,7 @@ export class FiltersFormComponent
           return { value: name, label: name };
         });
       }),
-      finalize(() => {
-        this.isIngredientsLoading$.next(false);
-        this.ingredientsControl.enable();
-      })
+      finalize(() => this.isIngredientsLoading$.next(false))
     );
 
   protected buildForm() {
@@ -79,7 +72,7 @@ export class FiltersFormComponent
       name: this.fb.control<string>(null),
       difficulty: this.fb.control<Difficulty>(null),
       category: this.fb.control<Category>(null),
-      ingredients: this.fb.control<string>({ value: null, disabled: true }),
+      ingredients: this.fb.control<string>(null),
     });
   }
 
