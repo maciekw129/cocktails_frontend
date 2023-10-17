@@ -1,0 +1,14 @@
+@use '@angular/material' as mat;
+@use 'src/styles/palettes' as palette;
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: mat.get-color-from-palette(palette.$gray-palette, 300);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: mat.get-color-from-palette(palette.$gray-palette, 900);
+}

@@ -5,6 +5,7 @@
 @use 'src/styles/spacing';
 @use 'src/styles/flex';
 @use 'src/styles/grid';
+@use 'src/styles/scrollbar';
 
 @include mat.core();
 
@@ -63,5 +64,3 @@ body {
   max-width: 1050px;
   margin: 0 auto;
 }
-
-
