@@ -63,7 +63,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     {
       provide: USER_DATA,
       useFactory: () => {
-        return inject(AuthStatefulService).getStateSlice('userData');
+        return inject(AuthStatefulService).getStateSlice$('userData');
       },
     },
     {

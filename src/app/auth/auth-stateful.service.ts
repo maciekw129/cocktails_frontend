@@ -1,5 +1,4 @@
 import { inject, Injectable } from '@angular/core';
-import { StatefulService } from '@src/app/shared/services/stateful-service';
 import { AuthApiService } from '@src/app/auth/auth-api.service';
 import {
   AuthState,
@@ -10,9 +9,10 @@ import {
 import { map, tap } from 'rxjs';
 import { TokenService } from '@src/app/auth/token/token.service';
 import { USER_DATA } from '@src/app/auth/auth.tokens';
+import { CustomStatefulService } from 'ngx-stateful-service';
 
 @Injectable({ providedIn: 'root' })
-export class AuthStatefulService extends StatefulService<AuthState> {
+export class AuthStatefulService extends CustomStatefulService<AuthState> {
   public static useIsAuthorized$() {
     return inject(USER_DATA).pipe(map(userData => Boolean(userData)));
   }
@@ -27,7 +27,7 @@ export class AuthStatefulService extends StatefulService<AuthState> {
   }
 
   public getUserDataValue() {
-    return this._state$$.value.userData;
+    return this._state$.value.userData;
   }
 
   public initializeAuth() {
