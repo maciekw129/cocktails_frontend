@@ -75,3 +75,8 @@ export enum Unit {
   tsp = 7,
   pinch = 8,
 }
+
+export interface CocktailDetailState {
+  cocktail: Cocktail;
+  ingredients: Ingredient[];
+}
