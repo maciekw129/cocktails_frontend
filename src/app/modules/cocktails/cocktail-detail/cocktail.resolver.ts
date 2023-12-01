@@ -1,15 +1,13 @@
 import { ActivatedRouteSnapshot, ResolveFn } from '@angular/router';
 import { inject } from '@angular/core';
-import { CocktailsApi } from '@app/modules/cocktails/cocktails.model';
+import { Cocktail } from '@app/modules/cocktails/cocktails.model';
 import { CocktailsApiService } from '@app/modules/cocktails/cocktails-api.service';
 
-export const CocktailsResolver: ResolveFn<CocktailsApi> = (
+export const CocktailResolver: ResolveFn<Cocktail> = (
   route: ActivatedRouteSnapshot
 ) => {
   const cocktailsApiService = inject(CocktailsApiService);
-  const page = route.queryParams['page']
-    ? Number(route.queryParams['page'])
-    : 1;
+  const cocktailId = route.params['id'] as string;
 
-  return cocktailsApiService.getAllCocktails(page, route.queryParams);
+  return cocktailsApiService.getCocktail(cocktailId);
 };

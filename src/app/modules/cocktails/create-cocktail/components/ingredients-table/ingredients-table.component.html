@@ -1,0 +1,42 @@
+<mat-table [dataSource]="dataSource" class='mat-elevation-z8'>
+  <ng-container matColumnDef="position">
+    <mat-header-cell class='table__header' *matHeaderCellDef> No. </mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index">
+      <p class='table__mobile-label'>No.:</p>{{i + 1}}
+    </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Name: </p>{{element.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="quantity">
+    <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Quantity: </p>{{element.quantity}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="unit">
+    <mat-header-cell *matHeaderCellDef> Unit </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Unit: </p>{{element.unit | valueFrom: unitLabels}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="isAlcoholic">
+    <mat-header-cell *matHeaderCellDef> Alcoholic </mat-header-cell>
+    <mat-cell *matCellDef="let element"> <p class='table__mobile-label'>Alcoholic: </p>{{element.isAlcoholic}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="remove" stickyEnd>
+    <mat-header-cell *matHeaderCellDef>&nbsp;</mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <button mat-icon-button (click)='handleRemove(element)' type='button'><mat-icon>delete</mat-icon></button>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="isReadonly ? displayedReadonlyColumns : displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: isReadonly ? displayedReadonlyColumns : displayedColumns;"></mat-row>
+
+  <div class="mat-row table__empty" *matNoDataRow><div class="mat-cell text-center padding-2 font-text-2">Ingredients are empty.</div></div>
+
+</mat-table>
+

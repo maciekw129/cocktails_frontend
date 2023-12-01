@@ -6,7 +6,7 @@ import {
   RefreshPayload,
   RegisterPayload,
   UserData,
-} from './auth.model';
+} from '@src/app/auth/auth.model';
 import { API_URL } from '@src/app/env.token';
 import { HttpWithMessage } from '@src/app/shared/services/http-with-message';
 
@@ -16,11 +16,11 @@ export class AuthApiService {
   private httpWithMessage = inject(HttpWithMessage);
   private readonly API_URL = inject(API_URL);
 
-  private readonly authUrl = `${this.API_URL}/auth`;
+  private readonly AUTH_URL = `${this.API_URL}/auth`;
 
   public login(loginPayload: LoginPayload) {
     return this.httpWithMessage.post<AuthAPI>(
-      `${this.authUrl}/login`,
+      `${this.AUTH_URL}/login`,
       'You successfully logged in.',
       loginPayload
     );
@@ -28,7 +28,7 @@ export class AuthApiService {
 
   public register(registerPayload: RegisterPayload) {
     return this.httpWithMessage.post<AuthAPI>(
-      `${this.authUrl}/register`,
+      `${this.AUTH_URL}/register`,
       'You successfully registered.',
       registerPayload
     );
@@ -36,14 +36,14 @@ export class AuthApiService {
 
   public logout() {
     return this.httpWithMessage.post<AuthAPI>(
-      `${this.authUrl}/logout`,
+      `${this.AUTH_URL}/logout`,
       'You successfully logged out.',
       null
     );
   }
 
   public refreshTokens(refreshPayload: RefreshPayload) {
-    return this.http.post<AuthAPI>(`${this.authUrl}/refresh`, refreshPayload);
+    return this.http.post<AuthAPI>(`${this.AUTH_URL}/refresh`, refreshPayload);
   }
 
   public getUserData() {

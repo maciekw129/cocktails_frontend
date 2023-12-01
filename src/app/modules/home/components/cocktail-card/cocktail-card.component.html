@@ -2,11 +2,11 @@
   <mat-card class='cocktail-card'>
     <mat-card-header>
       <mat-card-title>{{cocktail.name}}</mat-card-title>
-      <mat-card-subtitle>{{cocktail.category | categoryLabel}}</mat-card-subtitle>
+      <mat-card-subtitle>{{cocktail.category | valueFrom: categoryLables}}</mat-card-subtitle>
     </mat-card-header>
     <img class='cocktail-card__image' mat-card-image [src]="cocktail.imageUrl" alt="Cocktail image" />
     <mat-card-content>
-      <p class='font-text-2'>Difficulty: {{cocktail.difficulty | difficultyLabel}}</p>
+      <p class='font-text-2'>Difficulty: {{cocktail.difficulty | valueFrom: difficultyLabels}}</p>
       <p class='font-text-2'>Author: {{cocktail.author | author}}</p>
     </mat-card-content>
   </mat-card>

@@ -5,7 +5,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { HeroComponent } from '@src/app/core/components/hero/hero.component';
+import { HeroComponent } from '@app/core/hero/hero.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -14,7 +14,7 @@ import { BehaviorSubject, combineLatest, switchMap, take, tap } from 'rxjs';
 import { CocktailCardComponent } from '@src/app/modules/home/components/cocktail-card/cocktail-card.component';
 import { FiltersFormComponent } from '@src/app/modules/home/forms/filters-form/filters-form.component';
 import { Filters, HomeState } from '@src/app/modules/home/home.model';
-import { CocktailsApiService } from '@src/app/core/services/cocktails-api.service';
+import { CocktailsApiService } from '@app/modules/cocktails/cocktails-api.service';
 import {
   MatPaginatorIntl,
   MatPaginatorModule,

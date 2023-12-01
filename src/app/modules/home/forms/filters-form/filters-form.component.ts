@@ -9,15 +9,13 @@ import { FormService } from '@src/app/shared/forms/form.service';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { Filters } from '@src/app/modules/home/home.model';
 import { FiltersForm } from '@src/app/modules/home/forms/filters-form/filters-form.model';
-import { Category, Difficulty } from '@src/app/core/model/cocktails.model';
+import { Category, Difficulty } from '@app/modules/cocktails/cocktails.model';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import {
   SelectComponent,
   SelectOptions,
 } from '@src/app/shared/forms/controls/select/select';
-import { categoryOptions } from '@src/app/core/data/category.data';
-import { difficultyOptions } from '@src/app/core/data/difficulty.data';
 import { ActivatedRoute } from '@angular/router';
 import {
   BehaviorSubject,
@@ -29,7 +27,11 @@ import {
   tap,
 } from 'rxjs';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
-import { IngredientsApiService } from '@app/core/services/ingredients-api.service';
+import { IngredientsApiService } from '@app/modules/cocktails/ingredients-api.service';
+import {
+  categoryOptions,
+  difficultyOptions,
+} from '@app/modules/cocktails/cocktails.data';
 
 @Component({
   selector: 'c-filters-form',

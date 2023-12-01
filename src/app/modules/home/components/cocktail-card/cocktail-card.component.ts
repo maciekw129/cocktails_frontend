@@ -1,27 +1,25 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CategoryLabelPipe } from '@src/app/core/pipes/category-label.pipe';
-import { DifficultyLabelPipe } from '@src/app/core/pipes/difficulty-label.pipe';
 import { RouterLink } from '@angular/router';
-import { CocktailListItem } from '@src/app/core/model/cocktails.model';
-import { AuthorPipe } from '@app/core/pipes/author.pipe';
+import { CocktailListItem } from '@app/modules/cocktails/cocktails.model';
+import { AuthorPipe } from '@app/shared/pipes/author.pipe';
+import { valueFromPipe } from '@app/shared/pipes/value-from.pipe';
+import {
+  categoryLables,
+  difficultyLabels,
+} from '@app/modules/cocktails/cocktails.data';
 
 @Component({
   selector: 'c-cocktail-card',
   standalone: true,
-  imports: [
-    CommonModule,
-    MatCardModule,
-    CategoryLabelPipe,
-    DifficultyLabelPipe,
-    RouterLink,
-    AuthorPipe,
-  ],
+  imports: [CommonModule, MatCardModule, RouterLink, AuthorPipe, valueFromPipe],
   templateUrl: './cocktail-card.component.html',
   styleUrls: ['./cocktail-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CocktailCardComponent {
   @Input() cocktail: CocktailListItem;
+  protected readonly categoryLables = categoryLables;
+  protected readonly difficultyLabels = difficultyLabels;
 }
