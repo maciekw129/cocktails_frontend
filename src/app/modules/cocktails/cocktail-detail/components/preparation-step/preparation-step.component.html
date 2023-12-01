@@ -1,0 +1,4 @@
+<div class='step flex flex--align-center flex--justify-start gap-2 padding-2 margin-bottom-3'>
+  <p><span class='bold'>step {{step.step}}:</span> {{step.action | valueFrom: actionLabels}} <span *ngIf='step.ingredient' class="italic bold">{{step.ingredient}}</span> {{step.tip}}</p>
+  <img class='step__image' [src]='step.action | valueFrom: actionIcons' alt='Action icon'/>
+</div>

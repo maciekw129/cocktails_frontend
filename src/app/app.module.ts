@@ -15,7 +15,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AuthStatefulService } from './auth/auth-stateful.service';
 import { USER_DATA, USER_DATA_VALUE } from './auth/auth.tokens';
 import { TokenInterceptor } from './auth/token/token.interceptor';
-import { GlobalLoaderInterceptor } from '@app/core/shell/global-loader/global-loader.interceptor';
+import { GlobalLoaderInterceptor } from '@app/core/global-loader/global-loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
 

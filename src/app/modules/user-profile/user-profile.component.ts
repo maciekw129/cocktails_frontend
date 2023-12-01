@@ -5,7 +5,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeroComponent } from '@src/app/core/components/hero/hero.component';
+import { HeroComponent } from '@app/core/hero/hero.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { UserDataFormComponent } from '@src/app/modules/user-profile/forms/user-data-form/user-data-form.component';
 import { PatchUserDto } from '@src/app/modules/user-profile/user-profile.model';
@@ -18,12 +18,7 @@ import { UserData } from '@src/app/auth/auth.model';
 @Component({
   selector: 'c-user-profile',
   standalone: true,
-  imports: [
-    CommonModule,
-    HeroComponent,
-    MatTabsModule,
-    UserDataFormComponent,
-  ],
+  imports: [CommonModule, HeroComponent, MatTabsModule, UserDataFormComponent],
   templateUrl: './user-profile.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

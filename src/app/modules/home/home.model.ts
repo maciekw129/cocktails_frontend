@@ -1,4 +1,9 @@
-import {Category, CocktailListItem, Difficulty, PageMeta} from '@src/app/core/model/cocktails.model';
+import {
+  Category,
+  CocktailListItem,
+  Difficulty,
+  PageMeta,
+} from '@app/modules/cocktails/cocktails.model';
 
 export interface Filters {
   name: string;
