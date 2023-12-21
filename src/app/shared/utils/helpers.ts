@@ -6,4 +6,8 @@ export class Helpers {
     const { [propertyToRemove]: removed, ...rest } = object;
     return rest;
   }
+
+  static isObjectsEqual(firstObject: Object, secondObject: Object): boolean {
+    return JSON.stringify(firstObject) === JSON.stringify(secondObject);
+  }
 }

@@ -75,7 +75,7 @@ export class ButtonComponent {
   @Input() tip = '';
   @Input() showTip = true;
 
-  public isLoading$ = inject(GlobalLoaderService).getStateSlice('isLoading');
+  public isLoading$ = inject(GlobalLoaderService).getStateSlice$('isLoading');
 
   get fullTranslation() {
     return this.translation ? `buttons.${this.translation}` : '';

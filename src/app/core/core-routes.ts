@@ -1,9 +1,8 @@
 import { Route } from '@angular/router';
 import ShellComponent from '@app/core/shell/shell.component';
-import { HomeComponent } from '@app/modules/home/home.component';
+import { HomeComponent } from '@app/core/home/home.component';
 import { importProvidersFrom } from '@angular/core';
 import { StatefulServiceModule } from 'ngx-stateful-service';
-import { HomeState } from '@app/modules/home/home.model';
 import { AuthGuards } from '@app/auth/auth.guards';
 import { IngredientsResolver } from '@app/modules/cocktails/create-cocktail/ingredients.resolver';
 import {
@@ -20,18 +19,6 @@ export const CORE_ROUTES: Route[] = [
       {
         path: '',
         component: HomeComponent,
-        providers: [
-          importProvidersFrom(
-            StatefulServiceModule.withConfig<HomeState>({
-              initialState: {
-                cocktails: [],
-                pageMeta: null,
-                filters: null,
-                page: 1,
-              },
-            })
-          ),
-        ],
       },
       {
         path: 'create-cocktail',
@@ -68,6 +55,7 @@ export const CORE_ROUTES: Route[] = [
             StatefulServiceModule.withConfig<CocktailDetailState>({
               initialState: {
                 cocktail: null,
+                ingredients: [],
               },
             })
           ),

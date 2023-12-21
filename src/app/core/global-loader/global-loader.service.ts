@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { StatefulService } from '@app/shared/services/stateful-service';
 import { GlobalLoaderState } from '@app/core/global-loader/global-loader.model';
+import { CustomStatefulService } from 'ngx-stateful-service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class GlobalLoaderService extends StatefulService<GlobalLoaderState> {
+export class GlobalLoaderService extends CustomStatefulService<GlobalLoaderState> {
   constructor() {
     super({
       isLoading: true,

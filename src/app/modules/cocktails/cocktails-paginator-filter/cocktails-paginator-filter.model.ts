@@ -1,7 +1,7 @@
-import { FormControl } from '@angular/forms';
 import { Category, Difficulty } from '@app/modules/cocktails/cocktails.model';
+import { FormControl } from '@angular/forms';
 
-export interface FiltersForm {
+export interface CocktailsFiltersForm {
   name: FormControl<string>;
   category: FormControl<Category>;
   difficulty: FormControl<Difficulty>;

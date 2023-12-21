@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  HostListener,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/hero/hero.component';
 import { Cocktail } from '@app/modules/cocktails/cocktails.model';
@@ -29,7 +24,7 @@ export class CreateCocktailComponent {
     window.opener.location.reload();
   }
 
-  public createCocktail(cocktail: Omit<Cocktail, 'id' | 'author'>) {
+  public createCocktail(cocktail: Cocktail) {
     this.cocktailsApiService
       .createCocktail(cocktail)
       .pipe(tap(({ id }) => this.router.navigate(['cocktail', id])))

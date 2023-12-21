@@ -38,5 +38,5 @@ import { FooterComponent } from '@app/core/footer/footer.component';
 export default class ShellComponent {
   private globalLoaderService = inject(GlobalLoaderService);
 
-  isLoading$ = this.globalLoaderService.getStateSlice('isLoading');
+  isLoading$ = this.globalLoaderService.getStateSlice$('isLoading');
 }

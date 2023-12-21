@@ -34,7 +34,7 @@ export class CommonValidators {
   };
 
   public static twoControlsMatch = (otherControl: FormControl): ValidatorFn => {
-    return (control: FormControl): ValidationErrors | null => {
+    return (control: AbstractControl): ValidationErrors | null => {
       const otherControlName = FormUtils.getControlName(otherControl);
       const isValid = otherControl.value === control.value;
 
