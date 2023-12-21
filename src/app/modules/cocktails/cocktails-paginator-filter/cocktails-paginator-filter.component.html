@@ -1,4 +1,4 @@
-<form [formGroup]='form' (ngSubmit)='handleSubmit()' class='filters padding-2 bottom-shadow'>
+<form [formGroup]='form' (ngSubmit)='filter()' class='filters padding-2 bottom-shadow'>
   <div class='flex flex--justify-center flex--wrap gap-2'>
     <div class='flex flex--justify-center gap-2 flex--wrap'>
       <c-text-input
@@ -29,15 +29,10 @@
 
 
   <div class='flex flex--center width-full gap-1'>
-    <ng-container *ngIf='{submitDisabled: isSubmitDisabled$ | async } as is'>
       <c-button
         type='submit'
         translation='filter'
-        [disabled]='is.submitDisabled'
-        tip='You have to change some filter first.'
-        [showTip]='is.submitDisabled'
       ></c-button>
-    </ng-container>
     <c-button
       type='button'
       design='secondary'

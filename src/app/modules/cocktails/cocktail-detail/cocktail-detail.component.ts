@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-  OnInit,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/hero/hero.component';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +6,7 @@ import { combineLatestWith, map, Observable, tap } from 'rxjs';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import {
-  Cocktail,
+  CocktailApi,
   CocktailDetailState,
   Ingredient,
 } from '@app/modules/cocktails/cocktails.model';
@@ -23,10 +18,7 @@ import { StatefulService } from 'ngx-stateful-service';
 import { IngredientsTableComponent } from '@app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component';
 import { PreparationStepComponent } from '@app/modules/cocktails/cocktail-detail/components/preparation-step/preparation-step.component';
 import { valueFromPipe } from '@app/shared/pipes/value-from.pipe';
-import {
-  categoryLables,
-  difficultyLabels,
-} from '@app/modules/cocktails/cocktails.data';
+import { categoryLables, difficultyLabels } from '@app/modules/cocktails/cocktails.data';
 
 @Component({
   selector: 'c-cocktail-detail',
@@ -48,15 +40,14 @@ import {
 })
 export class CocktailDetailComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
-  private cocktailDetailStatefulService = inject(
-    StatefulService<CocktailDetailState>
-  );
+  private cocktailDetailStatefulService = inject(StatefulService<CocktailDetailState>);
+
   private userData$ = inject(USER_DATA);
 
   protected readonly categoryLables = categoryLables;
   protected readonly difficultyLabels = difficultyLabels;
 
-  cocktail$: Observable<Cocktail> =
+  cocktail$: Observable<CocktailApi> =
     this.cocktailDetailStatefulService.getStateSlice$('cocktail');
 
   ingredients$: Observable<MatTableDataSource<Ingredient>> =
@@ -64,8 +55,7 @@ export class CocktailDetailComponent implements OnInit {
       .getStateSlice$('ingredients')
       .pipe(
         map(
-          (ingredients: Ingredient[]) =>
-            new MatTableDataSource<Ingredient>(ingredients)
+          (ingredients: Ingredient[]) => new MatTableDataSource<Ingredient>(ingredients)
         )
       );
 
@@ -79,8 +69,6 @@ export class CocktailDetailComponent implements OnInit {
   }
 
   private resolve$ = this.activatedRoute.data.pipe(
-    tap(({ cocktail }: { cocktail: Cocktail }) =>
-      this.cocktailDetailStatefulService.patchState({ cocktail })
-    )
+    tap(({ cocktail }) => this.cocktailDetailStatefulService.patchState({ cocktail }))
   );
 }

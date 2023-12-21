@@ -15,19 +15,11 @@ export class HttpWithMessage {
   }
 
   public post<T>(url: string, message: string, payload: object): Observable<T> {
-    return this.http
-      .post<T>(url, payload)
-      .pipe(this.getSnackBarPipe<T>(message));
+    return this.http.post<T>(url, payload).pipe(this.getSnackBarPipe<T>(message));
   }
 
-  public patch<T>(
-    url: string,
-    message: string,
-    payload: object
-  ): Observable<T> {
-    return this.http
-      .patch<T>(url, payload)
-      .pipe(this.getSnackBarPipe<T>(message));
+  public patch<T>(url: string, message: string, payload: object): Observable<T> {
+    return this.http.patch<T>(url, payload).pipe(this.getSnackBarPipe<T>(message));
   }
 
   private getSnackBarPipe<T>(message: string): OperatorFunction<T, T> {

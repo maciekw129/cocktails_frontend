@@ -6,7 +6,10 @@ export class FormUtils {
       const formGroup = control.parent;
       return (
         Object.keys(formGroup.controls).find(name => {
-          return control === formGroup.controls[name];
+          return (
+            control ===
+            formGroup.controls[name as keyof typeof formGroup.controls.keys]
+          );
         }) || null
       );
     }

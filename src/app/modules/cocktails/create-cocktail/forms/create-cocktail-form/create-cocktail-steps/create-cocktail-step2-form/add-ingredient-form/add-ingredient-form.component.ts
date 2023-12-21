@@ -57,8 +57,8 @@ export class AddIngredientFormComponent extends FormComponent<
 
   resolve$ = this.activatedRoute.data.pipe(
     tap(
-      ({ ingredients }: { ingredients: Ingredient[] }) =>
-        (this.ingredients = ingredients.map(ingredient => ingredient.name))
+      (data: Partial<{ ingredients: Ingredient[] }>) =>
+        (this.ingredients = data.ingredients.map(ingredient => ingredient.name))
     )
   );
 

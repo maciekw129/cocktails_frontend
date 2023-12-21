@@ -1,12 +1,6 @@
 import { UserData } from '@src/app/auth/auth.model';
 
-export interface CocktailsApi extends Cocktail {
-  data: CocktailListItem[];
-  meta: PageMeta;
-}
-
 export interface Cocktail {
-  id: string;
   name: string;
   imageUrl: string;
   description: string;
@@ -14,31 +8,31 @@ export interface Cocktail {
   difficulty: Difficulty;
   preparation: PreparationStep[];
   ingredients: Ingredient[];
+}
+
+export interface CocktailApi extends Cocktail {
+  id: number;
   author: UserData;
 }
 
-export type CocktailListItem = Omit<Cocktail, 'preparation'>;
-
-export interface PageMeta {
-  page: number;
-  take: number;
-  itemCount: number;
-  pageCount: number;
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
+export interface CocktailsFilters {
+  name: string;
+  category: Category;
+  difficulty: Difficulty;
+  userId: string;
 }
 
 export enum Category {
-  shot = 1,
-  short = 2,
-  long = 3,
-  other = 4,
+  shot = 'SHOT',
+  short = 'SHORT',
+  long = 'LONG',
+  other = 'OTHER',
 }
 
 export enum Difficulty {
-  easy = 1,
-  medium = 2,
-  hard = 3,
+  easy = 'EASY',
+  medium = 'MEDIUM',
+  hard = 'HARD',
 }
 
 export interface PreparationStep {
@@ -66,18 +60,19 @@ export interface Ingredient {
 }
 
 export enum Unit {
-  g = 1,
-  ml = 2,
-  l = 3,
-  pcs = 4,
-  cup = 5,
-  tbsp = 6,
-  tsp = 7,
-  pinch = 8,
+  g = 'G',
+  ml = 'ML',
+  l = 'L',
+  pcs = 'PCS',
+  cup = 'CUP',
+  tbsp = 'TBSP',
+  tsp = 'TSP',
+  pinch = 'PINCH',
 }
 
 export interface CocktailDetailState {
-  cocktail: Cocktail;
+  cocktail: CocktailApi;
+  ingredients: Ingredient[];
 }
 
 export interface CreateCocktailState {
