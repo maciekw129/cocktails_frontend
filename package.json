@@ -3,8 +3,8 @@
   "version": "1.0.2",
   "scripts": {
     "ng": "ng",
-    "start": "nx serve",
-    "build": "nx build",
+    "start": "nx serve cocktails",
+    "build": "nx build cocktails",
     "watch": "nx build --watch --configuration development",
     "test": "nx test",
     "lint": "nx lint"

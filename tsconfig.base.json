@@ -3,8 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@src/*": ["src/*"],
+      "@app/*": ["apps/cocktails/src/app/*"],
+      "@src/*": ["apps/cocktails/src/*"],
       "@styles/*": ["src/styles/*"]
     },
     "outDir": "./dist/out-tsc",
