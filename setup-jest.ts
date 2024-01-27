@@ -11,5 +11,3 @@ ngMocks.globalKeep(CommonModule, true);
 ngMocks.globalKeep(BrowserModule, true);
 ngMocks.globalKeep(TranslateService);
 ngMocks.globalKeep(ReactiveFormsModule);
-
-// Setting tests default mocks from here
