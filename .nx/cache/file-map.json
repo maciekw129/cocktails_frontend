@@ -1,0 +1,1521 @@
+{
+  "version": "6.0",
+  "nxVersion": "17.2.8",
+  "deps": {
+    "@angular/animations": "^15.1.0",
+    "@angular/cdk": "^15.2.9",
+    "@angular/common": "^15.1.0",
+    "@angular/compiler": "^15.1.0",
+    "@angular/core": "^15.1.0",
+    "@angular/forms": "^15.1.0",
+    "@angular/material": "^15.2.9",
+    "@angular/platform-browser": "^15.1.0",
+    "@angular/platform-browser-dynamic": "^15.1.0",
+    "@angular/router": "^15.1.0",
+    "@ngx-translate/core": "^14.0.0",
+    "@ngx-translate/http-loader": "^7.0.0",
+    "jwt-decode": "^3.1.2",
+    "ngx-stateful-service": "^0.1.3",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.12.0",
+    "@angular-devkit/build-angular": "^15.1.1",
+    "@angular-devkit/core": "~15.1.1",
+    "@angular-devkit/schematics": "~15.1.1",
+    "@angular-eslint/eslint-plugin": "15.2.1",
+    "@angular-eslint/eslint-plugin-template": "15.2.1",
+    "@angular-eslint/template-parser": "15.2.1",
+    "@angular/cli": "~15.1.1",
+    "@angular/compiler-cli": "^15.1.0",
+    "@nx/angular": "17.2.8",
+    "@nx/eslint": "17.2.8",
+    "@nx/eslint-plugin": "17.2.8",
+    "@nx/js": "17.2.8",
+    "@nx/workspace": "17.2.8",
+    "@schematics/angular": "~15.1.1",
+    "@swc-node/register": "~1.6.7",
+    "@swc/core": "~1.3.85",
+    "@types/jest": "^29.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "~8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "jest": "^29.7.0",
+    "jest-preset-angular": "^14.0.0",
+    "ng-mocks": "^14.12.1",
+    "nx": "17.2.8",
+    "prettier": "3.0.1",
+    "typescript": "~4.9.4"
+  },
+  "pathMappings": {
+    "@app/*": [
+      "src/app/*"
+    ],
+    "@src/*": [
+      "src/*"
+    ],
+    "@styles/*": [
+      "src/styles/*"
+    ]
+  },
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "projectFileMap": {
+      "cocktails": [
+        {
+          "file": "apps/cocktails/.eslintrc.json",
+          "hash": "4020329558741383601"
+        },
+        {
+          "file": "apps/cocktails/project.json",
+          "hash": "6222370847029811417"
+        },
+        {
+          "file": "apps/cocktails/src/app/app.component.ts",
+          "hash": "14815150833912607906",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/app.module.ts",
+          "hash": "4557013892214620195",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/platform-browser",
+            "npm:@app/app.component",
+            "npm:@angular/router",
+            "npm:@app/env.token",
+            "npm:@src/environments/environment",
+            "npm:@angular/common",
+            "npm:@ngx-translate/core",
+            "npm:@ngx-translate/http-loader",
+            "npm:@app/core/global-loader/global-loader.interceptor",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/auth-api.service.ts",
+          "hash": "7780159099804532531",
+          "deps": [
+            "npm:@angular/common",
+            "npm:@angular/core",
+            "npm:@src/app/auth/auth.model",
+            "npm:@src/app/env.token",
+            "npm:@src/app/shared/services/http-with-message"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/auth-stateful.service.ts",
+          "hash": "11488172837438760286",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@src/app/auth/auth-api.service",
+            "npm:@src/app/auth/auth.model",
+            "npm:rxjs",
+            "npm:@src/app/auth/token/token.service",
+            "npm:@src/app/auth/auth.tokens",
+            "npm:ngx-stateful-service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/auth.guards.ts",
+          "hash": "12139668097731926982",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@src/app/auth/auth-stateful.service",
+            "npm:rxjs",
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/auth.model.ts",
+          "hash": "9881343734089091004"
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/auth.tokens.ts",
+          "hash": "8516603483756962740",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@src/app/auth/auth.model",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/login-dialog/login-dialog.compnent.spec.ts",
+          "hash": "9012176909806387969",
+          "deps": [
+            "npm:ng-mocks",
+            "npm:@app/auth/auth-stateful.service",
+            "npm:@angular/material",
+            "npm:@app/auth/forms/login-form/login-form.component",
+            "npm:rxjs",
+            "npm:@app/shared/components/link/link.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/login-dialog/login-dialog.component.html",
+          "hash": "10497335590384123548"
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/login-dialog/login-dialog.component.ts",
+          "hash": "8338200996487391154",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@src/app/auth/forms/login-form/login-form.component",
+            "npm:@src/app/auth/auth.model",
+            "npm:@src/app/auth/auth-stateful.service",
+            "npm:@src/app/shared/components/link/link.component",
+            "npm:@src/app/auth/dialogs/register-dialog/register-dialog.component",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/register-dialog/register-dialog.component.html",
+          "hash": "7279533731817590736"
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/register-dialog/register-dialog.component.spec.ts",
+          "hash": "8072137072418205187",
+          "deps": [
+            "npm:ng-mocks",
+            "npm:@app/auth/auth-stateful.service",
+            "npm:@angular/material",
+            "npm:@app/shared/components/link/link.component",
+            "npm:@app/auth/forms/register-form/register-form.component",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/dialogs/register-dialog/register-dialog.component.ts",
+          "hash": "10548375984781970415",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@src/app/auth/forms/register-form/register-form.component",
+            "npm:@src/app/auth/auth-stateful.service",
+            "npm:@src/app/auth/auth.model",
+            "npm:@src/app/auth/dialogs/login-dialog/login-dialog.component",
+            "npm:@src/app/shared/components/link/link.component",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/login-form/login-form.component.html",
+          "hash": "10935900374876306360"
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/login-form/login-form.component.spec.ts",
+          "hash": "775827193856673349",
+          "deps": [
+            "npm:ng-mocks",
+            "npm:@angular/forms",
+            "npm:@app/shared/forms/form.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/login-form/login-form.component.ts",
+          "hash": "15022455961366100790",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@angular/forms",
+            "npm:@src/app/auth/forms/login-form/login-form.model",
+            "npm:@src/app/auth/auth.model",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/forms/validators/common-validators",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@src/app/shared/forms/form.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/login-form/login-form.model.ts",
+          "hash": "10359673626376901538",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/register-form/register-form.component.html",
+          "hash": "2493856642739344063"
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/register-form/register-form.component.spec.ts",
+          "hash": "4076612355729635631",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/shared/forms/form.service",
+            "npm:ng-mocks"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/register-form/register-form.component.ts",
+          "hash": "10720932648688172072",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@src/app/auth/auth.model",
+            "npm:@angular/forms",
+            "npm:@src/app/auth/forms/register-form/register-form.model",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/utils/helpers",
+            "npm:@src/app/shared/forms/validators/common-validators"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/forms/register-form/register-form.model.ts",
+          "hash": "14657610724612083498",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/token/token.interceptor.ts",
+          "hash": "4308080610247302976",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:@src/app/auth/token/token.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/auth/token/token.service.ts",
+          "hash": "9931963562919957265",
+          "deps": [
+            "npm:@angular/core",
+            "npm:jwt-decode",
+            "npm:@src/app/shared/services/unsubscribe-on-destroy"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/core-routes.ts",
+          "hash": "725970221248482087",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@app/core/shell/shell.component",
+            "npm:@app/core/home/home.component",
+            "npm:@angular/core",
+            "npm:ngx-stateful-service",
+            "npm:@app/auth/auth.guards",
+            "npm:@app/modules/cocktails/create-cocktail/ingredients.resolver",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/cocktail-detail/cocktail.resolver",
+            [
+              "npm:@src/app/modules/cocktails/create-cocktail/create-cocktail.component",
+              "dynamic"
+            ],
+            [
+              "npm:@src/app/modules/cocktails/cocktail-detail/cocktail-detail.component",
+              "dynamic"
+            ],
+            [
+              "npm:@src/app/modules/user-profile/user-profile.component",
+              "dynamic"
+            ],
+            [
+              "npm:@app/core/empty-page/empty-page.component",
+              "dynamic"
+            ]
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/empty-page/empty-page.component.html",
+          "hash": "17146183385220985414"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/empty-page/empty-page.component.spec.ts",
+          "hash": "2184481484963313297",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/empty-page/empty-page.component.ts",
+          "hash": "10724137115623289667",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/core/hero/hero.component",
+            "npm:@app/shared/components/link/link.component",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/footer/footer.component.html",
+          "hash": "16078406488597200089"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/footer/footer.component.scss",
+          "hash": "14290567802227439178"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/footer/footer.component.spec.ts",
+          "hash": "4422032913804320302",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/footer/footer.component.ts",
+          "hash": "9834365917967930591",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/global-loader/global-loader.interceptor.ts",
+          "hash": "4884827621511891567",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:@app/core/global-loader/global-loader.service",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/global-loader/global-loader.model.ts",
+          "hash": "17412336324929725723"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/global-loader/global-loader.service.ts",
+          "hash": "5110595086761171753",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@app/core/global-loader/global-loader.model",
+            "npm:ngx-stateful-service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.component.html",
+          "hash": "9423009736343033971"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.component.scss",
+          "hash": "9613492641419416817"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.component.spec.ts",
+          "hash": "16782637949670551337",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.component.ts",
+          "hash": "1496104495062694445",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/shared/components/button/button.component",
+            "npm:@angular/material",
+            "npm:@angular/router",
+            "npm:@app/core/hero/hero.model",
+            "npm:@app/shared/pipes/value-from.pipe",
+            "npm:@app/core/hero/hero.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.data.ts",
+          "hash": "10141685426916821693"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/hero/hero.model.ts",
+          "hash": "16505168672110751606",
+          "deps": [
+            "npm:@app/core/hero/hero.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/home/home.component.html",
+          "hash": "892741266041316613"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/home/home.component.spec.ts",
+          "hash": "8001947720282710879",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@app/auth/auth.tokens",
+            "npm:ng-mocks",
+            "npm:@app/modules/cocktails/cocktails-api.service",
+            "npm:@angular/router",
+            "npm:@app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.component",
+            "npm:rxjs",
+            "npm:@app/shared/components/button/button.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/home/home.component.ts",
+          "hash": "15643606307276761118",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/core/hero/hero.component",
+            "npm:@app/shared/components/button/button.component",
+            "npm:@angular/material",
+            "npm:@angular/router",
+            "npm:@app/auth/auth-stateful.service",
+            "npm:@app/modules/cocktails/cocktail-card/cocktail-card.component",
+            "npm:@app/shared/paginator/paginator.service",
+            "npm:@app/shared/paginator/paginator.component",
+            "npm:@app/modules/cocktails/cocktails-api.service",
+            "npm:@app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/navbar/navbar.component.html",
+          "hash": "1860152257520074147"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/navbar/navbar.component.scss",
+          "hash": "15166192405987906990"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/navbar/navbar.component.ts",
+          "hash": "16617324396415989188",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:@app/shared/components/link/link.component",
+            "npm:@angular/router",
+            "npm:@app/shared/components/button/button.component",
+            "npm:@app/auth/dialogs/login-dialog/login-dialog.component",
+            "npm:@app/auth/dialogs/register-dialog/register-dialog.component",
+            "npm:@angular/common",
+            "npm:@app/auth/auth-stateful.service",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/shell/shell.component.scss",
+          "hash": "13050170679401535274"
+        },
+        {
+          "file": "apps/cocktails/src/app/core/shell/shell.component.ts",
+          "hash": "17033159755637733151",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@app/core/navbar/navbar.component",
+            "npm:@app/core/hero/hero.component",
+            "npm:@angular/material",
+            "npm:@app/core/global-loader/global-loader.service",
+            "npm:@angular/common",
+            "npm:@app/core/footer/footer.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/core/shell/shell.routing.module.ts",
+          "hash": "18309619641251273867",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router",
+            "npm:@app/core/core-routes"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/env.token.ts",
+          "hash": "16008779154520631148",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-card/cocktail-card.component.html",
+          "hash": "10956622831219425124"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-card/cocktail-card.component.scss",
+          "hash": "16514598785735905342"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-card/cocktail-card.component.ts",
+          "hash": "9414189296270841549",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@angular/router",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/shared/pipes/author.pipe",
+            "npm:@app/shared/pipes/value-from.pipe",
+            "npm:@app/modules/cocktails/cocktails.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/cocktail-detail.component.html",
+          "hash": "170528804520830585"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/cocktail-detail.component.scss",
+          "hash": "11153647832024624621"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/cocktail-detail.component.ts",
+          "hash": "4056842709391281655",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/core/hero/hero.component",
+            "npm:@angular/router",
+            "npm:rxjs",
+            "npm:@angular/material",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/auth/auth.tokens",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@app/shared/pipes/author.pipe",
+            "npm:ngx-stateful-service",
+            "npm:@app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component",
+            "npm:@app/modules/cocktails/cocktail-detail/components/preparation-step/preparation-step.component",
+            "npm:@app/shared/pipes/value-from.pipe",
+            "npm:@app/modules/cocktails/cocktails.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/cocktail.resolver.ts",
+          "hash": "6858044950241655175",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@angular/core",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/cocktails-api.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/components/preparation-step/preparation-step.component.html",
+          "hash": "4993539041507262472"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/components/preparation-step/preparation-step.component.scss",
+          "hash": "9116210422313934926"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktail-detail/components/preparation-step/preparation-step.component.ts",
+          "hash": "12080064095324496829",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/shared/pipes/value-from.pipe",
+            "npm:@app/modules/cocktails/cocktails.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails-api.service.ts",
+          "hash": "3322335335774591648",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/shared/services/http-with-message",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/env.token",
+            "npm:rxjs",
+            "npm:@app/shared/paginator/paginator.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.component.html",
+          "hash": "15691164444114082567"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.component.ts",
+          "hash": "17729439114417685820",
+          "deps": [
+            "npm:@app/shared/paginator/paginator-filter.component",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@app/shared/forms/controls/text-input/text-input.component",
+            "npm:@app/shared/forms/controls/select/select",
+            "npm:@app/modules/cocktails/cocktails.data",
+            "npm:@app/shared/components/button/button.component",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:@app/modules/cocktails/ingredients-api.service",
+            "npm:@app/shared/forms/form.service",
+            "npm:@app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.model.ts",
+          "hash": "3085186812767460155",
+          "deps": [
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails.data.ts",
+          "hash": "12098324988898026584",
+          "deps": [
+            "npm:@app/shared/forms/controls/select/select"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/cocktails.model.ts",
+          "hash": "12948704538269239773",
+          "deps": [
+            "npm:@src/app/auth/auth.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component.html",
+          "hash": "17091744405478691165"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component.scss",
+          "hash": "13445527109843029726"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component.ts",
+          "hash": "4702425745682176612",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@angular/cdk",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/shared/pipes/value-from.pipe",
+            "npm:@app/modules/cocktails/cocktails.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/create-cocktail.component.html",
+          "hash": "5102729470853128044"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/create-cocktail.component.scss",
+          "hash": "17079529925816333519"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/create-cocktail.component.ts",
+          "hash": "8979411547237415949",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/core/hero/hero.component",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/cocktails-api.service",
+            "npm:rxjs",
+            "npm:@angular/router",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component.html",
+          "hash": "11974812226080238758"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component.scss",
+          "hash": "8393372271538649623"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.component.ts",
+          "hash": "17288729544910581812",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/controls/textarea-input/textarea-input.component",
+            "npm:@angular/material",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input",
+            "npm:rxjs",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-form.model.ts",
+          "hash": "5620125234791325531",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component.html",
+          "hash": "12060430240518795101"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.component.ts",
+          "hash": "2277095582806932390",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/shared/forms/controls/textarea-input/textarea-input.component",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/forms/controls/select/select",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model",
+            "npm:@app/modules/cocktails/cocktails.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step1-form/create-cocktail-step1-form.model.ts",
+          "hash": "10622671331562165247",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.component.html",
+          "hash": "9241899829258365920"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.component.ts",
+          "hash": "14019876940774155696",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input",
+            "npm:@src/app/shared/forms/controls/select/select",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/forms/controls/checkbox/checkbox.component",
+            "npm:rxjs",
+            "npm:@angular/router",
+            "npm:@src/app/shared/directives/stop-event-propagation.directive",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.model",
+            "npm:@app/modules/cocktails/cocktails.data",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data.ts",
+          "hash": "13292843456202693114"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.model.ts",
+          "hash": "3429301983299636808",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.component.html",
+          "hash": "6843296812156138884"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.component.ts",
+          "hash": "6104897004355944888",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:rxjs",
+            "npm:@src/app/shared/components/confirmation-dialog/confirmation-dialog.service",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/directives/stop-event-propagation.directive",
+            "npm:@src/app/shared/forms/components/custom-error/custom-errors.component",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.component",
+            "npm:@app/modules/cocktails/create-cocktail/components/ingredients-table/ingredients-table.component",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.model.ts",
+          "hash": "16951072412938134576",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators.ts",
+          "hash": "17394864745079406280",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component.html",
+          "hash": "2899791273232447255"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component.scss",
+          "hash": "4368402235078660751"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.component.ts",
+          "hash": "17663258334110418799",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@src/app/shared/forms/controls/select/select",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/shared/components/button/button.component",
+            "npm:@src/app/shared/components/confirmation-dialog/confirmation-dialog.service",
+            "npm:rxjs",
+            "npm:@src/app/shared/forms/components/custom-error/custom-errors.component",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model",
+            "npm:@app/modules/cocktails/cocktails.data",
+            "npm:@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model.ts",
+          "hash": "2331171988005936155",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators.ts",
+          "hash": "8884275608583539467",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/create-cocktail/ingredients.resolver.ts",
+          "hash": "9109266451077544393",
+          "deps": [
+            "npm:@angular/router",
+            "npm:@angular/core",
+            "npm:@app/modules/cocktails/cocktails.model",
+            "npm:@app/modules/cocktails/ingredients-api.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/cocktails/ingredients-api.service.ts",
+          "hash": "17080396607040929121",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/env.token",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/components/my-cocktails/my-cocktails.component.html",
+          "hash": "9628082600871231918"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/components/my-cocktails/my-cocktails.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/components/my-cocktails/my-cocktails.component.ts",
+          "hash": "1185968212666367702",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/router",
+            "npm:rxjs",
+            "npm:@app/modules/cocktails/cocktails.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/forms/user-data-form/user-data-form.component.html",
+          "hash": "6027190850744057104"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/forms/user-data-form/user-data-form.component.ts",
+          "hash": "2002645298458055132",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/form.component",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/modules/user-profile/user-profile.model",
+            "npm:@src/app/modules/user-profile/forms/user-data-form/user-data-form.model",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@src/app/shared/forms/controls/text-input/text-input.component",
+            "npm:@src/app/auth/auth.tokens",
+            "npm:rxjs",
+            "npm:@src/app/shared/components/button/button.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/forms/user-data-form/user-data-form.model.ts",
+          "hash": "907558973451807048",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/user-profile-api.service.ts",
+          "hash": "5778424326443031532",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@src/app/shared/services/http-with-message",
+            "npm:@src/app/env.token",
+            "npm:@src/app/modules/user-profile/user-profile.model",
+            "npm:rxjs",
+            "npm:@src/app/auth/auth.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/user-profile.component.html",
+          "hash": "2884303122059159634"
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/user-profile.component.ts",
+          "hash": "13889157258515502871",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/core/hero/hero.component",
+            "npm:@angular/material",
+            "npm:@src/app/modules/user-profile/forms/user-data-form/user-data-form.component",
+            "npm:@src/app/modules/user-profile/user-profile.model",
+            "npm:@src/app/modules/user-profile/user-profile-api.service",
+            "npm:rxjs",
+            "npm:@src/app/shared/components/confirmation-dialog/confirmation-dialog.service",
+            "npm:@src/app/auth/auth-stateful.service",
+            "npm:@src/app/auth/auth.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/modules/user-profile/user-profile.model.ts",
+          "hash": "2150517951194236784"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/button/button.component.scss",
+          "hash": "11819817326341766196"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/button/button.component.ts",
+          "hash": "3515114932950562333",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:@src/app/shared/components/button/button.model",
+            "npm:@angular/common",
+            "npm:@ngx-translate/core",
+            "npm:@app/core/global-loader/global-loader.service"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/button/button.model.ts",
+          "hash": "14066763739271247575"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/confirmation-dialog/confirmation-dialog.component.ts",
+          "hash": "15122716959600374942",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@src/app/shared/components/button/button.component"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/confirmation-dialog/confirmation-dialog.model.ts",
+          "hash": "13870950397490315611"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/confirmation-dialog/confirmation-dialog.service.ts",
+          "hash": "15233022632286121466",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/material",
+            "npm:@src/app/shared/components/confirmation-dialog/confirmation-dialog.component",
+            "npm:@src/app/shared/components/confirmation-dialog/confirmation-dialog.model",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/link/link.component.scss",
+          "hash": "17569029289115068166"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/components/link/link.component.ts",
+          "hash": "12146743370666897782",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/directives/stop-event-propagation.directive.ts",
+          "hash": "8712283145454160479",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/components/custom-error/custom-errors.component.ts",
+          "hash": "2879728804668041239",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:rxjs",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/checkbox/checkbox.component.ts",
+          "hash": "16934359124087358323",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/material",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/controls/custom-control"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/custom-control.ts",
+          "hash": "6695376357660474727",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@angular/core",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:rxjs",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/select/select.ts",
+          "hash": "7005657831263697517",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/directives/validation-errors.directive",
+            "npm:@src/app/shared/forms/controls/custom-control"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input.ts",
+          "hash": "16543745332862868048",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/directives/validation-errors.directive",
+            "npm:@src/app/shared/forms/controls/custom-control",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/text-input/text-input.component.ts",
+          "hash": "7008564278557672941",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@angular/material",
+            "npm:@angular/common",
+            "npm:@src/app/shared/forms/directives/validation-errors.directive",
+            "npm:@src/app/shared/forms/controls/custom-control"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/controls/textarea-input/textarea-input.component.ts",
+          "hash": "18079699592149967784",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/controls/custom-control",
+            "npm:@angular/material",
+            "npm:@src/app/shared/forms/directives/validation-errors.directive"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/directives/validation-errors.directive.ts",
+          "hash": "2566263884857811935",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:rxjs",
+            "npm:@src/app/shared/services/unsubscribe-on-destroy",
+            "npm:@ngx-translate/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/form-utils.ts",
+          "hash": "18369238033004564433",
+          "deps": [
+            "npm:@angular/forms"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/form.component.ts",
+          "hash": "15577262397090678802",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/forms",
+            "npm:@src/app/shared/forms/form.service",
+            "npm:@src/app/shared/services/unsubscribe-on-destroy"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/form.service.ts",
+          "hash": "16627877537344947080",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/validators/common-validators.ts",
+          "hash": "3085721953570225506",
+          "deps": [
+            "npm:@angular/forms",
+            "npm:@src/app/shared/utils/patterns",
+            "npm:@src/app/shared/forms/validators/universal-limits",
+            "npm:@src/app/shared/forms/form-utils"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/forms/validators/universal-limits.ts",
+          "hash": "15497662374967818780"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/modules/shared.module.ts",
+          "hash": "245799150949087852",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator-filter.component.ts",
+          "hash": "16041492082733770156",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@app/shared/paginator/paginator.service",
+            "npm:@angular/forms",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.component.html",
+          "hash": "13468472351449705912"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.component.scss",
+          "hash": "15828114578209567781"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.component.ts",
+          "hash": "6675828653210871710",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:@app/modules/cocktails/cocktail-card/cocktail-card.component",
+            "npm:@angular/material",
+            "npm:@app/shared/paginator/paginator.service",
+            "npm:@app/shared/paginator/paginator.model",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.model.ts",
+          "hash": "18243368622760914573"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.service.ts",
+          "hash": "16539390350878721269",
+          "deps": [
+            "npm:@angular/core",
+            "npm:ngx-stateful-service",
+            "npm:@app/shared/paginator/paginator.model",
+            "npm:rxjs",
+            "npm:@app/shared/utils/helpers",
+            "npm:@angular/common",
+            "npm:@app/shared/paginator/paginator.utils",
+            "npm:@angular/router"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/paginator/paginator.utils.ts",
+          "hash": "9033197723050205680",
+          "deps": [
+            "npm:@app/shared/paginator/paginator.model",
+            "npm:@angular/common"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/pipes/author.pipe.ts",
+          "hash": "8769125006273995495",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@app/auth/auth.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/pipes/value-from.pipe.ts",
+          "hash": "14806913567564197506",
+          "deps": [
+            "npm:@angular/core"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/services/http-with-message.ts",
+          "hash": "15346695918975056206",
+          "deps": [
+            "npm:@angular/core",
+            "npm:@angular/common",
+            "npm:rxjs",
+            "npm:@angular/material"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/services/unsubscribe-on-destroy.ts",
+          "hash": "14878943255775615138",
+          "deps": [
+            "npm:@angular/core",
+            "npm:rxjs"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/utils/helpers.ts",
+          "hash": "8757751642340516642"
+        },
+        {
+          "file": "apps/cocktails/src/app/shared/utils/patterns.ts",
+          "hash": "7086683920286476279"
+        },
+        {
+          "file": "apps/cocktails/src/assets/.gitkeep",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "apps/cocktails/src/assets/cocktail.png",
+          "hash": "13313460862919220728"
+        },
+        {
+          "file": "apps/cocktails/src/assets/i18n/en.json",
+          "hash": "6226236449258270028"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/cocktail.png",
+          "hash": "5477784018906065842"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/hourglass.png",
+          "hash": "2082523083541682645"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/juicer.png",
+          "hash": "141296863803713444"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/mix.png",
+          "hash": "15402020373035967560"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/put.png",
+          "hash": "5570579513959180827"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/shaker.png",
+          "hash": "8544800965890059917"
+        },
+        {
+          "file": "apps/cocktails/src/assets/images/water.png",
+          "hash": "6782866999574237556"
+        },
+        {
+          "file": "apps/cocktails/src/environments/environment.development.ts",
+          "hash": "15328935420450159808",
+          "deps": [
+            "npm:@src/environments/environment.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/environments/environment.model.ts",
+          "hash": "2067761805586283300"
+        },
+        {
+          "file": "apps/cocktails/src/environments/environment.production.ts",
+          "hash": "10711918442214599787",
+          "deps": [
+            "npm:@src/environments/environment.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/environments/environment.ts",
+          "hash": "15650675691422331487",
+          "deps": [
+            "npm:src/environments/environment.model"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/index.html",
+          "hash": "6080573596421049941"
+        },
+        {
+          "file": "apps/cocktails/src/main.ts",
+          "hash": "760372990395499648",
+          "deps": [
+            "npm:@angular/platform-browser-dynamic"
+          ]
+        },
+        {
+          "file": "apps/cocktails/src/styles/_flex.scss",
+          "hash": "3879603133567279383"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_grid.scss",
+          "hash": "1394363094377265270"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_material-overrides.scss",
+          "hash": "9446773178488608455"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_palettes.scss",
+          "hash": "1426768115370420162"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_scrollbar.scss",
+          "hash": "14437184003404023848"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_spacing.scss",
+          "hash": "9504945157562484689"
+        },
+        {
+          "file": "apps/cocktails/src/styles/_typography.scss",
+          "hash": "1657816008645286097"
+        },
+        {
+          "file": "apps/cocktails/src/styles/styles.scss",
+          "hash": "10195894886096700538"
+        },
+        {
+          "file": "apps/cocktails/tsconfig.app.json",
+          "hash": "2381145790002888757"
+        }
+      ]
+    },
+    "nonProjectFiles": [
+      {
+        "file": " .prettierignore",
+        "hash": "2081285871690231014"
+      },
+      {
+        "file": ".editorconfig",
+        "hash": "17241496168097493888"
+      },
+      {
+        "file": ".eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": ".eslintrc.json",
+        "hash": "2095884976513997461"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "14699221366354110915"
+      },
+      {
+        "file": ".prettierignore",
+        "hash": "16448050467312557263"
+      },
+      {
+        "file": ".prettierrc.json",
+        "hash": "3880751394346066192"
+      },
+      {
+        "file": ".vscode/extensions.json",
+        "hash": "11761272470041752234"
+      },
+      {
+        "file": ".vscode/launch.json",
+        "hash": "4815948323043747099"
+      },
+      {
+        "file": ".vscode/tasks.json",
+        "hash": "5336636969995539451"
+      },
+      {
+        "file": "README.md",
+        "hash": "8854750289427903955"
+      },
+      {
+        "file": "jest.config.ts",
+        "hash": "1708200528036411054"
+      },
+      {
+        "file": "libs/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "nx.json",
+        "hash": "7246131420393922434"
+      },
+      {
+        "file": "package-lock.json",
+        "hash": "17589733060709379023"
+      },
+      {
+        "file": "package.json",
+        "hash": "8738873904445282625"
+      },
+      {
+        "file": "setup-jest.ts",
+        "hash": "4649421972403101637"
+      },
+      {
+        "file": "tools/generators/.gitkeep",
+        "hash": "3244421341483603138"
+      },
+      {
+        "file": "tools/tsconfig.tools.json",
+        "hash": "16088922570277978783"
+      },
+      {
+        "file": "tsconfig.base.json",
+        "hash": "3404054874827489945"
+      },
+      {
+        "file": "tsconfig.spec.json",
+        "hash": "1446931086948755032"
+      }
+    ]
+  }
+}

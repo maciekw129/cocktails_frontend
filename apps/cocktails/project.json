@@ -1,0 +1,101 @@
+{
+  "name": "cocktails",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss",
+      "standalone": true,
+      "changeDetection": "OnPush",
+      "skipTests": true
+    },
+    "@schematics/angular:pipe": {
+      "standalone": true,
+      "skipTests": true
+    },
+    "@schematics/angular:directive": {
+      "standalone": true,
+      "skipTests": true
+    }
+  },
+  "sourceRoot": "apps/cocktails/src",
+  "prefix": "c",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/cocktails",
+        "index": "apps/cocktails/src/index.html",
+        "main": "apps/cocktails/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/cocktails/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["apps/cocktails/src/favicon.ico", "apps/cocktails/src/assets"],
+        "styles": ["apps/cocktails/src/styles/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/cocktails/src/environments/environment.ts",
+              "with": "apps/cocktails/src/environments/environment.production.ts"
+            }
+          ]
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/cocktails/src/environments/environment.ts",
+              "with": "apps/cocktails/src/environments/environment.development.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "cocktails:build:production"
+        },
+        "development": {
+          "browserTarget": "cocktails:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "cocktails:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/cocktails/**/*.ts", "apps/cocktails/**/*.html"]
+      }
+    }
+  }
+}
