@@ -41,3 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/.vs/cocktails_front/config/applicationhost.config
+/.vs/cocktails_front/v17/.wsuo
+/.vs/cocktails_front/FileContentIndex/b14d5d4a-b095-4202-b638-c13032cea343.vsidx
