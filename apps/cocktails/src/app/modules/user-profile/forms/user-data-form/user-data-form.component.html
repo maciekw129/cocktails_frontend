@@ -1,0 +1,39 @@
+<form
+  [formGroup]="form"
+  (ngSubmit)="handleSubmit()"
+  class="width-full flex flex--center padding-4-2">
+  <mat-card>
+    <mat-card-content>
+      <div class="flex gap-2 flex--wrap flex--center">
+        <c-text-input
+          formControlName="email"
+          label="email"
+          matTooltip="You can't edit e-mail."></c-text-input>
+        <c-text-input
+          formControlName="login"
+          label="login"
+          matTooltip="You can't edit login."></c-text-input>
+      </div>
+      <div class="flex gap-2 flex--wrap flex--center">
+        <c-text-input formControlName="firstName" label="First name"></c-text-input>
+        <c-text-input formControlName="lastName" label="Last name"></c-text-input>
+      </div>
+      <div class="flex flex--center gap-2">
+        <ng-container *ngIf="isEditMode$ | async; else editButton">
+          <c-button
+            translation="cancel"
+            design="secondary"
+            type="button"
+            (buttonClick)="handleCancelEdit()"></c-button>
+          <c-button translation="send" [disabled]="!form.dirty" type="submit"></c-button>
+        </ng-container>
+        <ng-template #editButton>
+          <c-button
+            translation="edit"
+            type="button"
+            (buttonClick)="handleSetEditMode()"></c-button>
+        </ng-template>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

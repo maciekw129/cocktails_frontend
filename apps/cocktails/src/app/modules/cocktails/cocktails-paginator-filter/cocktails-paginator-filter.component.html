@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="filter()" class="filters padding-2 bottom-shadow">
+  <div class="flex flex--justify-center flex--wrap gap-2">
+    <div class="flex flex--justify-center gap-2 flex--wrap">
+      <c-text-input formControlName="name" label="Cocktail name"></c-text-input>
+      <c-select
+        formControlName="category"
+        label="Category"
+        [options]="categoryOptions"></c-select>
+    </div>
+    <div class="flex flex--justify-center gap-2 flex--wrap">
+      <c-select
+        formControlName="difficulty"
+        label="Difficulty"
+        [options]="difficultyOptions"></c-select>
+      <c-select
+        formControlName="ingredients"
+        label="Ingredients"
+        [multiple]="true"
+        [options]="ingredientsOptions$ | async"
+        [isLoading]="isIngredientsLoading$ | async"></c-select>
+    </div>
+  </div>
+
+  <div class="flex flex--center width-full gap-1">
+    <c-button type="submit" translation="filter"></c-button>
+    <c-button
+      type="button"
+      design="secondary"
+      (buttonClick)="clearFilters()"
+      translation="clearFilters"></c-button>
+  </div>
+</form>

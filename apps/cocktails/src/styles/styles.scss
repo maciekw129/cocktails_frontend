@@ -1,0 +1,66 @@
+@use '@angular/material' as mat;
+@use 'palettes' as palette;
+@use 'typography' as typography;
+@use 'material-overrides';
+@use 'spacing';
+@use 'flex';
+@use 'grid';
+@use 'scrollbar';
+
+@include mat.core();
+
+$cocktails-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: palette.$cocktails-primary,
+      accent: palette.$cocktails-accent,
+      warn: palette.$cocktails-warn,
+    ),
+    typography: typography.$typography-config,
+  )
+);
+
+@include mat.all-component-themes($cocktails-theme);
+
+* {
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: typography.$text-font;
+}
+
+// Utils
+
+.blurred-background {
+  backdrop-filter: blur(8px);
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 1px;
+}
+
+.bottom-shadow {
+  box-shadow: 0px 5px 9px -7px rgba(66, 68, 90, 1);
+}
+
+.width-full {
+  width: 100%;
+}
+
+.height-full {
+  height: 100%;
+}
+
+.main-container {
+  max-width: 1050px;
+  margin: 0 auto;
+}

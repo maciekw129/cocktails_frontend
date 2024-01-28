@@ -1,0 +1,16 @@
+<form
+  class="flex flex--column flex--center gap-2"
+  [formGroup]="form"
+  (ngSubmit)="handleSubmit()">
+  <c-text-input
+    formControlName="email"
+    type="email"
+    label="E-mail"
+    placeholder="Enter e-mail"></c-text-input>
+  <c-text-input
+    formControlName="password"
+    type="password"
+    label="Password"
+    placeholder="Enter password" />
+  <c-button [isDisabledOnRequest]="true" translation="send" type="submit" />
+</form>
