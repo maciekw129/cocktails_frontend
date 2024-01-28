@@ -1,11 +1,11 @@
 @use '@angular/material' as mat;
-@use 'src/styles/palettes' as palette;
-@use 'src/styles/typography' as typography;
-@use 'src/styles/material-overrides';
-@use 'src/styles/spacing';
-@use 'src/styles/flex';
-@use 'src/styles/grid';
-@use 'src/styles/scrollbar';
+@use 'palettes' as palette;
+@use 'typography' as typography;
+@use 'material-overrides';
+@use 'spacing';
+@use 'flex';
+@use 'grid';
+@use 'scrollbar';
 
 @include mat.core();
 

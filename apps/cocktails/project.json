@@ -32,6 +32,9 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/cocktails/src/favicon.ico", "apps/cocktails/src/assets"],
         "styles": ["apps/cocktails/src/styles/styles.scss"],
+        "stylePreprocessorOptions": {
+          "includePaths": ["apps/cocktails/src/styles"]
+        },
         "scripts": []
       },
       "configurations": {
