@@ -1,23 +1,26 @@
 <form [formGroup]="form" (ngSubmit)="filter()" class="filters padding-2 bottom-shadow">
   <div class="flex flex--justify-center flex--wrap gap-2">
     <div class="flex flex--justify-center gap-2 flex--wrap">
-      <c-text-input formControlName="name" label="Cocktail name"></c-text-input>
-      <c-select
+      <c-ui-text-input formControlName="name" label="Cocktail name"/>
+      <c-ui-select
         formControlName="category"
         label="Category"
-        [options]="categoryOptions"></c-select>
+        [options]="categoryOptions"
+      />
     </div>
     <div class="flex flex--justify-center gap-2 flex--wrap">
-      <c-select
+      <c-ui-select
         formControlName="difficulty"
         label="Difficulty"
-        [options]="difficultyOptions"></c-select>
-      <c-select
+        [options]="difficultyOptions"
+      />
+      <c-ui-select
         formControlName="ingredients"
         label="Ingredients"
         [multiple]="true"
         [options]="ingredientsOptions$ | async"
-        [isLoading]="isIngredientsLoading$ | async"></c-select>
+        [isLoading]="isIngredientsLoading$ | async"
+      />
     </div>
   </div>
 

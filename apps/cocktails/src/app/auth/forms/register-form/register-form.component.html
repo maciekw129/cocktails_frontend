@@ -2,31 +2,31 @@
   [formGroup]="form"
   class="flex flex--column flex--center gap-2"
   (ngSubmit)="handleSubmit()">
-  <c-text-input
+  <c-ui-text-input
     formControlName="login"
     label="Login"
-    placeholder="Enter login"></c-text-input>
-  <c-text-input
+    placeholder="Enter login"/>
+  <c-ui-text-input
     formControlName="email"
     label="E-mail"
-    placeholder="Enter e-mail"></c-text-input>
-  <c-text-input
+    placeholder="Enter e-mail"/>
+  <c-ui-text-input
     formControlName="firstName"
     label="First name"
-    placeholder="Enter first name"></c-text-input>
-  <c-text-input
+    placeholder="Enter first name"/>
+  <c-ui-text-input
     formControlName="lastName"
     label="Last name"
-    placeholder="Enter last name"></c-text-input>
-  <c-text-input
+    placeholder="Enter last name"/>
+  <c-ui-text-input
     formControlName="password"
     label="Password"
     placeholder="Enter password"
-    type="password"></c-text-input>
-  <c-text-input
+    type="password"/>
+  <c-ui-text-input
     formControlName="confirmPassword"
     label="Confirm password"
     placeholder="Confirm password"
-    type="password"></c-text-input>
+    type="password"/>
   <c-button [isDisabledOnRequest]="true" translation="send" type="submit" />
 </form>

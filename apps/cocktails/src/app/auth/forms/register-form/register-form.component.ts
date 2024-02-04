@@ -4,11 +4,11 @@ import { FormComponent } from '@src/app/shared/forms/form.component';
 import { RegisterPayload } from '@src/app/auth/auth.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterForm } from '@src/app/auth/forms/register-form/register-form.model';
-import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { Helpers } from '@src/app/shared/utils/helpers';
 import { CommonValidators } from '@src/app/shared/forms/validators/common-validators';
+import { TextInputComponent } from '@cocktails-ui';
 
 @Component({
   selector: 'c-register-form',

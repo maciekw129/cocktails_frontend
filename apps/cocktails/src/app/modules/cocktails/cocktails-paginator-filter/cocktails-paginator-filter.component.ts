@@ -7,8 +7,6 @@ import {
 } from '@app/modules/cocktails/cocktails.model';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TextInputComponent } from '@app/shared/forms/controls/text-input/text-input.component';
-import { SelectComponent, SelectOptions } from '@app/shared/forms/controls/select/select';
 import {
   categoryOptions,
   difficultyOptions,
@@ -19,6 +17,7 @@ import { BehaviorSubject, finalize, map, Observable } from 'rxjs';
 import { IngredientsApiService } from '@app/modules/cocktails/ingredients-api.service';
 import { FormService } from '@app/shared/forms/form.service';
 import { CocktailsFiltersForm } from '@app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.model';
+import { SelectComponent, SelectOption, TextInputComponent } from '@cocktails-ui';
 
 @Component({
   selector: 'c-cocktails-paginator-filter',
@@ -45,7 +44,7 @@ export class CocktailsPaginatorFilterComponent extends PaginatorFilterComponent<
 
   public isIngredientsLoading$ = new BehaviorSubject(true);
 
-  public ingredientsOptions$: Observable<SelectOptions<string>> =
+  public ingredientsOptions$: Observable<SelectOption<string>[]> =
     this.ingredientsApiService.getSavedIngredients().pipe(
       map(ingredients => {
         return ingredients.map(({ name }) => {

@@ -6,11 +6,11 @@ import { PatchUserDto, UserData } from '@src/app/modules/user-profile/user-profi
 import { UserDataForm } from '@src/app/modules/user-profile/forms/user-data-form/user-data-form.model';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import { USER_DATA, USER_DATA_VALUE } from '@src/app/auth/auth.tokens';
 import { BehaviorSubject, take, takeUntil, tap } from 'rxjs';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { TextInputComponent } from '@cocktails-ui';
 
 @Component({
   selector: 'c-user-data-form',
@@ -19,9 +19,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     CommonModule,
     ReactiveFormsModule,
     MatCardModule,
-    TextInputComponent,
     ButtonComponent,
     MatTooltipModule,
+    TextInputComponent,
   ],
   templateUrl: './user-data-form.component.html',
   providers: [FormService],

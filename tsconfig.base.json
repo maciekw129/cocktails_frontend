@@ -5,7 +5,8 @@
     "paths": {
       "@app/*": ["apps/cocktails/src/app/*"],
       "@src/*": ["apps/cocktails/src/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@cocktails-ui": ["libs/cocktails-ui/src/index.ts"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
