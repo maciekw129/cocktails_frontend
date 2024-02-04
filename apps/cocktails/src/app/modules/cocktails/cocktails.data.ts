@@ -1,5 +1,5 @@
-import { SelectOptions } from '@app/shared/forms/controls/select/select';
 import { Action, Category, Difficulty, Unit } from './cocktails.model';
+import { SelectOption } from '@cocktails-ui';
 
 export const actionLabels: Record<Action, string> = {
   [Action.ADD]: 'Add',
@@ -11,7 +11,7 @@ export const actionLabels: Record<Action, string> = {
   [Action.SHAKE]: 'Shake',
 };
 
-export const actionSelectOptions: SelectOptions<Action> = [
+export const actionSelectOptions: SelectOption<Action>[] = [
   { value: Action.ADD, label: actionLabels[Action.ADD] },
   { value: Action.POUR, label: actionLabels[Action.POUR] },
   { value: Action.MIX, label: actionLabels[Action.MIX] },
@@ -28,7 +28,7 @@ export const categoryLables: Record<Category, string> = {
   [Category.other]: 'Other',
 };
 
-export const categoryOptions: SelectOptions<Category> = [
+export const categoryOptions: SelectOption<Category>[] = [
   { value: Category.shot, label: categoryLables[Category.shot] },
   { value: Category.short, label: categoryLables[Category.short] },
   { value: Category.long, label: categoryLables[Category.long] },
@@ -41,7 +41,7 @@ export const difficultyLabels: Record<Difficulty, string> = {
   [Difficulty.hard]: 'Hard',
 };
 
-export const difficultyOptions: SelectOptions<Difficulty> = [
+export const difficultyOptions: SelectOption<Difficulty>[] = [
   { value: Difficulty.easy, label: difficultyLabels[Difficulty.easy] },
   { value: Difficulty.medium, label: difficultyLabels[Difficulty.medium] },
   { value: Difficulty.hard, label: difficultyLabels[Difficulty.hard] },
@@ -58,7 +58,7 @@ export const unitLabels: Record<Unit, string> = {
   [Unit.pinch]: 'pinch',
 };
 
-export const unitOptions: SelectOptions<Unit> = [
+export const unitOptions: SelectOption<Unit>[] = [
   { value: Unit.g, label: unitLabels[Unit.g] },
   { value: Unit.l, label: unitLabels[Unit.l] },
   { value: Unit.ml, label: unitLabels[Unit.ml] },

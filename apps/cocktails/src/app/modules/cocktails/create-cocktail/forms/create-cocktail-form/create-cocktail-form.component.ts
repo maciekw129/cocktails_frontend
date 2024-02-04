@@ -1,15 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { TextareaInputComponent } from '@src/app/shared/forms/controls/textarea-input/textarea-input.component';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatButtonModule } from '@angular/material/button';
-import { TextAutocompleteInputComponent } from '@src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
 import { MatCardModule } from '@angular/material/card';
 import { Observable } from 'rxjs';
 import { Cocktail, Ingredient } from '@app/modules/cocktails/cocktails.model';
@@ -25,15 +22,12 @@ import { CreateCocktailForm } from '@app/modules/cocktails/create-cocktail/forms
   standalone: true,
   imports: [
     CommonModule,
-    TextInputComponent,
     ReactiveFormsModule,
-    TextareaInputComponent,
     MatStepperModule,
     MatInputModule,
     ButtonComponent,
     MatButtonModule,
     IngredientsTableComponent,
-    TextAutocompleteInputComponent,
     AddIngredientFormComponent,
     MatCardModule,
     CreateCocktailStep1FormComponent,

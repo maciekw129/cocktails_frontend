@@ -4,17 +4,17 @@
   (ngSubmit)="handleSubmit()"
   stopEventPropagation
   class="flex flex--column flex--center">
-  <c-autocomplete-input
+  <c-ui-text-autocomplete-input
     formControlName="name"
     label="Name"
     placeholder="Enter ingredient name"
-    [options]="ingredients"></c-autocomplete-input>
-  <c-text-input
+    [options]="ingredients"/>
+  <c-ui-text-input
     formControlName="quantity"
     type="number"
     label="Quantity"
-    placeholder="Enter quantity"></c-text-input>
-  <c-select formControlName="unit" label="Unit" [options]="unitOptions"></c-select>
-  <c-checkbox formControlName="isAlcoholic" label="Alcoholic"></c-checkbox>
+    placeholder="Enter quantity"/>
+  <c-ui-select formControlName="unit" label="Unit" [options]="unitOptions"/>
+  <c-ui-checkbox formControlName="isAlcoholic" label="Alcoholic"/>
   <c-button translation="addIngredient" design="secondary" type="submit" />
 </form>

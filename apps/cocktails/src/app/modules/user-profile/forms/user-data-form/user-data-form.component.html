@@ -5,18 +5,20 @@
   <mat-card>
     <mat-card-content>
       <div class="flex gap-2 flex--wrap flex--center">
-        <c-text-input
+        <c-ui-text-input
           formControlName="email"
           label="email"
-          matTooltip="You can't edit e-mail."></c-text-input>
-        <c-text-input
+          matTooltip="You can't edit e-mail."
+        />
+        <c-ui-text-input
           formControlName="login"
           label="login"
-          matTooltip="You can't edit login."></c-text-input>
+          matTooltip="You can't edit login."
+        />
       </div>
       <div class="flex gap-2 flex--wrap flex--center">
-        <c-text-input formControlName="firstName" label="First name"></c-text-input>
-        <c-text-input formControlName="lastName" label="Last name"></c-text-input>
+        <c-ui-text-input formControlName="firstName" label="First name"/>
+        <c-ui-text-input formControlName="lastName" label="Last name"/>
       </div>
       <div class="flex flex--center gap-2">
         <ng-container *ngIf="isEditMode$ | async; else editButton">

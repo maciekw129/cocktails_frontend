@@ -2,12 +2,8 @@ import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core
 import { CommonModule } from '@angular/common';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TextAutocompleteInputComponent } from '@src/app/shared/forms/controls/text-autocomplete-input/text-autocomplete-input';
-import { SelectComponent } from '@src/app/shared/forms/controls/select/select';
-import { TextInputComponent } from '@src/app/shared/forms/controls/text-input/text-input.component';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { CheckboxComponent } from '@src/app/shared/forms/controls/checkbox/checkbox.component';
 import { tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { StopEventPropagationDirective } from '@src/app/shared/directives/stop-event-propagation.directive';
@@ -16,6 +12,12 @@ import { IngredientForm } from '@app/modules/cocktails/create-cocktail/forms/cre
 import { unitOptions } from '@app/modules/cocktails/cocktails.data';
 import { CreateCocktailStep2FormValidators } from '@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/create-cocktail-step2-form.validators';
 import { limit } from '@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step2-form/add-ingredient-form/add-ingredient-form.data';
+import {
+  CheckboxComponent,
+  SelectComponent,
+  TextAutocompleteInputComponent,
+  TextInputComponent,
+} from '@cocktails-ui';
 
 @Component({
   selector: 'c-add-ingredient-form',
