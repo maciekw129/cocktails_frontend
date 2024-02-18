@@ -31,9 +31,9 @@
         "tsConfig": "apps/cocktails/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": ["apps/cocktails/src/favicon.ico", "apps/cocktails/src/assets"],
-        "styles": ["apps/cocktails/src/styles/styles.scss"],
+        "styles": ["apps/cocktails/src/styles/styles.scss", "libs/cocktails-ui/src/styles/theme.scss"],
         "stylePreprocessorOptions": {
-          "includePaths": ["apps/cocktails/src/styles"]
+          "includePaths": ["apps/cocktails/src/styles", "libs/cocktails-ui/src/styles"]
         },
         "scripts": []
       },
@@ -97,7 +97,7 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["apps/cocktails/**/*.ts", "apps/cocktails/**/*.html"]
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/**/*.html"]
       }
     }
   }

@@ -27,7 +27,7 @@ import { defer, map, startWith } from 'rxjs';
     <mat-form-field>
       <mat-label>{{ label }}</mat-label>
       <input
-        [type]="type"
+        type="text"
         [placeholder]="placeholder"
         matInput
         [formControl]="formControl"
@@ -46,7 +46,9 @@ import { defer, map, startWith } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextAutocompleteInputComponent extends FormControlAbstract<string> {
-  @Input() options: string[] = [];
+  @Input({ required: true }) options: string[] = [];
+  @Input() icon: string;
+  @Input() hint: string;
 
   public filteredOptions$ = defer(() =>
     this.formControl.valueChanges.pipe(

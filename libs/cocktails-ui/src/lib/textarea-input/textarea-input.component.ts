@@ -26,7 +26,7 @@ import { ValidationErrorsDirective } from '@app/shared/forms/directives/validati
         [validationErrors]="validationErrors"
         matInput
         [placeholder]="placeholder"
-        [type]="type"
+        type="text"
         cdkTextareaAutosize
         [cdkAutosizeMinRows]="minRows"
         [cdkAutosizeMaxRows]="maxRows"></textarea>
@@ -42,4 +42,5 @@ export class TextareaInputComponent extends FormControlAbstract<string> {
 
   @Input() minRows = this.MIN_ROWS_DEFAULT_VALUE;
   @Input() maxRows = this.MAX_ROWS_DEFAULT_VALUE;
+  @Input() hint: string;
 }

@@ -4,9 +4,9 @@
     "baseUrl": ".",
     "paths": {
       "@app/*": ["apps/cocktails/src/app/*"],
+      "@cocktails-ui": ["libs/cocktails-ui/src/index.ts"],
       "@src/*": ["apps/cocktails/src/*"],
-      "@styles/*": ["src/styles/*"],
-      "@cocktails-ui": ["libs/cocktails-ui/src/index.ts"]
+      "@styles/*": ["src/styles/*"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -27,7 +27,8 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
-    "rootDir": "."
+    "rootDir": ".",
+    "skipLibCheck": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

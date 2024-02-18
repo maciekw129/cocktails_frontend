@@ -1,0 +1,10 @@
+.blurred-background {
+  backdrop-filter: blur(8px);
+  border-radius: 5px;
+  padding: 5px 15px;
+  border: 1px;
+}
+
+.bottom-shadow {
+  box-shadow: 0px 5px 9px -7px rgba(66, 68, 90, 1);
+}

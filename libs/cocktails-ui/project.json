@@ -16,6 +16,55 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "outputs": ["{options.outputFile}"]
+    },
+    "storybook": {
+      "executor": "@storybook/angular:start-storybook",
+      "options": {
+        "port": 4400,
+        "configDir": "libs/cocktails-ui/.storybook",
+        "browserTarget": "cocktails-ui:build-storybook",
+        "compodoc": false,
+        "styles": [
+          "libs/cocktails-ui/src/styles/theme.scss",
+          "@fontsource/roboto/300.css",
+          "@fontsource/roboto/400.css",
+          "@fontsource/roboto/500.css",
+          "@fontsource/roboto/700.css",
+          "@fontsource/material-icons"
+        ]
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "build-storybook": {
+      "executor": "@storybook/angular:build-storybook",
+      "outputs": ["{options.outputDir}"],
+      "options": {
+        "outputDir": "dist/storybook/cocktails-ui",
+        "configDir": "libs/cocktails-ui/.storybook",
+        "browserTarget": "cocktails-ui:build-storybook",
+        "compodoc": false
+      },
+      "configurations": {
+        "ci": {
+          "quiet": true
+        }
+      }
+    },
+    "static-storybook": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "cocktails-ui:build-storybook",
+        "staticFilePath": "dist/storybook/cocktails-ui"
+      },
+      "configurations": {
+        "ci": {
+          "buildTarget": "cocktails-ui:build-storybook:ci"
+        }
+      }
     }
   }
 }

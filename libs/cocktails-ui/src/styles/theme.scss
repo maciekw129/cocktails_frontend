@@ -1,0 +1,27 @@
+@use '@angular/material' as mat;
+@use '@fontsource/material-icons';
+@use 'palettes' as palette;
+@use 'typography' as typography;
+@use 'scrollbar';
+@use 'material-overrides';
+@use 'utils';
+
+@include mat.core();
+
+$cocktails-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: palette.$cocktails-primary,
+      accent: palette.$cocktails-accent,
+      warn: palette.$cocktails-warn,
+    ),
+    typography: typography.$typography-config,
+  )
+);
+
+@include mat.all-component-themes($cocktails-theme);
+
+body {
+  margin: 0;
+  font-family: typography.$text-font;
+}
