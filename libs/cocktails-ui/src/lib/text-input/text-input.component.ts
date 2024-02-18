@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ValidationErrorsDirective } from '@app/shared/forms/directives/validation-errors.directive';
-import { MatFormFieldControlDirective } from '../shared/mat-form-field-control.directive';
 import { FormControlAbstract } from '../shared/form-control.abstract';
 
 @Component({
@@ -18,7 +17,6 @@ import { FormControlAbstract } from '../shared/form-control.abstract';
     MatInputModule,
     ReactiveFormsModule,
     ValidationErrorsDirective,
-    MatFormFieldControlDirective,
   ],
   template: `
     <mat-form-field>
@@ -28,12 +26,15 @@ import { FormControlAbstract } from '../shared/form-control.abstract';
         [validationErrors]="validationErrors"
         matInput
         [placeholder]="placeholder"
-        [type]="type" />
-      <mat-icon *ngIf="icon" matSuffix>{{ icon }}</mat-icon>
+        type="text" />
+      <mat-icon *ngIf="icon" matSuffix [fontIcon]="icon"></mat-icon>
       <mat-hint>{{ hint }}</mat-hint>
       <mat-error #validationErrors></mat-error>
     </mat-form-field>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextInputComponent extends FormControlAbstract<string> {}
+export class TextInputComponent extends FormControlAbstract<string> {
+  @Input() icon: string;
+  @Input() hint: string;
+}

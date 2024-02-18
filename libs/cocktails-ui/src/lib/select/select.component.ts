@@ -8,6 +8,7 @@ import { ValidationErrorsDirective } from '@app/shared/forms/directives/validati
 import { SelectOption } from './select.model';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControlAbstract } from '../shared/form-control.abstract';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'c-ui-select',
@@ -20,6 +21,7 @@ import { FormControlAbstract } from '../shared/form-control.abstract';
     MatSelectModule,
     ReactiveFormsModule,
     ValidationErrorsDirective,
+    MatIconModule,
   ],
   template: `
     <mat-form-field>
@@ -37,6 +39,8 @@ import { FormControlAbstract } from '../shared/form-control.abstract';
         </mat-option>
       </mat-select>
       <mat-error #validationErrors></mat-error>
+      <mat-hint>{{ hint }}</mat-hint>
+      <mat-icon *ngIf="icon" matSuffix [fontIcon]="icon" />
     </mat-form-field>
   `,
   styleUrls: ['select.component.scss'],
@@ -47,5 +51,7 @@ export class SelectComponent extends FormControlAbstract<string> {
 
   @Input() isLoading = false;
   @Input() multiple = false;
-  @Input() options: SelectOption<unknown>[] = [];
+  @Input({ required: true }) options: SelectOption<unknown>[] = [];
+  @Input() icon: string;
+  @Input() hint: string;
 }

@@ -1,13 +1,10 @@
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
-import { Directive, Input, OnInit } from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 @Directive()
-export abstract class FormControlAbstract<T> implements ControlValueAccessor, OnInit {
+export abstract class FormControlAbstract<T> implements ControlValueAccessor {
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() hint = '';
-  @Input() type = 'text';
-  @Input() icon = '';
 
   public formControl: FormControl<T>;
 
