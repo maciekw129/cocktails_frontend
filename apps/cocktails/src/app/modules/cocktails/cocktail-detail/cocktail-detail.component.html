@@ -18,6 +18,7 @@
       <img
         class="cocktail__image width-full"
         [src]="cocktail.imageUrl"
+        onerror="this.src='assets/images/empty_cocktail.jpg'"
         alt="Cocktail image." />
         <div class="flex flex--column gap-2">
           <h3 class="font-heading-3">Ingredients:</h3>

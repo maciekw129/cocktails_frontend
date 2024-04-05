@@ -10,6 +10,7 @@
       class="cocktail-card__image"
       mat-card-image
       [src]="cocktail.imageUrl"
+      onerror="this.src='assets/images/empty_cocktail.jpg'"
       alt="Cocktail image" />
     <mat-card-content>
       <p class="font-text-2">
