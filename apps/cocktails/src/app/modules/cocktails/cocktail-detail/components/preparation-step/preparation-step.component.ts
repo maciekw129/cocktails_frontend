@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PreparationStep } from '@app/modules/cocktails/cocktails.model';
 import { valueFromPipe } from '@app/shared/pipes/value-from.pipe';
 import { actionIcons, actionLabels } from '@app/modules/cocktails/cocktails.data';
@@ -7,7 +6,7 @@ import { actionIcons, actionLabels } from '@app/modules/cocktails/cocktails.data
 @Component({
   selector: 'c-preparation-step',
   standalone: true,
-  imports: [CommonModule, valueFromPipe],
+  imports: [valueFromPipe],
   templateUrl: './preparation-step.component.html',
   styleUrls: ['./preparation-step.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

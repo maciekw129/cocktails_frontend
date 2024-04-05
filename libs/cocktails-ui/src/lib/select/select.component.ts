@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -14,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
   selector: 'c-ui-select',
   standalone: true,
   imports: [
-    CommonModule,
     MatFormFieldModule,
     MatOptionModule,
     MatProgressSpinnerModule,
@@ -26,7 +24,9 @@ import { MatIconModule } from '@angular/material/icon';
   template: `
     <mat-form-field>
       <div matPrefix class="padding-1">
-        <mat-spinner *ngIf="isLoading" [diameter]="SPINNER_DIAMETER"></mat-spinner>
+        @if (isLoading) {
+        <mat-spinner [diameter]="SPINNER_DIAMETER"></mat-spinner>
+        }
       </div>
 
       <mat-label>{{ label }}</mat-label>
@@ -34,13 +34,17 @@ import { MatIconModule } from '@angular/material/icon';
         [formControl]="formControl"
         [validationErrors]="validationErrors"
         [multiple]="multiple">
-        <mat-option *ngFor="let option of options" [value]="option.value">
+        @for (option of options; track option) {
+        <mat-option [value]="option.value">
           {{ option.label }}
         </mat-option>
+        }
       </mat-select>
       <mat-error #validationErrors></mat-error>
       <mat-hint>{{ hint }}</mat-hint>
-      <mat-icon *ngIf="icon" matSuffix [fontIcon]="icon" />
+      @if (icon) {
+      <mat-icon matSuffix [fontIcon]="icon" />
+      }
     </mat-form-field>
   `,
   styleUrls: ['select.component.scss'],

@@ -12,18 +12,19 @@ import { FooterComponent } from '@app/core/footer/footer.component';
   standalone: true,
   template: `
     <div class="shell flex flex--column">
-      <mat-progress-bar
-        class="loader"
-        *ngIf="isLoading$ | async"
-        mode="indeterminate"
+      @if (isLoading$ | async) {
+        <mat-progress-bar
+          class="loader"
+          mode="indeterminate"
         value="40"></mat-progress-bar>
+      }
       <c-navbar />
       <main>
         <router-outlet></router-outlet>
       </main>
       <c-footer class="footer" />
     </div>
-  `,
+    `,
   styleUrls: ['shell.component.scss'],
   imports: [
     CommonModule,

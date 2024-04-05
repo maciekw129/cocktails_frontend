@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { Cocktail } from '@app/modules/cocktails/cocktails.model';
@@ -7,7 +6,7 @@ import { Cocktail } from '@app/modules/cocktails/cocktails.model';
 @Component({
   selector: 'c-my-cocktails',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './my-cocktails.component.html',
   styleUrls: ['./my-cocktails.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

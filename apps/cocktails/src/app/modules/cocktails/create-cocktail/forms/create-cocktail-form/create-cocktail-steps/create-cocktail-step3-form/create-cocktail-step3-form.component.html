@@ -3,40 +3,42 @@
   (ngSubmit)="handleSubmit()"
   class="flex flex--column flex--center gap-4">
   <section class="flex flex--column flex--center gap-3" formArrayName="preparation">
-    <div *ngFor="let step of preparationArray.controls; index as i">
-      <mat-card>
-        <div
-          class="step3__single-step flex flex--center gap-2 padding-4"
-          [formGroupName]="i">
-          <p>Step.{{ i + 1 }}</p>
-          <c-ui-select
-            formControlName="action"
-            label="Action"
-            [options]="actionOptions"
-          />
-          <c-ui-select
-            formControlName="ingredient"
-            label="Ingredient"
-            [options]="ingredientsOpions$ | async"
-          />
-          <c-ui-text-input
-            formControlName="tip"
-            label="Additional information"
-            />
-          <button mat-icon-button (click)="handleRemoveStep(i)" type="button">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </mat-card>
-    </div>
-  </section>
-  <c-custom-error [errors]="preparationArray.errors"></c-custom-error>
-  <c-button design="secondary" (click)="handleAddStepGroup()" tip="Add step"
-    ><mat-icon>add</mat-icon></c-button
-  >
+    @for (step of preparationArray.controls; track step; let i = $index) {
+      <div>
+        <mat-card>
+          <div
+            class="step3__single-step flex flex--center gap-2 padding-4"
+            [formGroupName]="i">
+            <p>Step.{{ i + 1 }}</p>
+            <c-ui-select
+              formControlName="action"
+              label="Action"
+              [options]="actionOptions"
+              />
+              <c-ui-select
+                formControlName="ingredient"
+                label="Ingredient"
+                [options]="ingredientsOpions$ | async"
+                />
+                <c-ui-text-input
+                  formControlName="tip"
+                  label="Additional information"
+                  />
+                  <button mat-icon-button (click)="handleRemoveStep(i)" type="button">
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </mat-card>
+            </div>
+          }
+        </section>
+        <c-custom-error [errors]="preparationArray.errors"></c-custom-error>
+        <c-button design="secondary" (click)="handleAddStepGroup()" tip="Add step"
+          ><mat-icon>add</mat-icon></c-button
+          >
 
-  <div class="flex flex--center gap-4 width-full">
-    <c-button translation="back" (buttonClick)="emitStepperBack()"></c-button>
-    <c-button translation="submit" type="submit"></c-button>
-  </div>
-</form>
+          <div class="flex flex--center gap-4 width-full">
+            <c-button translation="back" (buttonClick)="emitStepperBack()"></c-button>
+            <c-button translation="submit" type="submit"></c-button>
+          </div>
+        </form>

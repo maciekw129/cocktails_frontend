@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
@@ -23,7 +22,6 @@ import {
   selector: 'c-add-ingredient-form',
   standalone: true,
   imports: [
-    CommonModule,
     TextAutocompleteInputComponent,
     ReactiveFormsModule,
     SelectComponent,

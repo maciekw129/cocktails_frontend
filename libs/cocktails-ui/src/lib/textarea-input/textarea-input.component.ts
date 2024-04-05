@@ -1,6 +1,5 @@
 import { FormControlAbstract } from '../shared/form-control.abstract';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -11,7 +10,6 @@ import { ValidationErrorsDirective } from '@app/shared/forms/directives/validati
   selector: 'c-ui-textarea-input',
   standalone: true,
   imports: [
-    CommonModule,
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,

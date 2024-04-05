@@ -6,28 +6,27 @@
     <a class="navbar__logo flex flex--align-center height-full color-black" routerLink="">
       <img class="navbar__image" src="assets/cocktail.png" alt="logo" />
     </a>
-    <ng-container *ngIf="isAuthorized$ | async; else authButtons">
+    @if (isAuthorized$ | async) {
       <div class="flex gap-2">
         <c-button routerLink="user-profile" design="secondary"
           ><mat-icon class="color-black">person</mat-icon></c-button
-        >
-        <c-button
-          translation="logout"
-          (buttonClick)="logout()"
+          >
+          <c-button
+            translation="logout"
+            (buttonClick)="logout()"
           [isDisabledOnRequest]="true"></c-button>
+        </div>
+      } @else {
+        <div class="flex flex--align-center flex--justify-end gap-3">
+          <c-button
+            class="navbar__login-button"
+            design="secondary"
+            (buttonClick)="openLoginDialog()"
+            ><p>{{ 'buttons.login' | translate }}</p>
+            <mat-icon>login</mat-icon></c-button
+            >
+            <c-button translation="register" (buttonClick)="openRegisterDialog()" />
+          </div>
+        }
       </div>
-    </ng-container>
-    <ng-template #authButtons>
-      <div class="flex flex--align-center flex--justify-end gap-3">
-        <c-button
-          class="navbar__login-button"
-          design="secondary"
-          (buttonClick)="openLoginDialog()"
-          ><p>{{ 'buttons.login' | translate }}</p>
-          <mat-icon>login</mat-icon></c-button
-        >
-        <c-button translation="register" (buttonClick)="openRegisterDialog()" />
-      </div>
-    </ng-template>
-  </div>
-</header>
+    </header>

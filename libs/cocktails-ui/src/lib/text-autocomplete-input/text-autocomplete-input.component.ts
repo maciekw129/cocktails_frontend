@@ -33,16 +33,20 @@ import { defer, map, startWith } from 'rxjs';
         [formControl]="formControl"
         [matAutocomplete]="auto"
         [validationErrors]="validationErrors" />
-      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
-          {{ option }}
-        </mat-option>
-      </mat-autocomplete>
-      <mat-icon *ngIf="icon" matSuffix>{{ icon }}</mat-icon>
-      <mat-hint>{{ hint }}</mat-hint>
-      <mat-error #validationErrors></mat-error>
-    </mat-form-field>
-  `,
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          @for (option of filteredOptions$ | async; track option) {
+            <mat-option [value]="option">
+              {{ option }}
+            </mat-option>
+          }
+        </mat-autocomplete>
+        @if (icon) {
+          <mat-icon matSuffix>{{ icon }}</mat-icon>
+        }
+        <mat-hint>{{ hint }}</mat-hint>
+        <mat-error #validationErrors></mat-error>
+      </mat-form-field>
+    `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextAutocompleteInputComponent extends FormControlAbstract<string> {

@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginForm } from '@src/app/auth/forms/login-form/login-form.model';
 import { LoginPayload } from '@src/app/auth/auth.model';
@@ -12,13 +11,7 @@ import { TextInputComponent } from '@cocktails-ui';
 @Component({
   selector: 'c-login-form',
   standalone: true,
-  imports: [
-    CommonModule,
-    TextInputComponent,
-    ReactiveFormsModule,
-    ButtonComponent,
-    TextInputComponent,
-  ],
+  imports: [TextInputComponent, ReactiveFormsModule, ButtonComponent, TextInputComponent],
   templateUrl: './login-form.component.html',
   providers: [FormService],
   changeDetection: ChangeDetectionStrategy.OnPush,

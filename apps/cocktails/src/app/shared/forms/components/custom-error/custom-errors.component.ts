@@ -9,11 +9,12 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'c-custom-error',
   standalone: true,
   imports: [CommonModule, TranslateModule],
-  template: `<p
-    *ngIf="(wasSubmitClicked$ | async) && errors"
+  template: `@if ((wasSubmitClicked$ | async) && errors) {
+  <p
     class="mat-mdc-form-field-error">
     {{ 'forms.validationErrors.' + firstError | translate: errors[firstError] }}
-  </p>`,
+  </p>
+}`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomErrorsComponent implements OnInit {

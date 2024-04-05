@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { CreateCocktailForm } from '@app/modules/cocktails/create-cocktail/forms
   selector: 'c-create-cocktail-form',
   standalone: true,
   imports: [
-    CommonModule,
     ReactiveFormsModule,
     MatStepperModule,
     MatInputModule,

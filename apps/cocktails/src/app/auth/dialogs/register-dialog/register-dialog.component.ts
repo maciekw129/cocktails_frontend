@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegisterFormComponent } from '@src/app/auth/forms/register-form/register-form.component';
 import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
@@ -11,7 +10,7 @@ import { tap } from 'rxjs';
 @Component({
   selector: 'c-register-dialog',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, RegisterFormComponent, LinkComponent],
+  imports: [MatDialogModule, RegisterFormComponent, LinkComponent],
   templateUrl: './register-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

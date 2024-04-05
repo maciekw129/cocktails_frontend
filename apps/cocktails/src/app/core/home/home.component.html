@@ -4,13 +4,14 @@
       class="blurred-background hero__title font-heading-2 color-white text-center margin-bottom-2">
       Find, share and most importantly, drink.
     </h2>
-    <c-button
-      *ngIf="isAuthorized$ | async"
-      routerLink="create-cocktail"
-      translation="createNewCocktail"
-      color="primary">
-      <mat-icon>add</mat-icon>
-    </c-button>
+    @if (isAuthorized$ | async) {
+      <c-button
+        routerLink="create-cocktail"
+        translation="createNewCocktail"
+        color="primary">
+        <mat-icon>add</mat-icon>
+      </c-button>
+    }
   </c-hero>
   <section class="flex--center flex--column">
     <c-cocktails-paginator-filter></c-cocktails-paginator-filter>

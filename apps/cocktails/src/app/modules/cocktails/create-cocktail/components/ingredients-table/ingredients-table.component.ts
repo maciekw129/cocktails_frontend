@@ -5,7 +5,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -17,7 +16,7 @@ import { unitLabels } from '@app/modules/cocktails/cocktails.data';
 @Component({
   selector: 'c-ingredients-table',
   standalone: true,
-  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule, valueFromPipe],
+  imports: [MatTableModule, MatIconModule, MatButtonModule, valueFromPipe],
   templateUrl: './ingredients-table.component.html',
   styleUrls: ['ingredients-table.component.scss'],
   providers: [CdkColumnDef],

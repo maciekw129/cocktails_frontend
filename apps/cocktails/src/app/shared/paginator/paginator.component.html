@@ -1,24 +1,22 @@
 <div class="paginator__items">
-  <ng-container *ngIf="isLoading$ | async; else content">
+  @if (isLoading$ | async) {
     <mat-spinner diameter="50"></mat-spinner>
-  </ng-container>
-  <ng-template #content>
-    <ng-container *ngIf="data$ | async as data">
-      <ng-container *ngIf="data.length > 0; else empty">
-        <ng-container
-          *ngFor="let item of data$ | async"
-          [ngTemplateOutlet]="itemTemplate"
+  } @else {
+    @if (data$ | async; as data) {
+      @if (data.length > 0) {
+        @for (item of data$ | async; track item) {
+          <ng-container
+            [ngTemplateOutlet]="itemTemplate"
           [ngTemplateOutletContext]="{ item: item }"></ng-container>
-      </ng-container>
-
-      <ng-template #empty>
+        }
+      } @else {
         <p>{{ emptyText }}</p>
-      </ng-template>
-    </ng-container>
-  </ng-template>
+      }
+    }
+  }
 </div>
 
-<ng-container *ngIf="pageState$ | async as pageState">
+@if (pageState$ | async; as pageState) {
   <mat-paginator
     [hidePageSize]="true"
     [length]="pageState.itemCount"
@@ -26,4 +24,4 @@
     [pageIndex]="pageState.page - 1"
     (page)="handlePageChange($event)">
   </mat-paginator>
-</ng-container>
+}

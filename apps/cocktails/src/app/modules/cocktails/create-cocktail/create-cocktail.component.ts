@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/hero/hero.component';
 import { Cocktail } from '@app/modules/cocktails/cocktails.model';
 import { CocktailsApiService } from '@app/modules/cocktails/cocktails-api.service';
@@ -10,7 +9,7 @@ import { CreateCocktailFormComponent } from '@app/modules/cocktails/create-cockt
 @Component({
   selector: 'c-create-cocktail',
   standalone: true,
-  imports: [CommonModule, HeroComponent, CreateCocktailFormComponent],
+  imports: [HeroComponent, CreateCocktailFormComponent],
   templateUrl: './create-cocktail.component.html',
   styleUrls: ['create-cocktail.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

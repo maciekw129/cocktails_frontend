@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { LoginFormComponent } from '@src/app/auth/forms/login-form/login-form.component';
 import { LoginPayload } from '@src/app/auth/auth.model';
@@ -11,7 +10,7 @@ import { tap } from 'rxjs';
 @Component({
   selector: 'c-login-dialog',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, LoginFormComponent, LinkComponent],
+  imports: [MatDialogModule, LoginFormComponent, LinkComponent],
   templateUrl: './login-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

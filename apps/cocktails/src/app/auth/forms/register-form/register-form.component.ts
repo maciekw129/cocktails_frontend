@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { RegisterPayload } from '@src/app/auth/auth.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -13,7 +12,7 @@ import { TextInputComponent } from '@cocktails-ui';
 @Component({
   selector: 'c-register-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, TextInputComponent, ButtonComponent],
+  imports: [ReactiveFormsModule, TextInputComponent, ButtonComponent],
   templateUrl: './register-form.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [FormService],

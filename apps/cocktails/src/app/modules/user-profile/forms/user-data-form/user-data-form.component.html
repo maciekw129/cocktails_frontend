@@ -9,33 +9,32 @@
           formControlName="email"
           label="email"
           matTooltip="You can't edit e-mail."
-        />
-        <c-ui-text-input
-          formControlName="login"
-          label="login"
-          matTooltip="You can't edit login."
-        />
-      </div>
-      <div class="flex gap-2 flex--wrap flex--center">
-        <c-ui-text-input formControlName="firstName" label="First name"/>
-        <c-ui-text-input formControlName="lastName" label="Last name"/>
-      </div>
-      <div class="flex flex--center gap-2">
-        <ng-container *ngIf="isEditMode$ | async; else editButton">
-          <c-button
-            translation="cancel"
-            design="secondary"
-            type="button"
-            (buttonClick)="handleCancelEdit()"></c-button>
-          <c-button translation="send" [disabled]="!form.dirty" type="submit"></c-button>
-        </ng-container>
-        <ng-template #editButton>
-          <c-button
-            translation="edit"
-            type="button"
-            (buttonClick)="handleSetEditMode()"></c-button>
-        </ng-template>
-      </div>
-    </mat-card-content>
-  </mat-card>
-</form>
+          />
+          <c-ui-text-input
+            formControlName="login"
+            label="login"
+            matTooltip="You can't edit login."
+            />
+          </div>
+          <div class="flex gap-2 flex--wrap flex--center">
+            <c-ui-text-input formControlName="firstName" label="First name"/>
+            <c-ui-text-input formControlName="lastName" label="Last name"/>
+          </div>
+          <div class="flex flex--center gap-2">
+            @if (isEditMode$ | async) {
+              <c-button
+                translation="cancel"
+                design="secondary"
+                type="button"
+              (buttonClick)="handleCancelEdit()"></c-button>
+              <c-button translation="send" [disabled]="!form.dirty" type="submit"></c-button>
+            } @else {
+              <c-button
+                translation="edit"
+                type="button"
+              (buttonClick)="handleSetEditMode()"></c-button>
+            }
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>

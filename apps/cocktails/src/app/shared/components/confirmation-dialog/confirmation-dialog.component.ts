@@ -1,12 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 
 @Component({
   selector: 'c-confirmation-dialog',
   standalone: true,
-  imports: [CommonModule, MatDialogModule, ButtonComponent],
+  imports: [MatDialogModule, ButtonComponent],
   template: `
     <h1 mat-dialog-title>{{ title }}</h1>
     <div mat-dialog-content>
