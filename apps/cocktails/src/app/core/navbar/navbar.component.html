@@ -4,8 +4,7 @@
   <div
     class="navbar main-container flex flex--align-center flex--justify-between width-full padding-4-2">
     <a class="navbar__logo flex flex--align-center height-full color-black" routerLink="">
-      <img class="navbar__image" src="../../../../assets/cocktail.png" alt="logo" />
-      <h2 class="navbar__title font-heading-1">Cocktails</h2>
+      <img class="navbar__image" src="assets/cocktail.png" alt="logo" />
     </a>
     <ng-container *ngIf="isAuthorized$ | async; else authButtons">
       <div class="flex gap-2">

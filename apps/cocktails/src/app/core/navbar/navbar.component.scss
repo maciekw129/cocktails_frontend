@@ -25,7 +25,7 @@
   }
 
   &--white-background {
-    background-color: mat.get-color-from-palette(palette.$gray-palette, 100);
+    background-color: mat.get-color-from-palette(palette.$gray-palette, 300);
     box-shadow: 0px -4px 15px 0px rgba(0, 0, 0, 1);
     transition: background-color 0.2s linear;
   }
