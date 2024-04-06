@@ -1,16 +1,16 @@
-import { Directive, HostListener, inject, Input, OnInit, Renderer2 } from '@angular/core';
-import { FormControl, ValidationErrors } from '@angular/forms';
 import {
-  combineLatest,
-  distinctUntilChanged,
-  of,
-  Subject,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs';
-import { UnsubscribeOnDestroy } from '@src/app/shared/services/unsubscribe-on-destroy';
+  DestroyRef,
+  Directive,
+  HostListener,
+  inject,
+  Input,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
+import { FormControl, ValidationErrors } from '@angular/forms';
+import { combineLatest, distinctUntilChanged, of, Subject, switchMap, tap } from 'rxjs';
 import { TranslatePipe } from '@ngx-translate/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector:
@@ -18,13 +18,14 @@ import { TranslatePipe } from '@ngx-translate/core';
   standalone: true,
   providers: [TranslatePipe],
 })
-export class ValidationErrorsDirective extends UnsubscribeOnDestroy implements OnInit {
+export class ValidationErrorsDirective implements OnInit {
   @Input() formControl!: FormControl;
   @Input() validationErrors!: HTMLElement;
   @Input() errorChange$ = new Subject<void>();
 
   private renderer = inject(Renderer2);
   private translate = inject(TranslatePipe);
+  private destroyRef = inject(DestroyRef);
 
   private errorText = this.renderer.createText('');
 
@@ -35,7 +36,7 @@ export class ValidationErrorsDirective extends UnsubscribeOnDestroy implements O
 
     combineLatest([this.errorChange$, this.formControl.valueChanges])
       .pipe(
-        takeUntil(this.unsubscribe$),
+        takeUntilDestroyed(this.destroyRef),
         switchMap(() => of(this.formControl.errors)),
         distinctUntilChanged(
           (prev, curr) => JSON.stringify(prev) === JSON.stringify(curr)

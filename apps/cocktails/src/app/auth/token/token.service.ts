@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 import jwtDecode, { JwtPayload } from 'jwt-decode';
-import { UnsubscribeOnDestroy } from '@src/app/shared/services/unsubscribe-on-destroy';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TokenService extends UnsubscribeOnDestroy {
+export class TokenService {
   private _token = localStorage.getItem('token');
   private _decodedToken: JwtPayload | null = null;
 
@@ -20,7 +19,6 @@ export class TokenService extends UnsubscribeOnDestroy {
   }
 
   constructor() {
-    super();
     this.decodeToken();
   }
 
