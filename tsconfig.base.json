@@ -6,7 +6,9 @@
       "@app/*": ["apps/cocktails/src/app/*"],
       "@cocktails-ui": ["libs/cocktails-ui/src/index.ts"],
       "@src/*": ["apps/cocktails/src/*"],
-      "@styles/*": ["src/styles/*"]
+      "@styles/*": ["src/styles/*"],
+      "@utils/functions": ["libs/utils/src/lib/functions/index.ts"],
+      "@utils/data": ["libs/utils/src/lib/data/index.ts"]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

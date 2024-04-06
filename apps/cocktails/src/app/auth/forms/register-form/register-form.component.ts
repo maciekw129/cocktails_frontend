@@ -5,9 +5,9 @@ import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterForm } from '@src/app/auth/forms/register-form/register-form.model';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { ButtonComponent } from '@src/app/shared/components/button/button.component';
-import { Helpers } from '@src/app/shared/utils/helpers';
 import { CommonValidators } from '@src/app/shared/forms/validators/common-validators';
 import { TextInputComponent } from '@cocktails-ui';
+import { removeProperty } from '@utils/functions';
 
 @Component({
   selector: 'c-register-form',
@@ -52,6 +52,6 @@ export class RegisterFormComponent
   }
 
   protected setEmittingValue() {
-    return Helpers.removeProperty(this.form.getRawValue(), 'confirmPassword');
+    return removeProperty(this.form.getRawValue(), 'confirmPassword');
   }
 }

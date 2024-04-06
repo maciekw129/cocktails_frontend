@@ -14,11 +14,11 @@ import {
   switchMap,
   tap,
 } from 'rxjs';
-import { Helpers } from '@app/shared/utils/helpers';
 import { HttpParams } from '@angular/common/http';
 import { PaginatorUtils } from '@app/shared/paginator/paginator.utils';
 import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isObjectsEqual } from '@utils/functions';
 
 @Injectable()
 export class PaginatorService<T, F> extends CustomStatefulService<PaginatorState<T, F>> {
@@ -52,9 +52,7 @@ export class PaginatorService<T, F> extends CustomStatefulService<PaginatorState
     this.getStateSlice$('filters'),
   ]).pipe(
     filter(([pageState]) => Boolean(this.request) && Boolean(pageState)),
-    distinctUntilChanged((previous, current) =>
-      Helpers.isObjectsEqual(previous, current)
-    ),
+    distinctUntilChanged((previous, current) => isObjectsEqual(previous, current)),
     tap(() => this.patchState({ isLoading: true })),
     map(([{ page, take }, filters]): RequestParams<F> => ({ page, take, filters })),
     tap(({ page, filters }) => this.updateUrl(page, filters)),

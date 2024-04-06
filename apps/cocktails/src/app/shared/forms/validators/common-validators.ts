@@ -4,7 +4,7 @@ import {
   ValidationErrors,
   ValidatorFn,
 } from '@angular/forms';
-import { Patterns } from '@src/app/shared/utils/patterns';
+import { patterns } from '@utils/data';
 import { UniversalLimits } from '@src/app/shared/forms/validators/universal-limits';
 import { FormUtils } from '@src/app/shared/forms/form-utils';
 
@@ -13,9 +13,11 @@ export class CommonValidators {
     return (control: AbstractControl): ValidationErrors | null => {
       const value = control.value as string;
 
-      if (!value) return null;
+      if (!value) {
+        return null;
+      }
 
-      return !Patterns.email.test(value) ? { emailPattern: true } : null;
+      return !patterns.email.test(value) ? { emailPattern: true } : null;
     };
   };
 
@@ -24,8 +26,8 @@ export class CommonValidators {
       const value = control.value as string;
 
       const isLongEnough = value.length >= UniversalLimits.passwordLength;
-      const hasLetter = Patterns.hasAtLeastOneLetter.test(value);
-      const hasNumber = Patterns.hasAtLeastOneNumber.test(value);
+      const hasLetter = patterns.hasAtLeastOneLetter.test(value);
+      const hasNumber = patterns.hasAtLeastOneNumber.test(value);
 
       const isValid = isLongEnough && hasNumber && hasLetter;
 
