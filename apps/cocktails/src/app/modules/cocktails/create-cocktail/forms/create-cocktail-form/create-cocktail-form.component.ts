@@ -4,7 +4,7 @@ import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Observable } from 'rxjs';

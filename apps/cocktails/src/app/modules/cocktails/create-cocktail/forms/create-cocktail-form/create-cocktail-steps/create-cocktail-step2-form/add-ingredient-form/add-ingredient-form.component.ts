@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { tap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';

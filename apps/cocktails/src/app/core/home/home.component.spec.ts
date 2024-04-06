@@ -6,7 +6,7 @@ import { CocktailsApiService } from '@app/modules/cocktails/cocktails-api.servic
 import { RouterTestingModule } from '@angular/router/testing';
 import { CocktailsPaginatorFilterComponent } from '@app/modules/cocktails/cocktails-paginator-filter/cocktails-paginator-filter.component';
 import { of } from 'rxjs';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

@@ -4,7 +4,7 @@ import { RegisterFormComponent } from '@src/app/auth/forms/register-form/registe
 import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
 import { RegisterPayload } from '@src/app/auth/auth.model';
 import { LoginDialogComponent } from '@src/app/auth/dialogs/login-dialog/login-dialog.component';
-import { LinkComponent } from '@src/app/shared/components/link/link.component';
+import { LinkComponent } from '@cocktails-ui';
 import { tap } from 'rxjs';
 
 @Component({

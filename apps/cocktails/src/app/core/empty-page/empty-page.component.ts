@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { HeroComponent } from '@app/core/hero/hero.component';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { LinkComponent } from '@cocktails-ui';
 import { MatCardModule } from '@angular/material/card';
 
 @Component({

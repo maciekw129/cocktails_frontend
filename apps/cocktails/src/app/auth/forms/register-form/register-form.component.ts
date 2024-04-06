@@ -4,9 +4,8 @@ import { RegisterPayload } from '@src/app/auth/auth.model';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RegisterForm } from '@src/app/auth/forms/register-form/register-form.model';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { CommonValidators } from '@src/app/shared/forms/validators/common-validators';
-import { TextInputComponent } from '@cocktails-ui';
+import { TextInputComponent, ButtonComponent } from '@cocktails-ui';
 import { removeProperty } from '@utils/functions';
 
 @Component({

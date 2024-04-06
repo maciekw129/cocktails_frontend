@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { HeroImages, HeroVariant } from '@app/core/hero/hero.model';

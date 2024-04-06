@@ -11,7 +11,7 @@ import {
   categoryOptions,
   difficultyOptions,
 } from '@app/modules/cocktails/cocktails.data';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { CommonModule } from '@angular/common';
 import { BehaviorSubject, finalize, map, Observable } from 'rxjs';
 import { IngredientsApiService } from '@app/modules/cocktails/ingredients-api.service';

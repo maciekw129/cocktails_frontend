@@ -15,7 +15,7 @@ import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormService } from '@src/app/shared/forms/form.service';
 import { map, Observable, startWith, tap } from 'rxjs';
 import { ConfirmationDialogService } from '@src/app/shared/components/confirmation-dialog/confirmation-dialog.service';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { StopEventPropagationDirective } from '@src/app/shared/directives/stop-event-propagation.directive';
 import { CustomErrorsComponent } from '@src/app/shared/forms/components/custom-error/custom-errors.component';
 import { MatTableDataSource } from '@angular/material/table';

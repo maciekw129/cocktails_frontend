@@ -4,7 +4,7 @@ import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginFormComponent } from '@app/auth/forms/login-form/login-form.component';
 import { EMPTY } from 'rxjs';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { LinkComponent } from '@cocktails-ui';
 
 describe('LoginDialogComponent', () => {
   beforeEach(() =>

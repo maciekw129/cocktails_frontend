@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 
 @Component({
   selector: 'c-confirmation-dialog',

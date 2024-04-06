@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from '@app/core/hero/hero.component';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { AuthStatefulService } from '@app/auth/auth-stateful.service';

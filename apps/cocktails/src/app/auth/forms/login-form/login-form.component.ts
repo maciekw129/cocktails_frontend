@@ -2,11 +2,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LoginForm } from '@src/app/auth/forms/login-form/login-form.model';
 import { LoginPayload } from '@src/app/auth/auth.model';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { CommonValidators } from '@src/app/shared/forms/validators/common-validators';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { TextInputComponent } from '@cocktails-ui';
+import { TextInputComponent, ButtonComponent } from '@cocktails-ui';
 
 @Component({
   selector: 'c-login-form',

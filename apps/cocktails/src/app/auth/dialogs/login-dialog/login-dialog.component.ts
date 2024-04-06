@@ -3,7 +3,7 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { LoginFormComponent } from '@src/app/auth/forms/login-form/login-form.component';
 import { LoginPayload } from '@src/app/auth/auth.model';
 import { AuthStatefulService } from '@src/app/auth/auth-stateful.service';
-import { LinkComponent } from '@src/app/shared/components/link/link.component';
+import { LinkComponent } from '@cocktails-ui';
 import { RegisterDialogComponent } from '@src/app/auth/dialogs/register-dialog/register-dialog.component';
 import { tap } from 'rxjs';
 

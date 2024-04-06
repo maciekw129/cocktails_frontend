@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { LinkComponent, ButtonComponent } from '@cocktails-ui';
 import { RouterLink } from '@angular/router';
-import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginDialogComponent } from '@app/auth/dialogs/login-dialog/login-dialog.component';
 import { MatIconModule } from '@angular/material/icon';

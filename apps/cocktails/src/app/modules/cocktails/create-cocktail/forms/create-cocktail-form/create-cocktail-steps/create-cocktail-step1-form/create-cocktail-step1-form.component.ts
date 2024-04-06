@@ -5,7 +5,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import {
   CreateCocktailStep1,
   CreateCocktailStep1Form,
@@ -18,6 +17,7 @@ import {
   SelectComponent,
   TextareaInputComponent,
   TextInputComponent,
+  ButtonComponent,
 } from '@cocktails-ui';
 
 @Component({

@@ -11,7 +11,7 @@ import {
   Ingredient,
 } from '@app/modules/cocktails/cocktails.model';
 import { USER_DATA } from '@app/auth/auth.tokens';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
+import { ButtonComponent } from '@cocktails-ui';
 import { MatIconModule } from '@angular/material/icon';
 import { AuthorPipe } from '@app/shared/pipes/author.pipe';
 import { StatefulService } from 'ngx-stateful-service';

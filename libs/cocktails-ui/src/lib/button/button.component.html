@@ -1,0 +1,31 @@
+<span [matTooltip]="showTip() ? tip() : ''">
+      @if (design() === 'primary') {
+        <button
+          mat-flat-button
+          [color]="color()"
+          (click)="handleClick()"
+          [disabled]="disabled() || (isDisabledOnRequest() && (isLoading$ | async))"
+          [type]="type()">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+      </button>
+      } @else {
+        <span [matTooltip]="showTip() ? tip() : ''">
+        <button
+          mat-stroked-button
+          class="button--secondary"
+          [color]="color()"
+          (click)="handleClick()"
+          [disabled]="disabled() || (isDisabledOnRequest() && (isLoading$ | async))"
+          [type]="type()">
+          <ng-container *ngTemplateOutlet="content"></ng-container>
+        </button>
+      </span>
+      }
+    </span>
+
+<ng-template #content>
+  <div class="flex flex--center gap-1 font-text-1">
+    {{ fullTranslation() | translate }}
+    <ng-content></ng-content>
+  </div>
+</ng-template>

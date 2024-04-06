@@ -8,9 +8,8 @@ import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { USER_DATA, USER_DATA_VALUE } from '@src/app/auth/auth.tokens';
 import { BehaviorSubject, take, tap } from 'rxjs';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TextInputComponent } from '@cocktails-ui';
+import { TextInputComponent, ButtonComponent } from '@cocktails-ui';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({

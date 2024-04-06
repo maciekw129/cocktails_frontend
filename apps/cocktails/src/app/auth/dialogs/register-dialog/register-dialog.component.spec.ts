@@ -2,7 +2,7 @@ import { MockBuilder, MockRender, ngMocks } from 'ng-mocks';
 import { RegisterDialogComponent } from './register-dialog.component';
 import { AuthStatefulService } from '@app/auth/auth-stateful.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { LinkComponent } from '@app/shared/components/link/link.component';
+import { LinkComponent } from '@cocktails-ui';
 import { RegisterFormComponent } from '@app/auth/forms/register-form/register-form.component';
 import { EMPTY } from 'rxjs';
 

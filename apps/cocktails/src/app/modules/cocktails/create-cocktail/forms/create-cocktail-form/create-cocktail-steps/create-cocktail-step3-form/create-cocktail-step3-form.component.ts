@@ -12,7 +12,6 @@ import { FormComponent } from '@src/app/shared/forms/form.component';
 import { FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { ButtonComponent } from '@src/app/shared/components/button/button.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfirmationDialogService } from '@src/app/shared/components/confirmation-dialog/confirmation-dialog.service';
@@ -27,7 +26,12 @@ import {
 } from '@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.model';
 import { actionSelectOptions } from '@app/modules/cocktails/cocktails.data';
 import { CreateCocktailStep3FormValidators } from '@app/modules/cocktails/create-cocktail/forms/create-cocktail-form/create-cocktail-steps/create-cocktail-step3-form/create-cocktail-step3-form.validators';
-import { SelectComponent, TextInputComponent, SelectOption } from '@cocktails-ui';
+import {
+  SelectComponent,
+  TextInputComponent,
+  SelectOption,
+  ButtonComponent,
+} from '@cocktails-ui';
 
 @Component({
   selector: 'c-create-cocktail-step3-form',
