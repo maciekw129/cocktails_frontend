@@ -14,6 +14,7 @@ import { TokenInterceptor } from './auth/token/token.interceptor';
 import { GlobalLoaderInterceptor } from '@app/core/global-loader/global-loader.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
+import { provideEnvironmentNgxMask } from 'ngx-mask';
 
 const routes: Routes = [
   {
@@ -46,6 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
+    provideEnvironmentNgxMask(),
     {
       provide: API_URL,
       useValue: environment.API_URL,

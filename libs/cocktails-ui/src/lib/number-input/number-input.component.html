@@ -1,0 +1,18 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  <input
+    matInput
+    [formControl]="formControl"
+    [validationErrors]="validationErrors"
+    [placeholder]="placeholder"
+    type="text"
+    mask="separator.2"
+    thousandSeparator=" "
+    decimalMarker=","
+  />
+  @if (icon()) {
+    <mat-icon matSuffix [fontIcon]="icon()"></mat-icon>
+  }
+  <mat-hint>{{ hint() }}</mat-hint>
+  <mat-error #validationErrors></mat-error>
+</mat-form-field>

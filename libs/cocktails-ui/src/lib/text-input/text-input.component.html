@@ -1,0 +1,14 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  <input
+    [formControl]="formControl"
+    [validationErrors]="validationErrors"
+    matInput
+    [placeholder]="placeholder"
+    type="text" />
+  @if (icon()) {
+  <mat-icon matSuffix [fontIcon]="icon()"></mat-icon>
+  }
+  <mat-hint>{{ hint() }}</mat-hint>
+  <mat-error #validationErrors></mat-error>
+</mat-form-field>

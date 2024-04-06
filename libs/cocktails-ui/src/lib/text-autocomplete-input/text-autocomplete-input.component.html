@@ -1,0 +1,22 @@
+<mat-form-field>
+  <mat-label>{{ label }}</mat-label>
+  <input
+    type="text"
+    [placeholder]="placeholder"
+    matInput
+    [formControl]="formControl"
+    [matAutocomplete]="auto"
+    [validationErrors]="validationErrors" />
+  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+    @for (option of filteredOptions$ | async; track option) {
+      <mat-option [value]="option">
+        {{ option }}
+      </mat-option>
+    }
+  </mat-autocomplete>
+  @if (icon()) {
+    <mat-icon matSuffix>{{ icon() }}</mat-icon>
+  }
+  <mat-hint>{{ hint() }}</mat-hint>
+  <mat-error #validationErrors></mat-error>
+</mat-form-field>

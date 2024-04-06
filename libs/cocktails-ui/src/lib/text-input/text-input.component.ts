@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -16,25 +16,10 @@ import { FormControlAbstract } from '../shared/form-control.abstract';
     ReactiveFormsModule,
     ValidationErrorsDirective,
   ],
-  template: `
-    <mat-form-field>
-      <mat-label>{{ label }}</mat-label>
-      <input
-        [formControl]="formControl"
-        [validationErrors]="validationErrors"
-        matInput
-        [placeholder]="placeholder"
-        type="text" />
-      @if (icon) {
-      <mat-icon matSuffix [fontIcon]="icon"></mat-icon>
-      }
-      <mat-hint>{{ hint }}</mat-hint>
-      <mat-error #validationErrors></mat-error>
-    </mat-form-field>
-  `,
+  templateUrl: 'text-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextInputComponent extends FormControlAbstract<string> {
-  @Input() icon: string;
-  @Input() hint: string;
+  public icon = input<string>(null);
+  public hint = input<string>(null);
 }

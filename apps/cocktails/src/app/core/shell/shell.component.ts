@@ -13,10 +13,7 @@ import { FooterComponent } from '@app/core/footer/footer.component';
   template: `
     <div class="shell flex flex--column">
       @if (isLoading$ | async) {
-        <mat-progress-bar
-          class="loader"
-          mode="indeterminate"
-        value="40"></mat-progress-bar>
+      <mat-progress-bar class="loader" mode="indeterminate" value="40"></mat-progress-bar>
       }
       <c-navbar />
       <main>
@@ -24,7 +21,7 @@ import { FooterComponent } from '@app/core/footer/footer.component';
       </main>
       <c-footer class="footer" />
     </div>
-    `,
+  `,
   styleUrls: ['shell.component.scss'],
   imports: [
     CommonModule,
@@ -39,5 +36,5 @@ import { FooterComponent } from '@app/core/footer/footer.component';
 export default class ShellComponent {
   private globalLoaderService = inject(GlobalLoaderService);
 
-  isLoading$ = this.globalLoaderService.getStateSlice$('isLoading');
+  public isLoading$ = this.globalLoaderService.getStateSlice$('isLoading');
 }

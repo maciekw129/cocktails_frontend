@@ -4,7 +4,7 @@
   class="flex flex--column flex--center gap-4 padding-4-0">
   <mat-card>
     <mat-card-content>
-      <div class="flex flex--column">
+      <div class="grid grid-row-6-6">
         <c-ui-text-input
           formControlName="name"
           label="Cocktail name"
@@ -14,11 +14,6 @@
           label="Image url"
           placeholder="Enter image url"
           type="href"/>
-        <c-ui-textarea-input
-          formControlName="description"
-          label="Cocktail description"
-          placeholder="Enter cocktail description"
-          [minRows]="5"/>
         <c-ui-select
           formControlName="category"
           label="Category"
@@ -27,6 +22,13 @@
           formControlName="difficulty"
           label="Difficulty"
           [options]="difficultyOptions"/>
+      </div>
+      <div>
+        <c-ui-textarea-input
+          formControlName="description"
+          label="Cocktail description"
+          placeholder="Enter cocktail description"
+          [minRows]="5"/>
       </div>
     </mat-card-content>
   </mat-card>

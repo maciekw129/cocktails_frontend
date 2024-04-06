@@ -1,34 +1,28 @@
 import {
-  Component,
+  DestroyRef,
+  Directive,
   EventEmitter,
   inject,
   OnInit,
   Output,
   ViewChild,
 } from '@angular/core';
-import { FormControl, FormGroup, NgForm, NonNullableFormBuilder } from '@angular/forms';
+import { FormGroup, NgForm, NonNullableFormBuilder } from '@angular/forms';
 import { FormService } from '@src/app/shared/forms/form.service';
-import { UnsubscribeOnDestroy } from '@src/app/shared/services/unsubscribe-on-destroy';
 
-type FormFromObj<T extends object> = {
-  [P in keyof T]: T[P] extends object ? FormGroup<FormFromObj<T[P]>> : FormControl<T[P]>;
-};
-
-@Component({
-  template: '',
-})
+@Directive()
 export abstract class FormComponent<T extends object, F extends FormGroup>
-  extends UnsubscribeOnDestroy
   implements OnInit
 {
   @ViewChild('ngForm') ngForm: NgForm;
-  @Output()
-  formSubmit = new EventEmitter<T>();
+
+  @Output() formSubmit = new EventEmitter<T>();
 
   protected fb = inject(NonNullableFormBuilder);
   protected formService = inject(FormService);
+  protected destroyRef = inject(DestroyRef);
 
-  form!: F;
+  public form: F;
 
   ngOnInit() {
     this.form = this.buildForm();
